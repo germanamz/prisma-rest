@@ -1,0 +1,23 @@
+{
+  "name": "prisma-rest",
+  "version": "1.0.0",
+  "description": "Generate REST API from Prisma schema",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev"
+  },
+  "keywords": [
+    "prisma",
+    "rest",
+    "api",
+    "generator",
+    "hono",
+    "prisma-generator"
+  ],
+  "author": "German Meza <iam@germanamz.com>",
+  "license": "MIT",
+  "dependencies": {
+    "turbo": "^1.13.2"
+  }
+}

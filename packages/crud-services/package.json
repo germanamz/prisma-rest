@@ -1,0 +1,35 @@
+{
+  "name": "@germanamz/prisma-crud-services",
+  "version": "1.0.0",
+  "description": "Generate crud services from your Prisma schema",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "prisma-crud-services": "./dist/bin.js"
+  },
+  "author": "German Meza <iam@germanamz.com>",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germanamz/prisma-rest.git"
+  },
+  "peerDependencies": {
+    "@germanamz/errno": "^1.1.1",
+    "neverthrow": "^6.2.1",
+    "prisma": "^5.12.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.12.7"
+  },
+  "dependencies": {
+    "@prisma/generator-helper": "^5.12.1",
+    "fs-extra": "^11.2.0",
+    "ts-morph": "^22.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  }
+}

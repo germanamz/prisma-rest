@@ -1,0 +1,71 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+generator crud {
+  provider   = "prisma-crud-services"
+  output     = "./generated/services"
+  clientPath = "./generated/client"
+}
+
+generator zod {
+  provider = "prisma-zod"
+  output   = "./generated/zod"
+}
+
+enum LedgerType {
+  MAIN
+  CC
+}
+
+/// @crud.actions read, create, update, delete
+model Ledger {
+  id        String     @id @map("_id")
+  name      String
+  type      LedgerType
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  entries   Entry[]
+}
+
+enum PayloadKind {
+  SMART
+  IMPULSE
+}
+
+type DeeperPayload {
+  name        String
+  description String?
+  kind        PayloadKind?
+  payload     EntryPayload?
+}
+
+type EntryPayload {
+  name        String
+  description String?
+  deeper      DeeperPayload?
+  kind        PayloadKind?
+  raw         Json?
+}
+
+model Entry {
+  id            String          @id @map("_id")
+  amount        Float
+  createdAt     DateTime        @default(now())
+  deletedAt     DateTime?
+  ledgerId      String
+  ledger        Ledger          @relation(fields: [ledgerId], references: [id])
+  extendedEntry ExtendedEntry[]
+}
+
+model ExtendedEntry {
+  id      String @id @map("_id")
+  entry   Entry  @relation(fields: [entryId], references: [id])
+  entryId String
+}

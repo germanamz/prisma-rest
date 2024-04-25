@@ -1,0 +1,27 @@
+{
+  "name": "testor",
+  "version": "1.0.0",
+  "description": "Generators testing environment",
+  "main": "index.js",
+  "scripts": {
+    "crud:generate": "prisma generate --schema src/crud/schema.prisma"
+  },
+  "author": "German Meza <iam@germanamz.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germanamz/prisma-rest.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@germanamz/errno": "^1.1.1",
+    "@germanamz/prisma-crud-services": "workspace:^",
+    "@germanamz/prisma-zod": "workspace:^",
+    "@prisma/client": "^5.12.1",
+    "fs-extra": "^11.2.0",
+    "neverthrow": "^6.2.1",
+    "prisma": "^5.12.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5",
+    "zod": "^3.23.3"
+  }
+}

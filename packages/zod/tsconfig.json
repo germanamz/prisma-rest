@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "sourceMap": true,
+    "outDir": "./dist"
+  }
+}

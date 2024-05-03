@@ -4,7 +4,7 @@
   "description": "Generators testing environment",
   "main": "index.js",
   "scripts": {
-    "crud:generate": "prisma generate --schema src/crud/schema.prisma"
+    "generate": "prisma generate --schema src/schema.prisma"
   },
   "author": "German Meza <iam@germanamz.com>",
   "repository": {
@@ -14,10 +14,13 @@
   "private": true,
   "dependencies": {
     "@germanamz/errno": "^1.1.1",
-    "@germanamz/prisma-crud-services": "workspace:^",
-    "@germanamz/prisma-zod": "workspace:^",
+    "@germanamz/prisma-generator-crud-services": "workspace:^",
+    "@germanamz/prisma-generator-hono": "workspace:^",
+    "@germanamz/prisma-generator-zod": "workspace:^",
+    "@hono/zod-validator": "^0.2.1",
     "@prisma/client": "^5.12.1",
     "fs-extra": "^11.2.0",
+    "hono": "^4.2.8",
     "neverthrow": "^6.2.1",
     "prisma": "^5.12.1",
     "tslib": "^2.6.2",

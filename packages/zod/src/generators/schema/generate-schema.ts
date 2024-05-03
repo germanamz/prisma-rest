@@ -2,21 +2,21 @@ import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { generateInputs } from './generate-inputs';
 import path from 'path';
-import { doImportQueue } from '../../helpers/do-import-queue';
 import { generateFieldRefTypes } from './generate-field-ref-types';
-import { generateEnums } from './generate-enums';
+import { generateSchemaEnums } from './generate-schema-enums';
+import { executeImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateSchemaOptions = {
   project: Project;
   dir: string;
   dmmf: DMMF.Document;
-  registry: Map<string, SourceFile>;
+  registry: Registry;
 };
 
 export const generateSchema = ({ project, dir, dmmf, registry }: GenerateSchemaOptions) => {
   const indexFile = project.createSourceFile(`${dir}/index.ts`, undefined, { overwrite: true });
   const importQueue = new Map<SourceFile, Set<string>>();
-  const enumsFile = generateEnums({
+  const enumsFile = generateSchemaEnums({
     project,
     dir: path.join(dir, 'enums'),
     registry,
@@ -52,10 +52,7 @@ export const generateSchema = ({ project, dir, dmmf, registry }: GenerateSchemaO
     moduleSpecifier: `./${path.relative(dir, inputsFile.getDirectoryPath())}`,
   });
 
-  doImportQueue({
-    queue: importQueue,
-    registry,
-  });
+  executeImportQueue(importQueue, registry);
 
   return indexFile;
 };

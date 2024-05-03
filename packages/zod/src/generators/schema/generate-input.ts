@@ -4,30 +4,33 @@ import { normalizeFilename } from '../../helpers/normalize-filename';
 import { genPrismaZod } from '../../helpers/gen-prisma-zod';
 import { PrismaScalar } from '../../constants/prisma-scalars';
 import { prismaToTsScalar } from '../../helpers/prisma-to-ts-scalar';
+import { addToImportQueue, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateInputOptions = {
   project: Project;
   dir: string;
   item: DMMF.InputType;
-  importQueue: Map<SourceFile, Set<string>>;
+  importQueue: ImportQueue;
+  registry: Registry;
 };
 
-export const generateInput = ({ dir, project, item, importQueue }: GenerateInputOptions) => {
-  const inputFile = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
+export const generateInput = ({ dir, project, item, importQueue, registry }: GenerateInputOptions) => {
+  const file = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
   const fields = item.fields.filter((field) => !field.inputTypes.some((inputType) => inputType.location === 'inputObjectTypes'));
   const lazyFields = item.fields.filter((field) => field.inputTypes.some((inputType) => inputType.location === 'inputObjectTypes'));
+  const constrainedFields = item.constraints.fields;
 
-  inputFile.addImportDeclaration({
+  file.addImportDeclaration({
     moduleSpecifier: 'zod',
     namedImports: ['z'],
   });
 
-  inputFile.addVariableStatement({
+  file.addVariableStatement({
     declarationKind: VariableDeclarationKind.Const,
     isExported: !lazyFields.length,
     declarations: [
       {
-        name: lazyFields.length ? `baseSchema` : item.name,
+        name: lazyFields.length ? `${item.name}baseSchema` : item.name,
         initializer: (writer) => {
           writer.writeLine(`z.object({`);
 
@@ -49,11 +52,7 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
                     return;
                   }
 
-                  const importQ = importQueue.get(inputFile) || new Set<string>();
-
-                  importQ.add(inputType.type);
-
-                  importQueue.set(inputFile, importQ);
+                  addToImportQueue(importQueue, file, [inputType.type]);
 
                   writer.write(` ${inputType.type}${inputType.isList ? '.array()' : ''}${field.inputTypes.length > 1 ? ',' : ''}`);
                 });
@@ -63,7 +62,9 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
                 writer.write('])');
               }
 
-              writer.write(`${!field.isRequired ? '.optional()' : ''}${field.isNullable ? '.nullable()' : ''},`);
+              if (!constrainedFields?.includes(field.name)) {
+                writer.write(`${!field.isRequired ? '.optional()' : ''}${field.isNullable ? '.nullable()' : ''},`);
+              }
             });
           });
 
@@ -73,14 +74,16 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
     ],
   });
 
+  registry.set(item.name, file);
+
   if (!lazyFields.length) {
-    return inputFile;
+    return file;
   }
 
-  inputFile.addTypeAlias({
-    name: 'BaseSchema',
+  file.addTypeAlias({
+    name: `${item.name}BaseSchema`,
     type: (writer) => {
-      writer.write('z.infer<typeof baseSchema> & {');
+      writer.write(`z.infer<typeof ${item.name}baseSchema> & {`);
 
       writer.indent(() => {
         lazyFields.forEach((field) => {
@@ -104,15 +107,15 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
     },
   });
 
-  inputFile.addVariableStatement({
+  file.addVariableStatement({
     declarationKind: VariableDeclarationKind.Const,
     isExported: true,
     declarations: [
       {
         name: item.name,
-        type: 'z.ZodType<BaseSchema>',
+        type: `z.ZodType<${item.name}BaseSchema>`,
         initializer: (writer) => {
-          writer.writeLine(`baseSchema.extend({`);
+          writer.writeLine(`${item.name}baseSchema.extend({`);
 
           writer.indent(() => {
             lazyFields.forEach((field) => {
@@ -138,11 +141,7 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
                   }
 
                   if (inputType.type !== item.name) {
-                    const importQ = importQueue.get(inputFile) || new Set<string>();
-
-                    importQ.add(inputType.type);
-
-                    importQueue.set(inputFile, importQ);
+                    addToImportQueue(importQueue, file, [inputType.type]);
                   }
 
                   writer.write(` ${inputType.type}${inputType.isList ? '.array()' : ''}${field.inputTypes.length > 1 ? ',' : ''}`);
@@ -153,7 +152,11 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
                 writer.write('])');
               }
 
-              writer.write(`${!field.isRequired ? '.optional()' : ''}${field.isNullable ? '.nullable()' : ''}),`);
+              if (!constrainedFields?.includes(field.name)) {
+                writer.write(`${!field.isRequired ? '.optional()' : ''}${field.isNullable ? '.nullable()' : ''},`);
+              }
+
+              writer.write('),')
             });
           });
 
@@ -163,5 +166,5 @@ export const generateInput = ({ dir, project, item, importQueue }: GenerateInput
     ],
   });
 
-  return inputFile;
+  return file;
 };

@@ -19,6 +19,12 @@ generator zod {
   output   = "./generated/zod"
 }
 
+generator hono {
+  provider   = "prisma-hono"
+  output     = "./generated/hono"
+  clientPath = "./generated/client"
+}
+
 enum LedgerType {
   MAIN
   CC
@@ -26,7 +32,7 @@ enum LedgerType {
 
 /// @crud.actions read, create, update, delete
 model Ledger {
-  id        String     @id @map("_id")
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   type      LedgerType
   createdAt DateTime   @default(now())
@@ -55,11 +61,11 @@ type EntryPayload {
 }
 
 model Entry {
-  id            String          @id @map("_id")
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
   amount        Float
   createdAt     DateTime        @default(now())
   deletedAt     DateTime?
-  ledgerId      String
+  ledgerId      String          @db.ObjectId
   ledger        Ledger          @relation(fields: [ledgerId], references: [id])
   extendedEntry ExtendedEntry[]
 }
@@ -67,5 +73,5 @@ model Entry {
 model ExtendedEntry {
   id      String @id @map("_id")
   entry   Entry  @relation(fields: [entryId], references: [id])
-  entryId String
+  entryId String @db.ObjectId
 }

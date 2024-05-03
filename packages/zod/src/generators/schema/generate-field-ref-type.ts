@@ -3,60 +3,69 @@ import { DMMF } from '@prisma/generator-helper';
 import { normalizeFilename } from '../../helpers/normalize-filename';
 import { genPrismaZod } from '../../helpers/gen-prisma-zod';
 import { PrismaScalar } from '../../constants/prisma-scalars';
+import { addToImportQueue, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateFieldRefTypeOptions = {
   project: Project;
   dir: string;
   item: DMMF.FieldRefType;
-  importQueue: Map<SourceFile, Set<string>>;
+  registry: Registry;
+  importQueue: ImportQueue;
 };
 
-export const generateFieldRefType = ({ project, dir, item, importQueue }: GenerateFieldRefTypeOptions) => {
-  const fieldRefFile = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
+export const generateFieldRefType = ({ project, dir, item, importQueue, registry }: GenerateFieldRefTypeOptions) => {
+  const file = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
+  const isRef = item.name.includes('Ref');
 
-  fieldRefFile.addImportDeclaration({
+  file.addImportDeclaration({
     moduleSpecifier: 'zod',
     namedImports: ['z'],
   });
 
-  fieldRefFile.addVariableStatement({
+  file.addVariableStatement({
     isExported: true,
     declarationKind: VariableDeclarationKind.Const,
     declarations: [
       {
         name: item.name,
         initializer: (writer) => {
-          writer.write('z.union([');
+          if (!isRef) {
+            writer.write('z.union([');
+          }
 
           writer.indent(() => {
             writer.indent(() => {
               if (item.allowTypes.length > 1) {
                 writer.write('z.union([');
+                writer.newLine();
               }
 
               item.allowTypes.forEach((allowType, index) => {
                 if (allowType.location === 'scalar') {
-                  writer.writeLine(`${genPrismaZod({
+                  writer.write(`${genPrismaZod({
                     type: allowType.type as PrismaScalar,
                     isList: allowType.isList,
-                  })},`);
+                  })}${item.allowTypes.length > 1 ? ',' : ''}`);
+                  writer.newLine();
 
                   return;
                 }
 
-                const importQ = importQueue.get(fieldRefFile) || new Set<string>();
+                addToImportQueue(importQueue, file, [allowType.type]);
 
-                importQ.add(allowType.type);
-
-                importQueue.set(fieldRefFile, importQ);
-
-                writer.write(`${allowType.type},`);
+                writer.write(`${allowType.type}${item.allowTypes.length > 1 ? ',' : ''}`);
+                writer.newLine();
               });
 
               if (item.allowTypes.length > 1) {
                 writer.write(']),');
+                writer.newLine();
               }
             });
+
+            if (isRef) {
+              return;
+            }
 
             writer.writeLine('z.object({');
 
@@ -78,11 +87,7 @@ export const generateFieldRefType = ({ project, dir, item, importQueue }: Genera
                     return;
                   }
 
-                  const importQ = importQueue.get(fieldRefFile) || new Set<string>();
-
-                  importQ.add(inputType.type);
-
-                  importQueue.set(fieldRefFile, importQ);
+                  addToImportQueue(importQueue, file, [inputType.type]);
 
                   writer.write(`${inputType.type}${inputType.isList ? '.array()' : ''},`);
                 });
@@ -98,12 +103,15 @@ export const generateFieldRefType = ({ project, dir, item, importQueue }: Genera
             writer.write('})');
           });
 
-
-          writer.write(`])`);
+          if (!isRef) {
+            writer.write(`])`);
+          }
         },
       },
     ],
   });
 
-  return fieldRefFile;
+  registry.set(item.name, file);
+
+  return file;
 };

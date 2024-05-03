@@ -1,14 +1,14 @@
 import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
-import { generateNamespace } from '../helpers/generate-namespace';
 import { generateFieldRefType } from './generate-field-ref-type';
+import { generateNamespace, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateFieldRefTypesOptions = {
   project: Project;
   dir: string;
   fieldRefTypes: DMMF.Document['schema']['fieldRefTypes'];
-  registry: Map<string, SourceFile>;
-  importQueue: Map<SourceFile, Set<string>>;
+  registry: Registry;
+  importQueue: ImportQueue;
 };
 
 export const generateFieldRefTypes = ({ project, dir, fieldRefTypes, importQueue, registry }: GenerateFieldRefTypesOptions) => {

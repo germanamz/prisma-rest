@@ -10,7 +10,7 @@ export const generateCreateMethod = ({ serviceClass, model }: GenerateCreateMeth
   const method = serviceClass.addMethod({
     name: 'create',
     isAsync: true,
-    parameters: [{ name: 'data', type: `Prisma.${model.name}CreateInput` }],
+    parameters: [{ name: 'data', type: `Prisma.${model.name}UncheckedCreateInput` }],
   });
 
   method.addStatements(`

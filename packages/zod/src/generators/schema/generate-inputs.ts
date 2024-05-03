@@ -1,8 +1,7 @@
 import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { generateInput } from './generate-input';
-import { generateNamespace } from '../helpers/generate-namespace';
-import path from 'path';
+import { generateNamespace } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateInputsOptions = {
   project: Project;

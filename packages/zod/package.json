@@ -1,5 +1,5 @@
 {
-  "name": "@germanamz/prisma-zod",
+  "name": "@germanamz/prisma-generator-zod",
   "version": "1.0.0",
   "description": "Generate zod schemas from your Prisma schema",
   "main": "dist/index.js",
@@ -25,6 +25,7 @@
     "prisma": "^5.12.1"
   },
   "dependencies": {
+    "@germanamz/prisma-rest-toolbox": "workspace:^",
     "@prisma/generator-helper": "^5.12.1",
     "fs-extra": "^11.2.0",
     "ts-morph": "^22.0.0",

@@ -1,31 +1,33 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, VariableDeclarationKind } from 'ts-morph';
 import { normalizeFilename } from '../../helpers/normalize-filename';
+import { Registry } from '@germanamz/prisma-rest-toolbox';
 
-export type GenerateEnumOptions = {
+export type GenerateDatamodelEnumOptions = {
   dir: string;
   project: Project;
-  enumDef: DMMF.DatamodelEnum;
+  item: DMMF.DatamodelEnum;
+  registry: Registry;
 };
 
-export const generateEnum = ({ dir, project, enumDef }: GenerateEnumOptions) => {
-  const enumFile = project.createSourceFile(`${dir}/${normalizeFilename(enumDef.name)}.ts`, undefined, { overwrite: true });
+export const generateDatamodelEnum = ({ dir, project, item, registry }: GenerateDatamodelEnumOptions) => {
+  const file = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
 
-  enumFile.addImportDeclaration({
+  file.addImportDeclaration({
     moduleSpecifier: 'zod',
     namedImports: ['z'],
   });
 
-  enumFile.addVariableStatement({
+  file.addVariableStatement({
     declarationKind: VariableDeclarationKind.Const,
     isExported: true,
     declarations: [
       {
-        name: enumDef.name,
+        name: item.name,
         initializer: (writer) => {
           writer.writeLine(`z.enum([`);
           writer.indent(() => {
-            enumDef.values.forEach((value) => {
+            item.values.forEach((value) => {
               writer.write(`"${value.name}",`);
               writer.newLine();
             });
@@ -36,5 +38,7 @@ export const generateEnum = ({ dir, project, enumDef }: GenerateEnumOptions) => 
     ],
   });
 
-  return enumFile;
+  registry.set(item.name, file);
+
+  return file;
 };

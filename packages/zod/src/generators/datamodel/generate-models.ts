@@ -1,6 +1,7 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, SourceFile } from 'ts-morph';
 import { generateModel } from './generate-model';
+import { generateNamespace } from '@germanamz/prisma-rest-toolbox';
 
 type GenerateModelsOptions = {
   dir: string;
@@ -17,22 +18,12 @@ export const generateModels = ({
   registry,
   importQueue,
 }: GenerateModelsOptions) => {
-  const indexFile = project.createSourceFile(`${dir}/index.ts`, undefined, { overwrite: true });
-
-  models.forEach((model) => {
-    const modelFile = generateModel({
-      project,
-      dir,
-      model,
-      importQueue,
-    });
-
-    registry.set(model.name, modelFile);
-
-    indexFile.addExportDeclaration({
-      moduleSpecifier: `./${modelFile.getBaseNameWithoutExtension()}`,
-    });
+  return generateNamespace({
+    project,
+    dir,
+    items: models,
+    importQueue,
+    registry,
+    handler: generateModel,
   });
-
-  return indexFile;
 };

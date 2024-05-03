@@ -3,22 +3,24 @@ import { DMMF } from '@prisma/generator-helper';
 import { generateDatamodel } from './datamodel/generate-datamodel';
 import path from 'path';
 import { generateSchema } from './schema/generate-schema';
-import { generateNamespace } from './helpers/generate-namespace';
+import { Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateZodOptions = {
   project: Project;
   dir: string;
   dmmf: DMMF.Document;
-  registry: Map<string, SourceFile>;
+  registry: Registry;
 };
 
 export const generateZod = ({ project, dmmf, dir, registry }: GenerateZodOptions) => {
+  const importQueue = new Map<SourceFile, Set<string>>();
   const indexFile = project.createSourceFile(path.join(dir, 'index.ts'), undefined, { overwrite: true });
   const datamodelFile = generateDatamodel({
     project,
     dir: path.join(dir, 'datamodel'),
     dmmf,
     registry,
+    importQueue,
   });
 
   indexFile.addExportDeclaration({

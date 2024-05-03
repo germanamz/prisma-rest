@@ -1,22 +1,24 @@
 import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { normalizeFilename } from '../../helpers/normalize-filename';
+import { Registry } from '@germanamz/prisma-rest-toolbox';
 
-export type GenerateEnumOptions = {
+export type GenerateSchemaEnumOptions = {
   project: Project;
   dir: string;
   item: DMMF.SchemaEnum;
+  registry: Registry;
 };
 
-export const generateEnum = ({ project, dir, item }: GenerateEnumOptions) => {
-  const enumFile = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
+export const generateSchemaEnum = ({ project, dir, item, registry }: GenerateSchemaEnumOptions) => {
+  const file = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
 
-  enumFile.addImportDeclaration({
+  file.addImportDeclaration({
     moduleSpecifier: 'zod',
     namedImports: ['z'],
   });
 
-  enumFile.addVariableStatement({
+  file.addVariableStatement({
     isExported: true,
     declarations: [
       {
@@ -38,5 +40,7 @@ export const generateEnum = ({ project, dir, item }: GenerateEnumOptions) => {
     ],
   });
 
-  return enumFile;
+  registry.set(item.name, file);
+
+  return file;
 };

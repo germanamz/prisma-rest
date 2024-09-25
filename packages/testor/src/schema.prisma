@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DB_URL")
 }
 
@@ -32,7 +32,7 @@ enum LedgerType {
 
 /// @crud.actions read, create, update, delete
 model Ledger {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  id        String     @id @default(uuid())
   name      String
   type      LedgerType
   createdAt DateTime   @default(now())
@@ -45,33 +45,65 @@ enum PayloadKind {
   IMPULSE
 }
 
-type DeeperPayload {
-  name        String
-  description String?
-  kind        PayloadKind?
-  payload     EntryPayload?
+// TODO: Add support for custom types
+// type DeeperPayload {
+//   name        String
+//   description String?
+//   kind        PayloadKind?
+//   payload     EntryPayload?
+// }
+//
+// type EntryPayload {
+//   name        String
+//   description String?
+//   deeper      DeeperPayload?
+//   kind        PayloadKind?
+//   raw         Json?
+// }
+
+enum BookNamespace {
+  BU1
+  BU2
 }
 
-type EntryPayload {
-  name        String
+model Book {
+  id          String        @id @default(uuid())
+  namespace   BookNamespace
+  section     String
+  label       String
+  root        Boolean?
   description String?
-  deeper      DeeperPayload?
-  kind        PayloadKind?
-  raw         Json?
+  Entry       Entry[]
+
+  @@unique([namespace, section])
+  @@unique([section, label])
 }
 
 model Entry {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  amount        Float
-  createdAt     DateTime        @default(now())
-  deletedAt     DateTime?
-  ledgerId      String          @db.ObjectId
-  ledger        Ledger          @relation(fields: [ledgerId], references: [id])
-  extendedEntry ExtendedEntry[]
+  id        String        @id @default(uuid())
+  amount    Float
+  createdAt DateTime      @default(now())
+  deletedAt DateTime?
+  namespace BookNamespace
+  section   String
+  book      Book          @relation(fields: [namespace, section], references: [namespace, section])
+  ledgerId  String
+  ledger    Ledger        @relation(fields: [ledgerId], references: [id])
+  logs      Log[]
 }
 
-model ExtendedEntry {
-  id      String @id @map("_id")
-  entry   Entry  @relation(fields: [entryId], references: [id])
-  entryId String @db.ObjectId
+model Log {
+  section    String
+  subSection String
+  msg1       String? @default("msg1")
+  msg2       String  @default("msg2")
+  entry      Entry   @relation(fields: [entryId], references: [id])
+  entryId    String
+
+  @@unique([section, subSection])
+}
+
+model Label {
+  name  String @unique
+  group String @unique
 }

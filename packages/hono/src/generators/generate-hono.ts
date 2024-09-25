@@ -1,5 +1,5 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project, SourceFile } from 'ts-morph';
+import { Project } from 'ts-morph';
 import { Registry } from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
 import { generateCrudServices } from '@germanamz/prisma-generator-crud-services/dist';
@@ -34,6 +34,7 @@ export const generateHono = ({ project, dmmf, dir, registry, clientPath }: Gener
       dir: path.join(dir, 'hono'),
       models: dmmf.datamodel.models,
       registry,
+      dmmf,
     }),
   ];
 };

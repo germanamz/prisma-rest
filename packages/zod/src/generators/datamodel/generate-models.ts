@@ -9,6 +9,7 @@ type GenerateModelsOptions = {
   models: DMMF.Document['datamodel']['models'] | DMMF.Document['datamodel']['types'];
   registry: Map<string, SourceFile>;
   importQueue: Map<SourceFile, Set<string>>;
+  dmmf: DMMF.Document;
 };
 
 export const generateModels = ({
@@ -17,6 +18,7 @@ export const generateModels = ({
   models,
   registry,
   importQueue,
+  dmmf,
 }: GenerateModelsOptions) => {
   return generateNamespace({
     project,
@@ -24,6 +26,7 @@ export const generateModels = ({
     items: models,
     importQueue,
     registry,
+    dmmf,
     handler: generateModel,
   });
 };

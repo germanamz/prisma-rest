@@ -16,10 +16,26 @@ export const generateApi = ({ project, item, dir, registry, importQueue }: Gener
   const apiName = `make${item.name}Api`;
   const serviceName = `${item.name}CrudService`;
   const createInputIdentifier = `${item.name}CreateInput`;
+  const updateInputIdentifier = `${item.name}UpdateInput`;
+  const listFilterIdentifier = `${item.name}ListFilter`;
+  const uniqueFilterIdentifier = `${item.name}UniqueFilter`;
+  const uniqueFilterWhereIdentifier = `${item.name}UniqueFilterWhere`;
+  const identifiersToImport = [
+    createInputIdentifier,
+    updateInputIdentifier,
+    serviceName,
+    listFilterIdentifier,
+    uniqueFilterIdentifier,
+    uniqueFilterWhereIdentifier,
+  ];
 
   file.addImportDeclaration({
     moduleSpecifier: 'hono',
     namedImports: ['Hono'],
+  });
+  file.addImportDeclaration({
+    moduleSpecifier: 'zod',
+    namedImports: ['z'],
   });
   file.addImportDeclaration({
     moduleSpecifier: 'hono/utils/http-status',
@@ -30,10 +46,7 @@ export const generateApi = ({ project, item, dir, registry, importQueue }: Gener
     namedImports: ['zValidator'],
   });
 
-  addToImportQueue(importQueue, file, [
-    createInputIdentifier,
-    serviceName,
-  ]);
+  addToImportQueue(importQueue, file, identifiersToImport);
 
   file.addVariableStatement({
     isExported: true,
@@ -56,6 +69,43 @@ export const generateApi = ({ project, item, dir, registry, importQueue }: Gener
               handler: 'create(json)',
               status: 201,
               json: createInputIdentifier,
+            });
+
+            apiHandlerWriter({
+              writer,
+              method: 'put',
+              path: '/instance',
+              handler: 'update(query, json)',
+              status: 200,
+              json: updateInputIdentifier,
+              query: uniqueFilterIdentifier,
+            });
+
+            apiHandlerWriter({
+              writer,
+              method: 'delete',
+              path: '/instance',
+              handler: 'delete(query)',
+              status: 200,
+              query: uniqueFilterWhereIdentifier,
+            });
+
+            apiHandlerWriter({
+              writer,
+              method: 'get',
+              path: '/instance',
+              handler: 'findUnique(query)',
+              status: 200,
+              query: uniqueFilterIdentifier,
+            });
+
+            apiHandlerWriter({
+              writer,
+              method: 'get',
+              path: '/',
+              handler: 'find(query)',
+              status: 200,
+              query: listFilterIdentifier,
             });
 
             writer.writeLine('return app;');

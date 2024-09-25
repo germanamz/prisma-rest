@@ -9,15 +9,17 @@ export type GenerateApisOptions = {
   dir: string;
   models: readonly DMMF.Model[];
   registry: Registry;
+  dmmf: DMMF.Document;
 };
 
-export const generateApis = ({ project, dir, models, registry }: GenerateApisOptions) => {
+export const generateApis = ({ project, dir, models, registry, dmmf }: GenerateApisOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
   const file = generateNamespace({
     dir,
     project,
     registry,
     importQueue,
+    dmmf,
     generator: (opts) => {
       const apisFile = generateNamespace({
         ...opts,

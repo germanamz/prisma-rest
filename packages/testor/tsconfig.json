@@ -6,6 +6,9 @@
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "types": [
+      "node"
+    ]
   }
 }

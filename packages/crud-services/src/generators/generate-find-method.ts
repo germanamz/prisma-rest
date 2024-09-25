@@ -1,5 +1,5 @@
 import { DMMF } from '@prisma/generator-helper';
-import { ClassDeclaration, ImportDeclaration } from 'ts-morph';
+import { ClassDeclaration } from 'ts-morph';
 
 type GenerateFindMethodOptions = {
   serviceClass: ClassDeclaration;
@@ -25,7 +25,7 @@ export const generateFindMethod = ({ serviceClass, model }: GenerateFindMethodOp
       
       return ok(instance);
     } catch (e) {
-      return err(translateToErrno(e as Error, 'UNKNOWN_ERROR', [], 500));
+      return err(translateToErrno(e, 'ERROR', 500, [e]));
     }
   `);
 };

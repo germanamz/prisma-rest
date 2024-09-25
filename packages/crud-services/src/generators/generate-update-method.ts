@@ -11,21 +11,22 @@ export const generateUpdateMethod = ({ model, serviceClass }: GenerateUpdateMeth
     name: 'update',
     isAsync: true,
     parameters: [
-      { name: 'where', type: `Prisma.${model.name}WhereUniqueInput` },
-      { name: 'data', type: `Prisma.${model.name}CreateInput` },
+      { name: 'filter', type: `{ where: Prisma.${model.name}WhereUniqueInput; select?: Prisma.${model.name}Select }` },
+      { name: 'data', type: `Prisma.${model.name}UncheckedUpdateInput` },
     ],
   });
 
   method.addStatements(`
   try {
     const instance = await this.prisma.${model.name.toLowerCase()}.update({
-      where,
+      where: filter.where,
+      select: filter.select,
       data,
     });
     
     return ok(instance);
   } catch (e) {
-    return err(translateToErrno(e as Error, 'UNKNOWN_ERROR', [], 500));
+    return err(translateToErrno(e, 'ERROR', 500, [e]));
   }
   `);
 };

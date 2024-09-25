@@ -1,7 +1,6 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, VariableDeclarationKind } from 'ts-morph';
-import { normalizeFilename } from '../../helpers/normalize-filename';
-import { Registry } from '@germanamz/prisma-rest-toolbox';
+import { normalizeFilename, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateDatamodelEnumOptions = {
   dir: string;

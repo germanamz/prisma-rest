@@ -23,7 +23,7 @@ export const generateDeleteMethod = ({ model, serviceClass }: GenerateDeleteMeth
       
       return ok(deletedInstance);
     } catch (e) {
-      return err(translateToErrno(e as Error, 'UNKNOWN_ERROR', [], 500));
+      return err(translateToErrno(e, 'ERROR', 500, [e]));
     }
   `);
 };

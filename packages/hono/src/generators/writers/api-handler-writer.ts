@@ -75,7 +75,7 @@ export const apiHandlerWriter = ({
     writer.writeLine(`const result = await service.${handler};`);
     writer.write(`if (result.isErr()) `);
     writer.inlineBlock(() => {
-      writer.writeLine('c.status(result.error.status as StatusCode);');
+      writer.writeLine('c.status(result.error.status);');
       writer.writeLine('return c.json(result.error);');
     });
 

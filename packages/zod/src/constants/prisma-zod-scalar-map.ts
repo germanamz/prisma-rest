@@ -7,5 +7,6 @@ export const PRISMA_ZOD_SCALAR_MAP = {
   Boolean: 'boolean',
   DateTime: 'date',
   Json: 'any',
+  Null: 'null',
   Bytes: 'any', // Prisma maps Bytes to Buffer but zod does not have buffer support, 'any' is the easiest way to handle this
 } as const;

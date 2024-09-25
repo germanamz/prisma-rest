@@ -1,9 +1,8 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project, SourceFile, VariableDeclarationKind } from 'ts-morph';
-import { normalizeFilename } from '../../helpers/normalize-filename';
+import { Project, VariableDeclarationKind } from 'ts-morph';
 import { PrismaScalar } from '../../constants/prisma-scalars';
 import { prismaToZodScalar } from '../../helpers/prisma-to-zod-scalar';
-import { addToImportQueue, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { addToImportQueue, ImportQueue, normalizeFilename, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateModelOptions = {
   dir: string;
@@ -28,7 +27,7 @@ export const generateModel = ({
   });
 
   const fields = item.fields.filter((field) => field.kind === 'scalar' || field.kind === 'enum');
-  const lazyFields = item.fields.filter((field) => field.kind === 'object');
+  const lazyFields = item.fields.filter((field) => field.kind === 'object' && !field.relationName);
 
   file.addVariableStatement({
     isExported: !lazyFields.length,

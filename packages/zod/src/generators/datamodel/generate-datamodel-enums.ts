@@ -1,4 +1,4 @@
-import { Project, SourceFile } from 'ts-morph';
+import { Project } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { generateDatamodelEnum } from './generate-datamodel-enum';
 import { generateNamespace, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
@@ -6,18 +6,19 @@ import { generateNamespace, ImportQueue, Registry } from '@germanamz/prisma-rest
 export type GenerateDatamodelEnumsOptions = {
   dir: string;
   project: Project;
-  enums: DMMF.Document['datamodel']['enums'];
   registry: Registry;
   importQueue: ImportQueue;
+  dmmf: DMMF.Document;
 };
 
-export const generateDatamodelEnums = ({ dir, project, enums, registry, importQueue }: GenerateDatamodelEnumsOptions) => {
+export const generateDatamodelEnums = ({ dir, project, registry, importQueue, dmmf }: GenerateDatamodelEnumsOptions) => {
   return generateNamespace({
     dir,
     project,
     registry,
     importQueue,
-    items: enums,
+    dmmf,
+    items: dmmf.datamodel.enums,
     handler: generateDatamodelEnum,
   });
 };

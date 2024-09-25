@@ -4,7 +4,9 @@
   "description": "Generators testing environment",
   "main": "index.js",
   "scripts": {
-    "generate": "prisma generate --schema src/schema.prisma"
+    "start": "ts-node -r dotenv/config src/start.ts",
+    "migrate": "rm -rf src/generated && prisma migrate dev --schema src/schema.prisma",
+    "generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma"
   },
   "author": "German Meza <iam@germanamz.com>",
   "repository": {
@@ -13,18 +15,24 @@
   },
   "private": true,
   "dependencies": {
-    "@germanamz/errno": "^1.1.1",
+    "@germanamz/errno": "^1.4.0",
     "@germanamz/prisma-generator-crud-services": "workspace:^",
     "@germanamz/prisma-generator-hono": "workspace:^",
     "@germanamz/prisma-generator-zod": "workspace:^",
-    "@hono/zod-validator": "^0.2.1",
-    "@prisma/client": "^5.12.1",
+    "@hono/node-server": "^1.12.2",
+    "@hono/zod-validator": "^0.2.2",
+    "@prisma/client": "^5.19.1",
     "fs-extra": "^11.2.0",
-    "hono": "^4.2.8",
-    "neverthrow": "^6.2.1",
-    "prisma": "^5.12.1",
+    "hono": "^4.5.11",
+    "neverthrow": "^6.2.2",
+    "prisma": "^5.19.1",
+    "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
-    "zod": "^3.23.3"
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "dotenv": "^16.4.5"
   }
 }

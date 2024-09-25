@@ -1,4 +1,4 @@
-import { Project, SourceFile } from 'ts-morph';
+import { Project } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { generateDatamodelEnums } from './generate-datamodel-enums';
 import path from 'path';
@@ -18,9 +18,9 @@ export const generateDatamodel = ({ project, dir, dmmf, registry, importQueue }:
   const enumsFile = generateDatamodelEnums({
     project,
     dir: path.join(dir, 'enums'),
-    enums: dmmf.datamodel.enums,
     registry,
     importQueue,
+    dmmf,
   });
   const typesFile = generateModels({
     project,
@@ -28,6 +28,7 @@ export const generateDatamodel = ({ project, dir, dmmf, registry, importQueue }:
     models: dmmf.datamodel.types,
     registry,
     importQueue,
+    dmmf,
   });
   const modelsFile = generateModels({
     project,
@@ -35,22 +36,28 @@ export const generateDatamodel = ({ project, dir, dmmf, registry, importQueue }:
     models: dmmf.datamodel.models,
     registry,
     importQueue,
+    dmmf,
   });
 
   executeImportQueue(importQueue, registry);
 
-  indexFile.addExportDeclaration({
-    moduleSpecifier: `./${path.relative(dir, enumsFile.getDirectoryPath())}`,
-  });
+  if (enumsFile) {
+    indexFile.addExportDeclaration({
+      moduleSpecifier: `./${path.relative(dir, enumsFile.getDirectoryPath())}`,
+    });
+  }
 
-  indexFile.addExportDeclaration({
-    moduleSpecifier: `./${path.relative(dir, typesFile.getDirectoryPath())}`,
-  });
+  if (typesFile) {
+    indexFile.addExportDeclaration({
+      moduleSpecifier: `./${path.relative(dir, typesFile.getDirectoryPath())}`,
+    });
+  }
 
-  indexFile.addExportDeclaration({
-    moduleSpecifier: `./${path.relative(dir, modelsFile.getDirectoryPath())}`,
-  });
-
+  if (modelsFile) {
+    indexFile.addExportDeclaration({
+      moduleSpecifier: `./${path.relative(dir, modelsFile.getDirectoryPath())}`,
+    });
+  }
 
   return indexFile;
 };

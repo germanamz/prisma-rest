@@ -4,7 +4,6 @@
   "description": "Just a toolbox for prisma-rest generators",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": true,
   "author": "German Meza <iam@germanamz.com>",
   "scripts": {
     "build": "tsc",
@@ -14,6 +13,9 @@
     "type": "git",
     "url": "https://github.com/germanamz/prisma-rest.git"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.12.7"

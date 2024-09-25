@@ -7,7 +7,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "prepare": "husky"
   },
   "keywords": [
     "prisma",
@@ -21,6 +22,8 @@
   "license": "MIT",
   "packageManager": "pnpm@9.11.0",
   "dependencies": {
+    "@changesets/cli": "^2.27.8",
+    "husky": "^9.1.6",
     "turbo": "^2.1.2"
   }
 }

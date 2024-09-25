@@ -10,7 +10,8 @@
   "author": "German Meza <iam@germanamz.com>",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,13 @@
     "zod": "^3.23.3"
   },
   "devDependencies": {
+    "@germanamz/eslint-config": "^1.0.4",
+    "@hono/zod-validator": "^0.2.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.12.7",
     "@types/pluralize": "^0.0.33",
-    "prisma": "^5.12.1",
-    "@hono/zod-validator": "^0.2.1"
+    "eslint": "^8",
+    "prisma": "^5.12.1"
   },
   "dependencies": {
     "@germanamz/prisma-generator-crud-services": "workspace:^",

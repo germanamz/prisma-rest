@@ -7,7 +7,8 @@
   "author": "German Meza <iam@germanamz.com>",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,10 @@
     "dist"
   ],
   "devDependencies": {
+    "@germanamz/eslint-config": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "eslint": "^8"
   },
   "dependencies": {
     "@prisma/generator-helper": "^5.12.1",

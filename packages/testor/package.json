@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node -r dotenv/config src/start.ts",
     "migrate": "rm -rf src/generated && prisma migrate dev --schema src/schema.prisma",
-    "generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma"
+    "generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma",
+    "lint": "eslint ."
   },
   "author": "German Meza <iam@germanamz.com>",
   "repository": {
@@ -32,7 +33,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@germanamz/eslint-config": "^1.0.4",
     "@types/node": "^20.12.7",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "eslint": "^8"
   }
 }

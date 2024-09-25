@@ -1,6 +1,6 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
-import { Registry } from '@germanamz/prisma-rest-toolbox';
+import { generateNamespace, Registry } from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
 import { generateCrudServices } from '@germanamz/prisma-generator-crud-services/dist';
 import { generateZod } from '@germanamz/prisma-generator-zod';
@@ -15,26 +15,33 @@ export type GenerateHonoOptions = {
 };
 
 export const generateHono = ({ project, dmmf, dir, registry, clientPath }: GenerateHonoOptions) => {
-  return [
-    generateCrudServices({
-      project,
-      dir: path.join(dir, 'services'),
-      models: dmmf.datamodel.models,
-      registry,
-      clientPath,
-    }),
-    generateZod({
-      project,
-      dir: path.join(dir, 'zod'),
-      dmmf,
-      registry,
-    }),
-    generateApis({
-      project,
-      dir: path.join(dir, 'hono'),
-      models: dmmf.datamodel.models,
-      registry,
-      dmmf,
-    }),
-  ];
+  return generateNamespace({
+    dir,
+    project,
+    registry,
+    dmmf,
+    importQueue: new Map(),
+    generator: () => [
+      generateCrudServices({
+        project,
+        dir: path.join(dir, 'services'),
+        models: dmmf.datamodel.models,
+        registry,
+        clientPath,
+      }),
+      generateZod({
+        project,
+        dir: path.join(dir, 'zod'),
+        dmmf,
+        registry,
+      }),
+      generateApis({
+        project,
+        dir: path.join(dir, 'apis'),
+        models: dmmf.datamodel.models,
+        registry,
+        dmmf,
+      }),
+    ],
+  });
 };

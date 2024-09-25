@@ -8,22 +8,22 @@ generator client {
   output   = "./generated/client"
 }
 
-generator crud {
-  provider   = "prisma-crud-services"
-  output     = "./generated/services"
-  clientPath = "./generated/client"
-}
-
-generator zod {
-  provider = "prisma-zod"
-  output   = "./generated/zod"
-}
-
 generator hono {
   provider   = "prisma-hono"
   output     = "./generated/hono"
   clientPath = "./generated/client"
 }
+
+// generator crud {
+//   provider   = "prisma-crud-services"
+//   output     = "./generated/services"
+//   clientPath = "./generated/client"
+// }
+//
+// generator zod {
+//   provider = "prisma-zod"
+//   output   = "./generated/zod"
+// }
 
 enum LedgerType {
   MAIN

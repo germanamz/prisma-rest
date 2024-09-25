@@ -1,7 +1,6 @@
 import { Hono } from 'hono';
-import { makeBookApi } from './generated/hono/hono';
+import { BookCrudService, makeBookApi } from './generated/hono';
 import { PrismaClient } from './generated/client';
-import { BookCrudService } from './generated/hono/services';
 import { serve } from '@hono/node-server';
 
 const app = new Hono();

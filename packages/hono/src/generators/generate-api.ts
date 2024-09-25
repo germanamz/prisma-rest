@@ -1,5 +1,5 @@
 import { Project, VariableDeclarationKind } from 'ts-morph';
-import { addToImportQueue, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { addToImportQueue, declareConstant, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 import { DMMF } from '@prisma/generator-helper';
 import { apiHandlerWriter } from './writers/api-handler-writer';
 
@@ -48,74 +48,67 @@ export const generateApi = ({ project, item, dir, registry, importQueue }: Gener
 
   addToImportQueue(importQueue, file, identifiersToImport);
 
-  file.addVariableStatement({
+  declareConstant({
+    name: apiName,
+    registry,
     isExported: true,
-    declarationKind: VariableDeclarationKind.Const,
-    declarations: [
-      {
-        name: apiName,
-        initializer: (writer) => {
-          writer.write(`(service: ${serviceName}) => `);
+    sourceFile: file,
+    initializer: (writer) => {
+      writer.write(`(service: ${serviceName}) => `);
 
-          writer.block(() => {
-            writer.writeLine('const app = new Hono();');
+      writer.block(() => {
+        writer.writeLine('const app = new Hono();');
 
-            writer.blankLine();
+        apiHandlerWriter({
+          writer,
+          method: 'post',
+          path: '/',
+          handler: 'create(json)',
+          status: 201,
+          json: createInputIdentifier,
+        });
 
-            apiHandlerWriter({
-              writer,
-              method: 'post',
-              path: '/',
-              handler: 'create(json)',
-              status: 201,
-              json: createInputIdentifier,
-            });
+        apiHandlerWriter({
+          writer,
+          method: 'get',
+          path: '/',
+          handler: 'find(query)',
+          status: 200,
+          query: listFilterIdentifier,
+        });
 
-            apiHandlerWriter({
-              writer,
-              method: 'put',
-              path: '/instance',
-              handler: 'update(query, json)',
-              status: 200,
-              json: updateInputIdentifier,
-              query: uniqueFilterIdentifier,
-            });
+        apiHandlerWriter({
+          writer,
+          method: 'put',
+          path: '/instance',
+          handler: 'update(query, json)',
+          status: 200,
+          json: updateInputIdentifier,
+          query: uniqueFilterIdentifier,
+        });
 
-            apiHandlerWriter({
-              writer,
-              method: 'delete',
-              path: '/instance',
-              handler: 'delete(query)',
-              status: 200,
-              query: uniqueFilterWhereIdentifier,
-            });
+        apiHandlerWriter({
+          writer,
+          method: 'delete',
+          path: '/instance',
+          handler: 'delete(query)',
+          status: 200,
+          query: uniqueFilterWhereIdentifier,
+        });
 
-            apiHandlerWriter({
-              writer,
-              method: 'get',
-              path: '/instance',
-              handler: 'findUnique(query)',
-              status: 200,
-              query: uniqueFilterIdentifier,
-            });
+        apiHandlerWriter({
+          writer,
+          method: 'get',
+          path: '/instance',
+          handler: 'findUnique(query)',
+          status: 200,
+          query: uniqueFilterIdentifier,
+        });
 
-            apiHandlerWriter({
-              writer,
-              method: 'get',
-              path: '/',
-              handler: 'find(query)',
-              status: 200,
-              query: listFilterIdentifier,
-            });
-
-            writer.writeLine('return app;');
-          });
-        },
-      },
-    ],
+        writer.writeLine('return app;');
+      });
+    },
   });
-
-  registry.set(apiName, file);
 
   return file;
 };

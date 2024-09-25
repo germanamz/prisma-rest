@@ -27,7 +27,6 @@ generatorHandler({
       skipAddingFilesFromTsConfig: true,
     });
     const dir = output?.value || path.resolve(process.cwd(), 'services');
-    console.log('rawClientPath', rawClientPath);
     const clientPath = rawClientPath ?
       path.resolve(path.dirname(schemaPath), Array.isArray(rawClientPath) ? rawClientPath[0] : rawClientPath)
       : undefined;
@@ -39,6 +38,7 @@ generatorHandler({
       dir,
       clientPath,
       registry,
+      dmmf,
     });
 
     await project.save();

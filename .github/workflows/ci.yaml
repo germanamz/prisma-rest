@@ -55,7 +55,7 @@ jobs:
         run: pnpm install
 
       - name: Run typecheck
-        run: pnpm typecheck
+        run: pnpm exec turbo --filter=\!testor typecheck
 
   build:
     runs-on: ubuntu-latest

@@ -21,6 +21,7 @@
   "license": "MIT",
   "packageManager": "pnpm@9.11.0",
   "dependencies": {
+    "@changesets/cli": "^2.27.8",
     "turbo": "^2.1.2"
   }
 }

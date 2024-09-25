@@ -13,6 +13,9 @@
     },
     "typecheck": {
       "cache": false
+    },
+    "generate": {
+      "cache": false
     }
   }
 }

@@ -113,7 +113,7 @@ export const generateUniqueFilter = (options: GenerateUniqueFilterOptions) => {
       if (numberOfFields > 1) {
         writer.write('])');
       }
-      writer.write(')')
+      writer.write(')');
     },
   });
   declareConstant({

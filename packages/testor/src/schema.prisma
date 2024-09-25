@@ -5,13 +5,11 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
 }
 
 generator hono {
-  provider   = "prisma-hono"
-  output     = "./generated/hono"
-  clientPath = "./generated/client"
+  provider = "prisma-hono"
+  output   = "./generated/hono"
 }
 
 // generator crud {

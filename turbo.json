@@ -9,8 +9,10 @@
       "persistent": true
     },
     "lint": {
-      "cache": false,
-      "persistent": true
+      "cache": false
+    },
+    "typecheck": {
+      "cache": false
     }
   }
 }

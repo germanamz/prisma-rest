@@ -11,37 +11,38 @@ export type GenerateHonoOptions = {
   dir: string;
   dmmf: DMMF.Document;
   registry: Registry;
-  clientPath?: string;
+  clientPath: string;
 };
 
-export const generateHono = ({ project, dmmf, dir, registry, clientPath }: GenerateHonoOptions) => {
-  return generateNamespace({
-    dir,
-    project,
-    registry,
-    dmmf,
-    importQueue: new Map(),
-    generator: () => [
-      generateCrudServices({
-        project,
-        dir: path.join(dir, 'services'),
-        models: dmmf.datamodel.models,
-        registry,
-        clientPath,
-      }),
-      generateZod({
-        project,
-        dir: path.join(dir, 'zod'),
-        dmmf,
-        registry,
-      }),
-      generateApis({
-        project,
-        dir: path.join(dir, 'apis'),
-        models: dmmf.datamodel.models,
-        registry,
-        dmmf,
-      }),
-    ],
-  });
-};
+export const generateHono = ({
+  project, dmmf, dir, registry, clientPath,
+}: GenerateHonoOptions) => generateNamespace({
+  dir,
+  project,
+  registry,
+  dmmf,
+  importQueue: new Map(),
+  generator: () => [
+    generateCrudServices({
+      project,
+      dir: path.join(dir, 'services'),
+      models: dmmf.datamodel.models,
+      registry,
+      clientPath,
+      dmmf,
+    }),
+    generateZod({
+      project,
+      dir: path.join(dir, 'zod'),
+      dmmf,
+      registry,
+    }),
+    generateApis({
+      project,
+      dir: path.join(dir, 'apis'),
+      models: dmmf.datamodel.models,
+      registry,
+      dmmf,
+    }),
+  ],
+});

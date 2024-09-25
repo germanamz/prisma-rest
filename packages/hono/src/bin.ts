@@ -1,8 +1,6 @@
 import { generatorHandler } from '@prisma/generator-helper';
 import path from 'path';
 import { Project, SourceFile } from 'ts-morph';
-import { generateZod } from '@germanamz/prisma-generator-zod';
-import { generateCrudServices } from '@germanamz/prisma-generator-crud-services/dist';
 import { generateHono } from './generators/generate-hono';
 
 generatorHandler({
@@ -25,9 +23,11 @@ generatorHandler({
     } = options;
     const schemaDir = path.dirname(schemaPath);
     const dir = output?.value ? output.value : path.resolve(schemaDir, 'hono');
-    const clientPath = rawClientPath ?
-      path.resolve(path.dirname(schemaPath), Array.isArray(rawClientPath) ? rawClientPath[0] : rawClientPath)
-      : undefined;
+    const clientPath = rawClientPath
+      ? path.resolve(path.dirname(schemaPath), Array.isArray(rawClientPath)
+        ? rawClientPath[0]
+        : rawClientPath)
+      : '@prisma/client';
     const project = new Project({
       tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
       skipAddingFilesFromTsConfig: true,

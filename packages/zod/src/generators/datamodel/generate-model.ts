@@ -1,8 +1,10 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, VariableDeclarationKind } from 'ts-morph';
+import {
+  addToImportQueue, ImportQueue, normalizeFilename, Registry,
+} from '@germanamz/prisma-rest-toolbox';
 import { PrismaScalar } from '../../constants/prisma-scalars';
 import { prismaToZodScalar } from '../../helpers/prisma-to-zod-scalar';
-import { addToImportQueue, ImportQueue, normalizeFilename, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateModelOptions = {
   dir: string;
@@ -36,7 +38,7 @@ export const generateModel = ({
       {
         name: lazyFields.length ? 'baseSchema' : item.name,
         initializer: (writer) => {
-          writer.writeLine(`z.object({`);
+          writer.writeLine('z.object({');
 
           writer.indent(() => {
             fields.forEach((field) => {
@@ -88,7 +90,7 @@ export const generateModel = ({
         name: item.name,
         type: 'z.ZodType<BaseSchema>',
         initializer: (writer) => {
-          writer.writeLine(`baseSchema.extend({`);
+          writer.writeLine('baseSchema.extend({');
 
           writer.indent(() => {
             lazyFields.forEach((field) => {

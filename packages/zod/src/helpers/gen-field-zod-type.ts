@@ -1,7 +1,7 @@
-import { prismaToZodScalar } from './prisma-to-zod-scalar';
 import { DMMF } from '@prisma/generator-helper';
 import { addToImportQueue, ImportQueue } from '@germanamz/prisma-rest-toolbox';
 import { SourceFile } from 'ts-morph';
+import { prismaToZodScalar } from './prisma-to-zod-scalar';
 
 export const genZodScalar = (type: string, isList: boolean, isRequired: boolean) => {
   let zod = `z.${prismaToZodScalar(type)}()`;

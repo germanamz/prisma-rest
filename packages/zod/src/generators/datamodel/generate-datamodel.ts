@@ -1,9 +1,9 @@
 import { Project } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
-import { generateDatamodelEnums } from './generate-datamodel-enums';
 import path from 'path';
+import { ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { generateDatamodelEnums } from './generate-datamodel-enums';
 import { generateModels } from './generate-models';
-import { executeImportQueue, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateDatamodelOptions = {
   project: Project;
@@ -13,7 +13,9 @@ export type GenerateDatamodelOptions = {
   importQueue: ImportQueue;
 };
 
-export const generateDatamodel = ({ project, dir, dmmf, registry, importQueue }: GenerateDatamodelOptions) => {
+export const generateDatamodel = ({
+  project, dir, dmmf, registry, importQueue,
+}: GenerateDatamodelOptions) => {
   const indexFile = project.createSourceFile(`${dir}/index.ts`, undefined, { overwrite: true });
   const enumsFile = generateDatamodelEnums({
     project,
@@ -38,8 +40,6 @@ export const generateDatamodel = ({ project, dir, dmmf, registry, importQueue }:
     importQueue,
     dmmf,
   });
-
-  executeImportQueue(importQueue, registry);
 
   if (enumsFile) {
     indexFile.addExportDeclaration({

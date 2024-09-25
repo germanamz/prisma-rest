@@ -1,7 +1,7 @@
 import { generatorHandler } from '@prisma/generator-helper';
 import path from 'path';
-import { generateZod } from './generators/generate-zod';
 import { Project, SourceFile } from 'ts-morph';
+import { generateZod } from './generators/generate-zod';
 
 generatorHandler({
   onManifest() {

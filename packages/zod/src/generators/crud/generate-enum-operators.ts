@@ -26,8 +26,8 @@ export const generateEnumOperators = (options: GenerateEnumOperatorsOptions) => 
     importQueue,
   } = options;
   const sourceFile = createSourceFile({
-    project: project,
-    dir: dir,
+    project,
+    dir,
     name: `${item.name}Operators`,
   });
 

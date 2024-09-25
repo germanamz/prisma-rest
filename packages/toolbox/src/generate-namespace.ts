@@ -1,8 +1,8 @@
 import * as path from 'node:path';
 import { Project, SourceFile } from 'ts-morph';
+import { DMMF } from '@prisma/generator-helper';
 import { ImportQueue } from './import-queue';
 import { Registry } from './registry';
-import { DMMF } from '@prisma/generator-helper';
 import { createSourceFile } from './create-source-file';
 
 type ImportFileOptions = {
@@ -47,7 +47,9 @@ export type GenerateNamespaceOptions<T extends readonly any[]> = {
   generator?: (options: GenerateNamespaceHandlerOptions<null>) => (SourceFile | undefined)[];
 };
 
-export const generateNamespace = <T extends readonly any[]>(options: GenerateNamespaceOptions<T>) => {
+export const generateNamespace = <T extends readonly any[]>(
+  options: GenerateNamespaceOptions<T>,
+) => {
   const {
     dir,
     project,
@@ -59,7 +61,7 @@ export const generateNamespace = <T extends readonly any[]>(options: GenerateNam
     dmmf,
   } = options;
 
-  if (!handler && !generator || handler && generator) {
+  if ((!handler && !generator) || (handler && generator)) {
     throw new Error('Either handler or generator must be provided');
   }
 

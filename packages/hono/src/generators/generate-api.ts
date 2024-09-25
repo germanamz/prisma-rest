@@ -1,5 +1,7 @@
-import { Project, VariableDeclarationKind } from 'ts-morph';
-import { addToImportQueue, declareConstant, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { Project } from 'ts-morph';
+import {
+  addToImportQueue, declareConstant, ImportQueue, Registry,
+} from '@germanamz/prisma-rest-toolbox';
 import { DMMF } from '@prisma/generator-helper';
 import { apiHandlerWriter } from './writers/api-handler-writer';
 
@@ -11,7 +13,9 @@ export type GenerateApiOptions = {
   importQueue: ImportQueue;
 };
 
-export const generateApi = ({ project, item, dir, registry, importQueue }: GenerateApiOptions) => {
+export const generateApi = ({
+  project, item, dir, registry, importQueue,
+}: GenerateApiOptions) => {
   const file = project.createSourceFile(`${dir}/${item.name.toLowerCase()}-api.ts`, undefined, { overwrite: true });
   const apiName = `make${item.name}Api`;
   const serviceName = `${item.name}CrudService`;

@@ -9,7 +9,9 @@ export type DeclareConstantOptions = {
   initializer: string | WriterFunction;
 };
 
-export const declareConstant = ({ name, sourceFile, initializer, isExported, registry }: DeclareConstantOptions) => {
+export const declareConstant = ({
+  name, sourceFile, initializer, isExported, registry,
+}: DeclareConstantOptions) => {
   const statement = sourceFile.addVariableStatement({
     declarationKind: VariableDeclarationKind.Const,
     isExported,

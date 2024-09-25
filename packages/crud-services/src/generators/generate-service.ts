@@ -1,12 +1,11 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
+import { ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 import { generateCreateMethod } from './generate-create-method';
 import { generateUpdateMethod } from './generate-update-method';
 import { generateDeleteMethod } from './generate-delete-method';
 import { generateFindMethod } from './generate-find-method';
 import { generateFindUniqueMethod } from './generate-find-unique-method';
-import path from 'path';
-import { ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 
 export type GenerateServiceOptions = {
   item: DMMF.Model;
@@ -14,7 +13,7 @@ export type GenerateServiceOptions = {
   project: Project;
   registry: Registry;
   importQueue: ImportQueue;
-  clientPath?: string;
+  clientPath: string;
 };
 export const generateService = (
   {
@@ -31,7 +30,7 @@ export const generateService = (
   });
 
   file.addImportDeclaration({
-    moduleSpecifier: clientPath ? path.relative(path.dirname(filePath), clientPath) : '@prisma/client',
+    moduleSpecifier: clientPath,
     namedImports: ['PrismaClient', 'Prisma', model.name],
   });
 

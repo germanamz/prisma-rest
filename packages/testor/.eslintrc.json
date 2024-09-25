@@ -1,5 +1,6 @@
 {
   "extends": [
-    "@germanamz/eslint-config/node"
-  ]
+    "@germanamz/eslint-config/base"
+  ],
+  "ignorePatterns": ["src/generated/"]
 }

@@ -1,5 +1,5 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project, VariableDeclarationKind } from 'ts-morph';
+import { CodeBlockWriter, Project, VariableDeclarationKind } from 'ts-morph';
 import { createSourceFile, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
 import { genFieldZodType } from '../../helpers/gen-field-zod-type';
 
@@ -41,17 +41,21 @@ export const generateInput = (options: GenerateInputOptions) => {
     isExported: true,
     declarations: [
       {
-        name: name,
-        initializer: (writer) => {
+        name,
+        initializer: (writer: CodeBlockWriter) => {
           writer.write('z.object({');
 
           for (const field of model.fields) {
-            if (!['scalar', 'enum'].includes(field.kind) || field.isId) {
+            if (['scalar', 'enum'].includes(field.kind)) {
               // only allow saclar and enum fields
-              // Ignore primary key field
-              continue;
+              // TODO: Add support to disable write
+              writer.writeLine(`${field.name}: ${genFieldZodType({
+                field,
+                sourceFile,
+                importQueue,
+                isOptional: isOptional ? true : field.hasDefaultValue,
+              })},`);
             }
-            writer.writeLine(`${field.name}: ${genFieldZodType({field, sourceFile, importQueue, isOptional})},`);
           }
 
           writer.write('}).strict()');

@@ -9,7 +9,9 @@ export type GenerateDatamodelEnumOptions = {
   registry: Registry;
 };
 
-export const generateDatamodelEnum = ({ dir, project, item, registry }: GenerateDatamodelEnumOptions) => {
+export const generateDatamodelEnum = ({
+  dir, project, item, registry,
+}: GenerateDatamodelEnumOptions) => {
   const file = project.createSourceFile(`${dir}/${normalizeFilename(item.name)}.ts`, undefined, { overwrite: true });
 
   file.addImportDeclaration({
@@ -24,7 +26,7 @@ export const generateDatamodelEnum = ({ dir, project, item, registry }: Generate
       {
         name: item.name,
         initializer: (writer) => {
-          writer.writeLine(`z.enum([`);
+          writer.writeLine('z.enum([');
           writer.indent(() => {
             item.values.forEach((value) => {
               writer.write(`"${value.name}",`);

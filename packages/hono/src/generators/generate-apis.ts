@@ -1,8 +1,8 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, SourceFile } from 'ts-morph';
 import { executeImportQueue, generateNamespace, Registry } from '@germanamz/prisma-rest-toolbox';
-import { generateApi } from './generate-api';
 import path from 'path';
+import { generateApi } from './generate-api';
 
 export type GenerateApisOptions = {
   project: Project;
@@ -12,7 +12,9 @@ export type GenerateApisOptions = {
   dmmf: DMMF.Document;
 };
 
-export const generateApis = ({ project, dir, models, registry, dmmf }: GenerateApisOptions) => {
+export const generateApis = ({
+  project, dir, models, registry, dmmf,
+}: GenerateApisOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
   const file = generateNamespace({
     dir,

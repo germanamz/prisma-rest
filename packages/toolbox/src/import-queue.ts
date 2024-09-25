@@ -22,8 +22,7 @@ export const executeImportQueue = (q: ImportQueue, registry: Registry) => {
         const target = registry.get(item);
 
         if (!target) {
-          console.log(`Failed to import ${item}`);
-          return;
+          throw new Error(`Failed to import ${item}`);
         }
 
         // TODO: Group imports
@@ -39,7 +38,10 @@ export const executeImportQueue = (q: ImportQueue, registry: Registry) => {
       }
     }
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.log('Failed to execute import queue');
+    // eslint-disable-next-line no-console
     console.log(e);
+    throw e;
   }
 };

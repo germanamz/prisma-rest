@@ -19,6 +19,6 @@ export const createSourceFile = (options: CreateSourceFileOptions) => {
   return project.createSourceFile(
     `${dir}/${normalizeFilename(name)}${ext}`,
     undefined,
-    {overwrite: true},
+    { overwrite: true },
   );
 };

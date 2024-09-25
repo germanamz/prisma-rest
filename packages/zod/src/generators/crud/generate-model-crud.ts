@@ -19,31 +19,29 @@ type GenerateModelCrudOptions = {
   item: DMMF.Model;
 };
 
-export const generateModelCrud = (options: GenerateModelCrudOptions) => {
-  return generateNamespace({
-    ...options,
-    dir: `${options.dir}/${normalizeFilename(options.item.name)}`,
-    generator: (opts) => [
-      generateInput({
-        ...opts,
-        model: options.item,
-        isOptional: false,
-        suffix: 'CreateInput'
-      }),
-      generateInput({
-        ...opts,
-        model: options.item,
-        isOptional: true,
-        suffix: 'UpdateInput'
-      }),
-      generateListFilter({
-        ...opts,
-        model: options.item,
-      }),
-      generateUniqueFilter({
-        ...opts,
-        model: options.item,
-      }),
-    ],
-  });
-};
+export const generateModelCrud = (options: GenerateModelCrudOptions) => generateNamespace({
+  ...options,
+  dir: `${options.dir}/${normalizeFilename(options.item.name)}`,
+  generator: (opts) => [
+    generateInput({
+      ...opts,
+      model: options.item,
+      isOptional: false,
+      suffix: 'CreateInput',
+    }),
+    generateInput({
+      ...opts,
+      model: options.item,
+      isOptional: true,
+      suffix: 'UpdateInput',
+    }),
+    generateListFilter({
+      ...opts,
+      model: options.item,
+    }),
+    generateUniqueFilter({
+      ...opts,
+      model: options.item,
+    }),
+  ],
+});

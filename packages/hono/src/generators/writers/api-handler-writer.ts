@@ -26,23 +26,22 @@ export const apiHandlerWriter = ({
   writer.write(',');
   writer.newLine();
 
-
   if (json) {
-    writer.write(`zValidator(`);
+    writer.write('zValidator(');
     writer.quote('json');
     writer.write(`, ${json}),`);
     writer.newLine();
   }
 
   if (param) {
-    writer.write(`zValidator(`);
+    writer.write('zValidator(');
     writer.quote('param');
     writer.write(`, ${param}),`);
     writer.newLine();
   }
 
   if (query) {
-    writer.write(`zValidator(`);
+    writer.write('zValidator(');
     writer.quote('query');
     writer.write(`, ${query}),`);
     writer.newLine();
@@ -73,7 +72,7 @@ export const apiHandlerWriter = ({
     }
 
     writer.writeLine(`const result = await service.${handler};`);
-    writer.write(`if (result.isErr()) `);
+    writer.write('if (result.isErr()) ');
     writer.inlineBlock(() => {
       writer.writeLine('c.status(result.error.status);');
       writer.writeLine('return c.json(result.error);');

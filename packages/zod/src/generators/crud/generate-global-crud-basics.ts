@@ -1,6 +1,8 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
-import { createSourceFile, declareConstant, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import {
+  createSourceFile, declareConstant, ImportQueue, Registry,
+} from '@germanamz/prisma-rest-toolbox';
 
 const operatorTypes = [
   {
@@ -36,8 +38,8 @@ export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOption
     registry,
   } = options;
   const sourceFile = createSourceFile({
-    project: project,
-    dir: dir,
+    project,
+    dir,
     name: 'GlobalCrudBasics',
   });
 
@@ -51,7 +53,7 @@ export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOption
     registry,
     isExported: true,
     name: 'OrderDirection',
-    initializer: "z.enum(['asc', 'desc'])",
+    initializer: 'z.enum([\'asc\', \'desc\'])',
   });
 
   declareConstant({
@@ -80,7 +82,7 @@ export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOption
     registry,
     isExported: true,
     name: 'StringFilterMode',
-    initializer: "z.enum(['default', 'insensitive'])",
+    initializer: 'z.enum([\'default\', \'insensitive\'])',
   });
 
   operatorTypes.forEach((operatorType) => {
@@ -126,10 +128,10 @@ export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOption
     initializer: (writer) => {
       writer.write('z.object({');
 
-      writer.writeLine(`contains: z.string().optional(),`);
-      writer.writeLine(`startsWith: z.string().optional(),`);
-      writer.writeLine(`endsWith: z.string().optional(),`);
-      writer.writeLine(`mode: StringFilterMode.optional(),`);
+      writer.writeLine('contains: z.string().optional(),');
+      writer.writeLine('startsWith: z.string().optional(),');
+      writer.writeLine('endsWith: z.string().optional(),');
+      writer.writeLine('mode: StringFilterMode.optional(),');
 
       writer.write('}).merge(StringEqualityFilterOperators)');
     },

@@ -1,5 +1,7 @@
 import { DMMF } from '@prisma/generator-helper';
-import { addToImportQueue, declareConstant, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import {
+  addToImportQueue, declareConstant, ImportQueue, Registry,
+} from '@germanamz/prisma-rest-toolbox';
 import { SourceFile } from 'ts-morph';
 
 export type DeclareSelectOptions = {
@@ -16,7 +18,7 @@ export const declareSelect = (options: DeclareSelectOptions) => {
     sourceFile,
     fields,
     registry,
-    importQueue
+    importQueue,
   } = options;
 
   addToImportQueue(importQueue, sourceFile, ['parseJsonPreprocessor']);

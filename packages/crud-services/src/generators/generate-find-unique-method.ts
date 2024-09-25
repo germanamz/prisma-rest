@@ -6,7 +6,8 @@ type GenerateFindByIdMethodOptions = {
   model: DMMF.Model;
 };
 
-export const generateFindUniqueMethod = ({ serviceClass, model }: GenerateFindByIdMethodOptions) => {
+export const generateFindUniqueMethod = (options: GenerateFindByIdMethodOptions) => {
+  const { serviceClass, model } = options;
   const method = serviceClass.addMethod({
     name: 'findUnique',
     isAsync: true,

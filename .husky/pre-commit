@@ -1,3 +1,4 @@
-pnpm lint
-pnpm typecheck
-pnpm build
+pnpm run lint
+pnpm run build
+pnpm run generate
+pnpm run typecheck

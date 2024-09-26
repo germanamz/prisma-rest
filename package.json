@@ -9,7 +9,8 @@
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "generate": "turbo run generate",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "pnpm run build && pnpm changeset publish"
   },
   "keywords": [
     "prisma",

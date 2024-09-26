@@ -16,7 +16,7 @@
       "dependsOn": ["^typecheck"],
       "cache": false
     },
-    "generate": {
+    "prisma:generate": {
       "cache": false
     }
   }

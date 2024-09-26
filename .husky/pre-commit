@@ -1,4 +1,4 @@
 pnpm run lint
 pnpm run build
-pnpm run generate
+pnpm run prisma:generate
 pnpm run typecheck

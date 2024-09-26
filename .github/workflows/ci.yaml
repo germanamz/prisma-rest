@@ -63,8 +63,8 @@ jobs:
       - name: Generate bins
         run: pnpm install
 
-      - name: Build packages
-        run: pnpm run generate
+      - name: Prisma code generation
+        run: pnpm run prisma:generate
 
       - name: Run typecheck
         run: pnpm run typecheck

@@ -10,7 +10,7 @@
     "typecheck": "turbo typecheck",
     "generate": "turbo run generate",
     "prepare": "husky",
-    "release": "pnpm run build && pnpm changeset publish"
+    "release": "pnpm run build && pnpm changeset publish --access public"
   },
   "keywords": [
     "prisma",

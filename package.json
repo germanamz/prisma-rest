@@ -8,7 +8,6 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "prisma:generate": "turbo run prisma:generate",
     "prepare": "husky",
     "release": "pnpm run build && pnpm changeset publish"
   },

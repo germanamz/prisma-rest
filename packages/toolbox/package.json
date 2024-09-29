@@ -21,8 +21,10 @@
   "devDependencies": {
     "@germanamz/eslint-config": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^29.5.13",
     "@types/node": "^20.12.7",
-    "eslint": "^8"
+    "eslint": "^8",
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "@prisma/generator-helper": "^5.12.1",

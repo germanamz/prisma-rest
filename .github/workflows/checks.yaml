@@ -22,8 +22,6 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     name: Typecheck
-    needs:
-      - lint
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

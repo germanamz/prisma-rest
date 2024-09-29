@@ -8,6 +8,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
+    "test": "turbo test",
     "prepare": "husky || true",
     "release": "pnpm run build && pnpm changeset publish"
   },

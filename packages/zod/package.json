@@ -1,6 +1,6 @@
 {
   "name": "@germanamz/prisma-generator-zod",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate zod schemas from your Prisma schema",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

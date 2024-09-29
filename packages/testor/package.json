@@ -6,9 +6,9 @@
   "scripts": {
     "start": "ts-node -r dotenv/config src/start.ts",
     "migrate": "rm -rf src/generated && prisma migrate dev --schema src/schema.prisma",
-    "prisma:generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma",
+    "generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "pnpm run generate && tsc --noEmit"
   },
   "author": "German Meza <iam@germanamz.com>",
   "repository": {

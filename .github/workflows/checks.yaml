@@ -1,0 +1,40 @@
+name: Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_call:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+
+      - name: Run lint
+        run: pnpm run lint
+
+  typecheck:
+    runs-on: ubuntu-latest
+    name: Typecheck
+    needs:
+      - lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+
+      - name: Build packages
+        run: pnpm run build
+
+      - name: Generate bins
+        run: pnpm install
+
+      - name: Run typecheck
+        run: pnpm run typecheck

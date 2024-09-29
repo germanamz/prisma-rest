@@ -9,5 +9,13 @@
     "importHelpers": true,
     "sourceMap": true,
     "outDir": "./dist"
-  }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "**/__tests__/**",
+    "**/*.test.*"
+  ]
 }

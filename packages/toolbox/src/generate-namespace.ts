@@ -1,31 +1,9 @@
-import * as path from 'node:path';
 import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import { ImportQueue } from './import-queue';
 import { Registry } from './registry';
 import { createSourceFile } from './create-source-file';
-
-type ImportFileOptions = {
-  from: SourceFile;
-  target: SourceFile;
-};
-
-const importFile = ({ from, target }: ImportFileOptions) => {
-  const isIndex = target.getBaseName().includes('index');
-  let importPath = path.relative(path.dirname(from.getFilePath()), target.getFilePath());
-
-  if (!importPath.startsWith('../')) {
-    importPath = `./${importPath}`;
-  }
-
-  if (isIndex) {
-    importPath = path.dirname(importPath);
-  }
-
-  from.addExportDeclaration({
-    moduleSpecifier: importPath.replace(RegExp(`${path.extname(target.getFilePath())}$`), ''),
-  });
-};
+import { exportFile } from './export-file';
 
 export type GenerateNamespaceHandlerOptions<T> = {
   item: T,
@@ -83,7 +61,7 @@ export const generateNamespace = <T extends readonly any[]>(
 
     sourceFiles.forEach((sourceFile) => {
       if (sourceFile) {
-        importFile({ from: file, target: sourceFile });
+        exportFile({ from: file, target: sourceFile });
       }
     });
 
@@ -104,7 +82,7 @@ export const generateNamespace = <T extends readonly any[]>(
       });
 
       if (sourceFile) {
-        importFile({ from: file, target: sourceFile });
+        exportFile({ from: file, target: sourceFile });
       }
     });
 

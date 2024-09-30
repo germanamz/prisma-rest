@@ -1,6 +1,6 @@
 import { DMMF } from '@prisma/generator-helper';
 import { SourceFile } from 'ts-morph';
-import { genFieldZodType, GenFieldZodTypeOptions } from '../../helpers/gen-field-zod-type';
+import { genFieldZodType, GenFieldZodTypeOptions } from '../../src/helpers/gen-field-zod-type';
 
 const addToImportQueueMock = jest.fn();
 

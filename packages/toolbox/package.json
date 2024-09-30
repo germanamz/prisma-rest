@@ -6,9 +6,10 @@
   "types": "dist/index.d.ts",
   "author": "German Meza <iam@germanamz.com>",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json -w",
     "lint": "eslint .",
+    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
@@ -24,7 +25,8 @@
     "@types/jest": "^29.5.13",
     "@types/node": "^20.12.7",
     "eslint": "^8",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
   },
   "dependencies": {
     "@prisma/generator-helper": "^5.12.1",

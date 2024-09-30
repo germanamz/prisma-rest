@@ -32,7 +32,8 @@
     "@types/jest": "^29.5.13",
     "@types/node": "^20.12.7",
     "eslint": "^8",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
   },
   "dependencies": {
     "@germanamz/prisma-rest-toolbox": "workspace:^",

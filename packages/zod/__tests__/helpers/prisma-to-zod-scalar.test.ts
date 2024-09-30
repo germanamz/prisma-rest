@@ -1,4 +1,4 @@
-import { prismaToZodScalar } from '../../helpers/prisma-to-zod-scalar';
+import { prismaToZodScalar } from '../../src/helpers/prisma-to-zod-scalar';
 
 describe('prismaToZodScalar', () => {
   test('String -> string', () => {

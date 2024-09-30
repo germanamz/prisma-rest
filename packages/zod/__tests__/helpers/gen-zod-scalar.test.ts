@@ -1,4 +1,4 @@
-import { genZodScalar } from '../../helpers/gen-zod-scalar';
+import { genZodScalar } from '../../src/helpers/gen-zod-scalar';
 
 describe('genZodScalar', () => {
   it('should generate a required zod type', () => {

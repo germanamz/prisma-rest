@@ -1,7 +1,7 @@
 import { Project } from 'ts-morph';
 import { normalizeFilename } from './normalize-filename';
 
-type CreateSourceFileOptions = {
+export type CreateSourceFileOptions = {
   project: Project;
   name: string;
   dir: string;

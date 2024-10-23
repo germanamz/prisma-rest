@@ -83,7 +83,7 @@ export const generateApi = ({
 
         apiHandlerWriter({
           writer,
-          method: 'put',
+          method: 'patch',
           path: '/instance',
           handler: 'update(query, json)',
           status: 200,

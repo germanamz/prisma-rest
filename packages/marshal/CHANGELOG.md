@@ -1,0 +1,1 @@
+# @germanamz/prisma-rest-marshal

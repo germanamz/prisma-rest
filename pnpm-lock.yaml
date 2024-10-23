@@ -143,6 +143,46 @@ importers:
         specifier: ^29.2.5
         version: 29.2.5(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(jest@29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.6.2)))(typescript@5.6.2)
 
+  packages/marshal:
+    dependencies:
+      '@prisma/generator-helper':
+        specifier: ^5.12.1
+        version: 5.12.1
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.2.0
+      ts-morph:
+        specifier: ^22.0.0
+        version: 22.0.0
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
+    devDependencies:
+      '@germanamz/eslint-config':
+        specifier: ^1.0.4
+        version: 1.0.4(mna64wgmja7szkpbs5ohb4pmty)
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
+      '@types/jest':
+        specifier: ^29.5.13
+        version: 29.5.13
+      '@types/node':
+        specifier: ^20.12.7
+        version: 20.12.7
+      eslint:
+        specifier: ^8
+        version: 8.57.1
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.6.2))
+      ts-jest:
+        specifier: ^29.2.5
+        version: 29.2.5(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(jest@29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.6.2)))(typescript@5.6.2)
+
   packages/testor:
     dependencies:
       '@germanamz/errno':

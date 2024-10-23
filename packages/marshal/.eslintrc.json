@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@germanamz/eslint-config/base"
+  ],
+  "ignorePatterns": ["dist/"]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@germanamz/prisma-rest-marshal",
+  "version": "1.1.0",
+  "description": "Process and interpret Prisma DMMF",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "German Meza <iam@germanamz.com>",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json -w",
+    "lint": "eslint .",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germanamz/prisma-rest.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@germanamz/eslint-config": "^1.0.4",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^20.12.7",
+    "eslint": "^8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  },
+  "dependencies": {
+    "@prisma/generator-helper": "^5.12.1",
+    "fs-extra": "^11.2.0",
+    "ts-morph": "^22.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.6.2"
+  }
+}

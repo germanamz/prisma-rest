@@ -84,7 +84,7 @@ export const generateListFilter = (options: GenerateListFilterOptions) => {
 
       model.fields.forEach((field) => {
         if (!['scalar', 'enum'].includes(field.kind)) {
-          // Ignore non-scalar fields
+          // Ignore not supported kinds
           return;
         }
 

@@ -2,7 +2,8 @@ import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 
 import path from 'path';
-import { executeImportQueue, generateNamespace, Registry } from '@germanamz/prisma-rest-toolbox';
+import { executeImportQueue, namespaceGenerator, Registry } from '@germanamz/prisma-rest-toolbox';
+import { MarshalDocument } from '@germanamz/prisma-rest-marshal';
 import { generateDatamodel } from './datamodel/generate-datamodel';
 import { generateCrud } from './crud/generate-crud';
 
@@ -11,21 +12,23 @@ export type GenerateZodOptions = {
   dir: string;
   dmmf: DMMF.Document;
   registry: Registry;
+  marshalDocument: MarshalDocument;
 };
 
 export const generateZod = (options: GenerateZodOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
-  const indexFile = generateNamespace({
+  const indexFile = namespaceGenerator({
     ...options,
-    importQueue,
-    generator: (opts) => [
+    generator: () => [
       generateDatamodel({
-        ...opts,
-        dir: path.join(opts.dir, 'datamodel'),
+        ...options,
+        importQueue,
+        dir: path.join(options.dir, 'datamodel'),
       }),
       generateCrud({
-        ...opts,
-        dir: path.join(opts.dir, 'crud'),
+        ...options,
+        importQueue,
+        dir: path.join(options.dir, 'crud'),
       }),
     ],
   })!;

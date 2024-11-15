@@ -1,7 +1,7 @@
 import { Project } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 import path from 'path';
-import { generateNamespace, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { ImportQueue, namespaceGenerator, Registry } from '@germanamz/prisma-rest-toolbox';
 import { generateDatamodelEnums } from './generate-datamodel-enums';
 import { generateModels } from './generate-models';
 
@@ -13,22 +13,22 @@ export type GenerateDatamodelOptions = {
   importQueue: ImportQueue;
 };
 
-export const generateDatamodel = (options: GenerateDatamodelOptions) => generateNamespace({
+export const generateDatamodel = (options: GenerateDatamodelOptions) => namespaceGenerator({
   ...options,
-  generator: (opts) => [
+  generator: () => [
     generateDatamodelEnums({
-      ...opts,
-      dir: path.join(opts.dir, 'enums'),
+      ...options,
+      dir: path.join(options.dir, 'enums'),
     }),
     generateModels({
-      ...opts,
-      models: opts.dmmf.datamodel.types,
-      dir: path.join(opts.dir, 'types'),
+      ...options,
+      models: options.dmmf.datamodel.types,
+      dir: path.join(options.dir, 'types'),
     }),
     generateModels({
-      ...opts,
-      models: opts.dmmf.datamodel.models,
-      dir: path.join(opts.dir, 'models'),
+      ...options,
+      models: options.dmmf.datamodel.models,
+      dir: path.join(options.dir, 'models'),
     }),
   ],
 });

@@ -1,6 +1,6 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project, SourceFile } from 'ts-morph';
-import { generateNamespace } from '@germanamz/prisma-rest-toolbox';
+import { namespaceHandler } from '@germanamz/prisma-rest-toolbox';
 import { generateModel } from './generate-model';
 
 type GenerateModelsOptions = {
@@ -12,19 +12,11 @@ type GenerateModelsOptions = {
   dmmf: DMMF.Document;
 };
 
-export const generateModels = ({
-  project,
-  dir,
-  models,
-  registry,
-  importQueue,
-  dmmf,
-}: GenerateModelsOptions) => generateNamespace({
-  project,
-  dir,
-  items: models,
-  importQueue,
-  registry,
-  dmmf,
-  handler: generateModel,
+export const generateModels = (options: GenerateModelsOptions) => namespaceHandler({
+  ...options,
+  items: options.models,
+  handler: (item) => generateModel({
+    ...options,
+    item,
+  }),
 });

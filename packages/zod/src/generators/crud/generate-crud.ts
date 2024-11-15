@@ -1,6 +1,9 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
-import { generateNamespace, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import {
+  ImportQueue, namespaceGenerator, namespaceHandler, Registry,
+} from '@germanamz/prisma-rest-toolbox';
+import path from 'path';
 import { generateModelCrud } from './generate-model-crud';
 import { generateGlobalCrudBasics } from './generate-global-crud-basics';
 import { generateEnumOperators } from './generate-enum-operators';
@@ -13,21 +16,31 @@ type GenerateCrudOptions = {
   importQueue: ImportQueue;
 };
 
-export const generateCrud = (options: GenerateCrudOptions) => generateNamespace({
+export const generateCrud = (options: GenerateCrudOptions) => namespaceGenerator({
   ...options,
-  generator: (opts) => [
-    generateGlobalCrudBasics({ ...opts }),
-    generateNamespace({
-      ...opts,
-      dir: `${opts.dir}/enums`,
-      items: opts.dmmf.datamodel.enums,
-      handler: generateEnumOperators,
+  generator: () => [
+    generateGlobalCrudBasics({
+      ...options,
     }),
-    generateNamespace({
-      ...opts,
-      dir: `${opts.dir}/models`,
-      items: opts.dmmf.datamodel.models,
-      handler: generateModelCrud,
+    namespaceHandler({
+      ...options,
+      dir: path.join(options.dir, 'enums'),
+      items: options.dmmf.datamodel.enums,
+      handler: (item) => generateEnumOperators({
+        ...options,
+        item,
+        dir: path.join(options.dir, 'enums'),
+      }),
+    }),
+    namespaceHandler({
+      ...options,
+      dir: path.join(options.dir, 'models'),
+      items: options.dmmf.datamodel.models,
+      handler: (item) => generateModelCrud({
+        ...options,
+        item,
+        dir: path.join(options.dir, 'models'),
+      }),
     }),
   ],
 });

@@ -1,6 +1,7 @@
 import { generatorHandler } from '@prisma/generator-helper';
 import path from 'path';
 import { Project, SourceFile } from 'ts-morph';
+import { MarshalDocument } from '@germanamz/prisma-rest-marshal';
 import { generateZod } from './generators/generate-zod';
 
 generatorHandler({
@@ -25,12 +26,14 @@ generatorHandler({
       skipAddingFilesFromTsConfig: true,
     });
     const registry = new Map<string, SourceFile>();
+    const marshalDocument = new MarshalDocument(dmmf);
 
     generateZod({
       project,
       dir,
       dmmf,
       registry,
+      marshalDocument,
     });
 
     await project.save();

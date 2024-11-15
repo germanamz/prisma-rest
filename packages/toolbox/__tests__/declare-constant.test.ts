@@ -1,6 +1,7 @@
 import { CodeBlockWriter, SourceFile, VariableDeclarationKind } from 'ts-morph';
 import { declareConstant, DeclareConstantOptions } from '../src';
 
+// TODO: Use real project
 describe('declareConstant', () => {
   const mockOptions = (opts?: Partial<DeclareConstantOptions>): DeclareConstantOptions => {
     const writer = {} as CodeBlockWriter;

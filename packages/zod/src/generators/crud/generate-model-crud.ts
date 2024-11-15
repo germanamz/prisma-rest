@@ -1,11 +1,12 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
 import {
-  generateNamespace,
   ImportQueue,
+  namespaceGenerator,
   normalizeFilename,
   Registry,
 } from '@germanamz/prisma-rest-toolbox';
+import path from 'path';
 import { generateInput } from './generate-input';
 import { generateListFilter } from './generate-list-filter';
 import { generateUniqueFilter } from './generate-unique-filter';
@@ -19,29 +20,37 @@ type GenerateModelCrudOptions = {
   item: DMMF.Model;
 };
 
-export const generateModelCrud = (options: GenerateModelCrudOptions) => generateNamespace({
-  ...options,
-  dir: `${options.dir}/${normalizeFilename(options.item.name)}`,
-  generator: (opts) => [
-    generateInput({
-      ...opts,
-      model: options.item,
-      isOptional: false,
-      suffix: 'CreateInput',
-    }),
-    generateInput({
-      ...opts,
-      model: options.item,
-      isOptional: true,
-      suffix: 'UpdateInput',
-    }),
-    generateListFilter({
-      ...opts,
-      model: options.item,
-    }),
-    generateUniqueFilter({
-      ...opts,
-      model: options.item,
-    }),
-  ],
-});
+export const generateModelCrud = (options: GenerateModelCrudOptions) => {
+  const dir = path.join(options.dir, normalizeFilename(options.item.name));
+
+  return namespaceGenerator({
+    ...options,
+    dir,
+    generator: () => [
+      generateInput({
+        ...options,
+        dir,
+        model: options.item,
+        isOptional: false,
+        suffix: 'CreateInput',
+      }),
+      generateInput({
+        ...options,
+        dir,
+        model: options.item,
+        isOptional: true,
+        suffix: 'UpdateInput',
+      }),
+      generateListFilter({
+        ...options,
+        dir,
+        model: options.item,
+      }),
+      generateUniqueFilter({
+        ...options,
+        dir,
+        model: options.item,
+      }),
+    ],
+  });
+};

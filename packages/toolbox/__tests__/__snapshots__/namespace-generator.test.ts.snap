@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`namespaceGenerator should import the generated files correctly 1`] = `
+"export * from "./test";
+"
+`;

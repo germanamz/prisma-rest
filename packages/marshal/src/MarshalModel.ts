@@ -7,7 +7,7 @@ export class MarshalModel {
 
   name: string;
 
-  idField?: MarshalField;
+  idField?: MarshalField | null;
 
   singleUniqueFields: MarshalField[] = [];
 
@@ -20,6 +20,7 @@ export class MarshalModel {
   constructor(model: DMMF.Model) {
     this.model = model;
     this.name = model.name;
+    this.idField = null;
 
     this.buildFields();
     this.buildUniqueFields();

@@ -48,7 +48,7 @@ export const generateInput = (options: GenerateInputOptions) => {
           for (const field of model.fields) {
             if (['scalar', 'enum'].includes(field.kind)) {
               // only allow saclar and enum fields
-              // TODO: Add support to disable write
+              // TODO: Add support to disable write based on config
               writer.writeLine(`${field.name}: ${genFieldZodType({
                 field,
                 sourceFile,

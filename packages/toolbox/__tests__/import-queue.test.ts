@@ -1,6 +1,7 @@
 import { SourceFile } from 'ts-morph';
 import { addToImportQueue, executeImportQueue, ImportQueue } from '../src';
 
+// TODO: Use real project
 describe('import-queue', () => {
   describe('addToImportQueue', () => {
     it('should add to the queue correctly', () => {

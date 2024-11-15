@@ -12,4 +12,8 @@ describe('normalizeFilename', () => {
   it('should replace _ with -', () => {
     expect(normalizeFilename('my_component')).toBe('my-component');
   });
+
+  it('should use - for -', () => {
+    expect(normalizeFilename('my-component')).toBe('my-component');
+  });
 });

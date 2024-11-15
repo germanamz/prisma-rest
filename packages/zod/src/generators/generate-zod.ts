@@ -2,7 +2,8 @@ import { Project, SourceFile } from 'ts-morph';
 import { DMMF } from '@prisma/generator-helper';
 
 import path from 'path';
-import { executeImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { executeImportQueue, namespaceGenerator, Registry } from '@germanamz/prisma-rest-toolbox';
+import { MarshalDocument } from '@germanamz/prisma-rest-marshal';
 import { generateDatamodel } from './datamodel/generate-datamodel';
 import { generateCrud } from './crud/generate-crud';
 
@@ -11,40 +12,28 @@ export type GenerateZodOptions = {
   dir: string;
   dmmf: DMMF.Document;
   registry: Registry;
+  marshalDocument: MarshalDocument;
 };
 
-export const generateZod = ({
-  project, dmmf, dir, registry,
-}: GenerateZodOptions) => {
+export const generateZod = (options: GenerateZodOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
-  const indexFile = project.createSourceFile(path.join(dir, 'index.ts'), undefined, { overwrite: true });
-  const datamodelFile = generateDatamodel({
-    project,
-    dir: path.join(dir, 'datamodel'),
-    dmmf,
-    registry,
-    importQueue,
-  });
+  const indexFile = namespaceGenerator({
+    ...options,
+    generator: () => [
+      generateDatamodel({
+        ...options,
+        importQueue,
+        dir: path.join(options.dir, 'datamodel'),
+      }),
+      generateCrud({
+        ...options,
+        importQueue,
+        dir: path.join(options.dir, 'crud'),
+      }),
+    ],
+  })!;
 
-  indexFile.addExportDeclaration({
-    moduleSpecifier: `./${path.relative(dir, datamodelFile.getDirectoryPath())}`,
-  });
-
-  const crudFile = generateCrud({
-    project,
-    dir: path.join(dir, 'crud'),
-    dmmf,
-    registry,
-    importQueue,
-  });
-
-  if (crudFile) {
-    indexFile.addExportDeclaration({
-      moduleSpecifier: `./${path.relative(dir, crudFile.getDirectoryPath())}`,
-    });
-  }
-
-  executeImportQueue(importQueue, registry);
+  executeImportQueue(importQueue, options.registry);
 
   return indexFile;
 };

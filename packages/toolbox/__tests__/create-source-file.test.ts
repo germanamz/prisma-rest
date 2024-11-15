@@ -3,6 +3,7 @@ import {
 } from 'ts-morph';
 import { createSourceFile, CreateSourceFileOptions } from '../src';
 
+// TODO: Use real project
 describe('createSourceFile', () => {
   const mockOptions = (opts?: Partial<CreateSourceFileOptions>): CreateSourceFileOptions => ({
     project: {

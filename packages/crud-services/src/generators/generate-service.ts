@@ -1,6 +1,6 @@
 import { DMMF } from '@prisma/generator-helper';
 import { Project } from 'ts-morph';
-import { ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { createSourceFile, Registry } from '@germanamz/prisma-rest-toolbox';
 import { generateCreateMethod } from './generate-create-method';
 import { generateUpdateMethod } from './generate-update-method';
 import { generateDeleteMethod } from './generate-delete-method';
@@ -12,7 +12,6 @@ export type GenerateServiceOptions = {
   dir: string;
   project: Project;
   registry: Registry;
-  importQueue: ImportQueue;
   clientPath: string;
 };
 export const generateService = (
@@ -24,9 +23,10 @@ export const generateService = (
     registry,
   }: GenerateServiceOptions,
 ) => {
-  const filePath = `${dir}/${model.name.toLowerCase()}-crud-service.ts`;
-  const file = project.createSourceFile(filePath, undefined, {
-    overwrite: true,
+  const file = createSourceFile({
+    dir,
+    project,
+    name: `${model.name.toLowerCase()}-crud-service.ts`,
   });
 
   file.addImportDeclaration({

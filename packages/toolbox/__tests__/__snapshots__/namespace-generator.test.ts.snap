@@ -4,3 +4,7 @@ exports[`namespaceGenerator should import the generated files correctly 1`] = `
 "export * from "./test";
 "
 `;
+
+exports[`namespaceGenerator should import the generated files correctly 2`] = `"export const test = 1;"`;
+
+exports[`namespaceGenerator should return undefined if no files are generated 1`] = `""`;

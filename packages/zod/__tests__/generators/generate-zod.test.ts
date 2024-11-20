@@ -1,4 +1,5 @@
 import { SourceFile } from 'ts-morph';
+import { assertProjectSnapshot } from '@germanamz/prisma-rest-toolbox';
 import { generateZod } from '../../src';
 import { loadTestSchema } from '../../test-lib/testing-utility';
 
@@ -8,6 +9,7 @@ describe('generateZod', () => {
     const indexFile = generateZod(ctx);
 
     expect(indexFile).toBeInstanceOf(SourceFile);
-    expect(ctx.project.emitToMemory().getFiles()).toMatchSnapshot();
+
+    assertProjectSnapshot(ctx.project);
   });
 });

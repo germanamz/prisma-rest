@@ -1,1681 +1,896 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 1`] = `
-[
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/ledger-type.js.map",
-    "text": "{"version":3,"file":"ledger-type.js","sourceRoot":"","sources":["../../../../../datamodel/enums/ledger-type.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,UAAU,GAAG,OAAC,CAAC,IAAI,CAAC;IACzB,MAAM;IACN,IAAI;CACP,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/ledger-type.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerType = void 0;
-const zod_1 = require("zod");
-exports.LedgerType = zod_1.z.enum([
-    "MAIN",
-    "CC",
-]);
-//# sourceMappingURL=ledger-type.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/ledger-type.d.ts",
-    "text": "export declare const LedgerType: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/payload-kind.js.map",
-    "text": "{"version":3,"file":"payload-kind.js","sourceRoot":"","sources":["../../../../../datamodel/enums/payload-kind.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,WAAW,GAAG,OAAC,CAAC,IAAI,CAAC;IAC1B,OAAO;IACP,SAAS;CACZ,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/payload-kind.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PayloadKind = void 0;
-const zod_1 = require("zod");
-exports.PayloadKind = zod_1.z.enum([
-    "SMART",
-    "IMPULSE",
-]);
-//# sourceMappingURL=payload-kind.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/payload-kind.d.ts",
-    "text": "export declare const PayloadKind: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/book-namespace.js.map",
-    "text": "{"version":3,"file":"book-namespace.js","sourceRoot":"","sources":["../../../../../datamodel/enums/book-namespace.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,aAAa,GAAG,OAAC,CAAC,IAAI,CAAC;IAC5B,KAAK;IACL,KAAK;CACR,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/book-namespace.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookNamespace = void 0;
-const zod_1 = require("zod");
-exports.BookNamespace = zod_1.z.enum([
-    "BU1",
-    "BU2",
-]);
-//# sourceMappingURL=book-namespace.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/book-namespace.d.ts",
-    "text": "export declare const BookNamespace: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../datamodel/enums/index.ts"],"names":[],"mappings":";;;AAAA,wDAA8B;AAC9B,yDAA+B;AAC/B,2DAAiC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./ledger-type"), exports);
-tslib_1.__exportStar(require("./payload-kind"), exports);
-tslib_1.__exportStar(require("./book-namespace"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/enums/index.d.ts",
-    "text": "export * from "./ledger-type";
-export * from "./payload-kind";
-export * from "./book-namespace";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/ledger.js.map",
-    "text": "{"version":3,"file":"ledger.js","sourceRoot":"","sources":["../../../../../datamodel/models/ledger.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oCAAsC;AAEzB,QAAA,MAAM,GAAG,OAAC,CAAC,MAAM,CAAC;IACvB,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE;IACd,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE;IAChB,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE;IACjC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,KAAK,EAAE;IACxB,IAAI,EAAE,kBAAU;IAChB,YAAY,EAAE,kBAAU,CAAC,KAAK,EAAE;IAChC,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE;IACnB,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE;CACtB,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/ledger.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Ledger = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../enums");
-exports.Ledger = zod_1.z.object({
-    id: zod_1.z.string(),
-    name: zod_1.z.string(),
-    description: zod_1.z.string().nullish(),
-    tags: zod_1.z.string().array(),
-    type: enums_1.LedgerType,
-    allowedTypes: enums_1.LedgerType.array(),
-    createdAt: zod_1.z.date(),
-    updatedAt: zod_1.z.date(),
-});
-//# sourceMappingURL=ledger.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/ledger.d.ts",
-    "text": "export declare const Ledger: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/book.js.map",
-    "text": "{"version":3,"file":"book.js","sourceRoot":"","sources":["../../../../../datamodel/models/book.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oCAAyC;AAE5B,QAAA,IAAI,GAAG,OAAC,CAAC,MAAM,CAAC;IACrB,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE;IACd,SAAS,EAAE,qBAAa;IACxB,eAAe,EAAE,qBAAa,CAAC,OAAO,EAAE;IACxC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE;IACjB,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,OAAO,EAAE;IAC3B,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE;CACpC,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/book.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Book = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../enums");
-exports.Book = zod_1.z.object({
-    id: zod_1.z.string(),
-    namespace: enums_1.BookNamespace,
-    parentNamespace: enums_1.BookNamespace.nullish(),
-    section: zod_1.z.string(),
-    label: zod_1.z.string(),
-    root: zod_1.z.boolean().nullish(),
-    description: zod_1.z.string().nullish(),
-});
-//# sourceMappingURL=book.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/book.d.ts",
-    "text": "export declare const Book: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/entry.js.map",
-    "text": "{"version":3,"file":"entry.js","sourceRoot":"","sources":["../../../../../datamodel/models/entry.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oCAAyC;AAE5B,QAAA,KAAK,GAAG,OAAC,CAAC,MAAM,CAAC;IACtB,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE;IACd,MAAM,EAAE,OAAC,CAAC,MAAM,EAAE;IAClB,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE;IACnB,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,OAAO,EAAE;IAC7B,SAAS,EAAE,qBAAa;IACxB,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,QAAQ,EAAE,OAAC,CAAC,MAAM,EAAE;CACvB,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/entry.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Entry = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../enums");
-exports.Entry = zod_1.z.object({
-    id: zod_1.z.string(),
-    amount: zod_1.z.number(),
-    createdAt: zod_1.z.date(),
-    deletedAt: zod_1.z.date().nullish(),
-    namespace: enums_1.BookNamespace,
-    section: zod_1.z.string(),
-    ledgerId: zod_1.z.string(),
-});
-//# sourceMappingURL=entry.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/entry.d.ts",
-    "text": "export declare const Entry: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/log.js.map",
-    "text": "{"version":3,"file":"log.js","sourceRoot":"","sources":["../../../../../datamodel/models/log.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,GAAG,GAAG,OAAC,CAAC,MAAM,CAAC;IACpB,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,UAAU,EAAE,OAAC,CAAC,MAAM,EAAE;IACtB,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE;IAC1B,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE;IAChB,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;CACtB,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/log.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Log = void 0;
-const zod_1 = require("zod");
-exports.Log = zod_1.z.object({
-    section: zod_1.z.string(),
-    subSection: zod_1.z.string(),
-    msg1: zod_1.z.string().nullish(),
-    msg2: zod_1.z.string(),
-    entryId: zod_1.z.string(),
-});
-//# sourceMappingURL=log.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/log.d.ts",
-    "text": "export declare const Log: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/label.js.map",
-    "text": "{"version":3,"file":"label.js","sourceRoot":"","sources":["../../../../../datamodel/models/label.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,KAAK,GAAG,OAAC,CAAC,MAAM,CAAC;IACtB,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE;IAChB,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE;CACpB,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/label.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Label = void 0;
-const zod_1 = require("zod");
-exports.Label = zod_1.z.object({
-    name: zod_1.z.string(),
-    group: zod_1.z.string(),
-});
-//# sourceMappingURL=label.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/label.d.ts",
-    "text": "export declare const Label: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/asset.js.map",
-    "text": "{"version":3,"file":"asset.js","sourceRoot":"","sources":["../../../../../datamodel/models/asset.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,KAAK,GAAG,OAAC,CAAC,MAAM,CAAC;IACtB,GAAG,EAAE,OAAC,CAAC,MAAM,EAAE;CAClB,CAAC,CACL"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/asset.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Asset = void 0;
-const zod_1 = require("zod");
-exports.Asset = zod_1.z.object({
-    url: zod_1.z.string(),
-});
-//# sourceMappingURL=asset.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/asset.d.ts",
-    "text": "export declare const Asset: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../datamodel/models/index.ts"],"names":[],"mappings":";;;AAAA,mDAAyB;AACzB,iDAAuB;AACvB,kDAAwB;AACxB,gDAAsB;AACtB,kDAAwB;AACxB,kDAAwB"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./ledger"), exports);
-tslib_1.__exportStar(require("./book"), exports);
-tslib_1.__exportStar(require("./entry"), exports);
-tslib_1.__exportStar(require("./log"), exports);
-tslib_1.__exportStar(require("./label"), exports);
-tslib_1.__exportStar(require("./asset"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/models/index.d.ts",
-    "text": "export * from "./ledger";
+"export * from "./datamodel";
+export * from "./crud";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 2`] = `
+"import { z, ZodIssueCode } from "zod";
+
+export const OrderDirection = z.enum(['asc', 'desc']);
+export const parseJsonPreprocessor = (value: any, ctx: z.RefinementCtx) => {
+      if (typeof value === 'string') {
+        try {
+          return JSON.parse(value);
+        } catch (e) {
+          ctx.addIssue({
+            code: ZodIssueCode.custom,
+            message: (e as Error).message,
+          });
+        }
+      }
+
+      return value;
+    };
+export const StringFilterMode = z.enum(['default', 'insensitive']);
+export const StringFilterOperatorType = z.string();
+export const StringEqualityFilterOperators = z.object({
+    equals: StringFilterOperatorType.optional(),
+    not: StringFilterOperatorType.optional(),
+    in: z.array(StringFilterOperatorType).optional(),
+    notIn: z.array(StringFilterOperatorType).optional(),
+    });
+export const NumberFilterOperatorType = z.number();
+export const NumberEqualityFilterOperators = z.object({
+    equals: NumberFilterOperatorType.optional(),
+    not: NumberFilterOperatorType.optional(),
+    in: z.array(NumberFilterOperatorType).optional(),
+    notIn: z.array(NumberFilterOperatorType).optional(),
+    });
+export const DateFilterOperatorType = z.coerce.date();
+export const DateEqualityFilterOperators = z.object({
+    equals: DateFilterOperatorType.optional(),
+    not: DateFilterOperatorType.optional(),
+    in: z.array(DateFilterOperatorType).optional(),
+    notIn: z.array(DateFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperatorType = z.boolean();
+export const BooleanEqualityFilterOperators = z.object({
+    equals: BooleanFilterOperatorType.optional(),
+    not: BooleanFilterOperatorType.optional(),
+    in: z.array(BooleanFilterOperatorType).optional(),
+    notIn: z.array(BooleanFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperators = BooleanEqualityFilterOperators;
+export const StringFilterOperators = z.object({
+    contains: z.string().optional(),
+    startsWith: z.string().optional(),
+    endsWith: z.string().optional(),
+    mode: StringFilterMode.optional(),
+    }).merge(StringEqualityFilterOperators);
+export const NumberFilterOperators = z.object({
+    lt: z.number().optional(),
+    lte: z.number().optional(),
+    gt: z.number().optional(),
+    gte: z.number().optional(),
+    }).merge(NumberEqualityFilterOperators);
+export const DateFilterOperators = z.object({
+    lt: z.coerce.date().optional(),
+    lte: z.coerce.date().optional(),
+    gt: z.coerce.date().optional(),
+    gte: z.coerce.date().optional(),
+    }).merge(DateEqualityFilterOperators);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 3`] = `
+"export * from "./global-crud-basics";
+export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 4`] = `
+"export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 5`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../datamodel/enums";
+
+export const BookNamespaceEqualityFilterOperators = z.object({
+    equals: BookNamespace.optional(),
+    not: BookNamespace.optional(),
+    in: z.array(BookNamespace).optional(),
+    notIn: z.array(BookNamespace).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 6`] = `
+"export * from "./ledger-type-operators";
+export * from "./payload-kind-operators";
+export * from "./book-namespace-operators";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 7`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../datamodel/enums";
+
+export const LedgerTypeEqualityFilterOperators = z.object({
+    equals: LedgerType.optional(),
+    not: LedgerType.optional(),
+    in: z.array(LedgerType).optional(),
+    notIn: z.array(LedgerType).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 8`] = `
+"import { z } from "zod";
+import { PayloadKind } from "../../datamodel/enums";
+
+export const PayloadKindEqualityFilterOperators = z.object({
+    equals: PayloadKind.optional(),
+    not: PayloadKind.optional(),
+    in: z.array(PayloadKind).optional(),
+    notIn: z.array(PayloadKind).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 9`] = `
+"export * from "./ledger";
 export * from "./book";
 export * from "./entry";
 export * from "./log";
 export * from "./label";
 export * from "./asset";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../datamodel/index.ts"],"names":[],"mappings":";;;AAAA,kDAAwB;AACxB,mDAAyB"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./enums"), exports);
-tslib_1.__exportStar(require("./models"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/datamodel/index.d.ts",
-    "text": "export * from "./enums";
-export * from "./models";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/global-crud-basics.js.map",
-    "text": "{"version":3,"file":"global-crud-basics.js","sourceRoot":"","sources":["../../../../crud/global-crud-basics.ts"],"names":[],"mappings":"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"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/global-crud-basics.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.DateFilterOperators = exports.NumberFilterOperators = exports.StringFilterOperators = exports.BooleanFilterOperators = exports.BooleanEqualityFilterOperators = exports.BooleanFilterOperatorType = exports.DateEqualityFilterOperators = exports.DateFilterOperatorType = exports.NumberEqualityFilterOperators = exports.NumberFilterOperatorType = exports.StringEqualityFilterOperators = exports.StringFilterOperatorType = exports.StringFilterMode = exports.parseJsonPreprocessor = exports.OrderDirection = void 0;
-const zod_1 = require("zod");
-exports.OrderDirection = zod_1.z.enum(['asc', 'desc']);
-const parseJsonPreprocessor = (value, ctx) => {
-    if (typeof value === 'string') {
-        try {
-            return JSON.parse(value);
-        }
-        catch (e) {
-            ctx.addIssue({
-                code: zod_1.ZodIssueCode.custom,
-                message: e.message,
-            });
-        }
-    }
-    return value;
-};
-exports.parseJsonPreprocessor = parseJsonPreprocessor;
-exports.StringFilterMode = zod_1.z.enum(['default', 'insensitive']);
-exports.StringFilterOperatorType = zod_1.z.string();
-exports.StringEqualityFilterOperators = zod_1.z.object({
-    equals: exports.StringFilterOperatorType.optional(),
-    not: exports.StringFilterOperatorType.optional(),
-    in: zod_1.z.array(exports.StringFilterOperatorType).optional(),
-    notIn: zod_1.z.array(exports.StringFilterOperatorType).optional(),
-});
-exports.NumberFilterOperatorType = zod_1.z.number();
-exports.NumberEqualityFilterOperators = zod_1.z.object({
-    equals: exports.NumberFilterOperatorType.optional(),
-    not: exports.NumberFilterOperatorType.optional(),
-    in: zod_1.z.array(exports.NumberFilterOperatorType).optional(),
-    notIn: zod_1.z.array(exports.NumberFilterOperatorType).optional(),
-});
-exports.DateFilterOperatorType = zod_1.z.coerce.date();
-exports.DateEqualityFilterOperators = zod_1.z.object({
-    equals: exports.DateFilterOperatorType.optional(),
-    not: exports.DateFilterOperatorType.optional(),
-    in: zod_1.z.array(exports.DateFilterOperatorType).optional(),
-    notIn: zod_1.z.array(exports.DateFilterOperatorType).optional(),
-});
-exports.BooleanFilterOperatorType = zod_1.z.boolean();
-exports.BooleanEqualityFilterOperators = zod_1.z.object({
-    equals: exports.BooleanFilterOperatorType.optional(),
-    not: exports.BooleanFilterOperatorType.optional(),
-    in: zod_1.z.array(exports.BooleanFilterOperatorType).optional(),
-    notIn: zod_1.z.array(exports.BooleanFilterOperatorType).optional(),
-});
-exports.BooleanFilterOperators = exports.BooleanEqualityFilterOperators;
-exports.StringFilterOperators = zod_1.z.object({
-    contains: zod_1.z.string().optional(),
-    startsWith: zod_1.z.string().optional(),
-    endsWith: zod_1.z.string().optional(),
-    mode: exports.StringFilterMode.optional(),
-}).merge(exports.StringEqualityFilterOperators);
-exports.NumberFilterOperators = zod_1.z.object({
-    lt: zod_1.z.number().optional(),
-    lte: zod_1.z.number().optional(),
-    gt: zod_1.z.number().optional(),
-    gte: zod_1.z.number().optional(),
-}).merge(exports.NumberEqualityFilterOperators);
-exports.DateFilterOperators = zod_1.z.object({
-    lt: zod_1.z.coerce.date().optional(),
-    lte: zod_1.z.coerce.date().optional(),
-    gt: zod_1.z.coerce.date().optional(),
-    gte: zod_1.z.coerce.date().optional(),
-}).merge(exports.DateEqualityFilterOperators);
-//# sourceMappingURL=global-crud-basics.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/global-crud-basics.d.ts",
-    "text": "export declare const OrderDirection: any;
-export declare const parseJsonPreprocessor: (value: any, ctx: z.RefinementCtx) => any;
-export declare const StringFilterMode: any;
-export declare const StringFilterOperatorType: any;
-export declare const StringEqualityFilterOperators: any;
-export declare const NumberFilterOperatorType: any;
-export declare const NumberEqualityFilterOperators: any;
-export declare const DateFilterOperatorType: any;
-export declare const DateEqualityFilterOperators: any;
-export declare const BooleanFilterOperatorType: any;
-export declare const BooleanEqualityFilterOperators: any;
-export declare const BooleanFilterOperators: any;
-export declare const StringFilterOperators: any;
-export declare const NumberFilterOperators: any;
-export declare const DateFilterOperators: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/ledger-type-operators.js.map",
-    "text": "{"version":3,"file":"ledger-type-operators.js","sourceRoot":"","sources":["../../../../../crud/enums/ledger-type-operators.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,iDAAmD;AAEtC,QAAA,iCAAiC,GAAG,OAAC,CAAC,MAAM,CAAC;IACtD,MAAM,EAAE,kBAAU,CAAC,QAAQ,EAAE;IAC7B,GAAG,EAAE,kBAAU,CAAC,QAAQ,EAAE;IAC1B,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,kBAAU,CAAC,CAAC,QAAQ,EAAE;IAClC,KAAK,EAAE,OAAC,CAAC,KAAK,CAAC,kBAAU,CAAC,CAAC,QAAQ,EAAE;CACpC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/ledger-type-operators.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerTypeEqualityFilterOperators = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../datamodel/enums");
-exports.LedgerTypeEqualityFilterOperators = zod_1.z.object({
-    equals: enums_1.LedgerType.optional(),
-    not: enums_1.LedgerType.optional(),
-    in: zod_1.z.array(enums_1.LedgerType).optional(),
-    notIn: zod_1.z.array(enums_1.LedgerType).optional(),
-});
-//# sourceMappingURL=ledger-type-operators.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/ledger-type-operators.d.ts",
-    "text": "export declare const LedgerTypeEqualityFilterOperators: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/payload-kind-operators.js.map",
-    "text": "{"version":3,"file":"payload-kind-operators.js","sourceRoot":"","sources":["../../../../../crud/enums/payload-kind-operators.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,iDAAoD;AAEvC,QAAA,kCAAkC,GAAG,OAAC,CAAC,MAAM,CAAC;IACvD,MAAM,EAAE,mBAAW,CAAC,QAAQ,EAAE;IAC9B,GAAG,EAAE,mBAAW,CAAC,QAAQ,EAAE;IAC3B,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,mBAAW,CAAC,CAAC,QAAQ,EAAE;IACnC,KAAK,EAAE,OAAC,CAAC,KAAK,CAAC,mBAAW,CAAC,CAAC,QAAQ,EAAE;CACrC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/payload-kind-operators.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PayloadKindEqualityFilterOperators = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../datamodel/enums");
-exports.PayloadKindEqualityFilterOperators = zod_1.z.object({
-    equals: enums_1.PayloadKind.optional(),
-    not: enums_1.PayloadKind.optional(),
-    in: zod_1.z.array(enums_1.PayloadKind).optional(),
-    notIn: zod_1.z.array(enums_1.PayloadKind).optional(),
-});
-//# sourceMappingURL=payload-kind-operators.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/payload-kind-operators.d.ts",
-    "text": "export declare const PayloadKindEqualityFilterOperators: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/book-namespace-operators.js.map",
-    "text": "{"version":3,"file":"book-namespace-operators.js","sourceRoot":"","sources":["../../../../../crud/enums/book-namespace-operators.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,iDAAsD;AAEzC,QAAA,oCAAoC,GAAG,OAAC,CAAC,MAAM,CAAC;IACzD,MAAM,EAAE,qBAAa,CAAC,QAAQ,EAAE;IAChC,GAAG,EAAE,qBAAa,CAAC,QAAQ,EAAE;IAC7B,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,qBAAa,CAAC,CAAC,QAAQ,EAAE;IACrC,KAAK,EAAE,OAAC,CAAC,KAAK,CAAC,qBAAa,CAAC,CAAC,QAAQ,EAAE;CACvC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/book-namespace-operators.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookNamespaceEqualityFilterOperators = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../datamodel/enums");
-exports.BookNamespaceEqualityFilterOperators = zod_1.z.object({
-    equals: enums_1.BookNamespace.optional(),
-    not: enums_1.BookNamespace.optional(),
-    in: zod_1.z.array(enums_1.BookNamespace).optional(),
-    notIn: zod_1.z.array(enums_1.BookNamespace).optional(),
-});
-//# sourceMappingURL=book-namespace-operators.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/book-namespace-operators.d.ts",
-    "text": "export declare const BookNamespaceEqualityFilterOperators: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../crud/enums/index.ts"],"names":[],"mappings":";;;AAAA,kEAAwC;AACxC,mEAAyC;AACzC,qEAA2C"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./ledger-type-operators"), exports);
-tslib_1.__exportStar(require("./payload-kind-operators"), exports);
-tslib_1.__exportStar(require("./book-namespace-operators"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/enums/index.d.ts",
-    "text": "export * from "./ledger-type-operators";
-export * from "./payload-kind-operators";
-export * from "./book-namespace-operators";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-create-input.js.map",
-    "text": "{"version":3,"file":"ledger-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/ledger/ledger-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAsD;AAEzC,QAAA,iBAAiB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE;IAChB,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE;IACjC,IAAI,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,MAAM,EAAE,CAAC;IACzB,IAAI,EAAE,kBAAU;IAChB,YAAY,EAAE,kBAAU;IACxB,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,QAAQ,EAAE;IAC9B,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE;CAClB,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerCreateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.LedgerCreateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    name: zod_1.z.string(),
-    description: zod_1.z.string().nullish(),
-    tags: zod_1.z.array(zod_1.z.string()),
-    type: enums_1.LedgerType,
-    allowedTypes: enums_1.LedgerType,
-    createdAt: zod_1.z.date().optional(),
-    updatedAt: zod_1.z.date(),
-}).strict();
-//# sourceMappingURL=ledger-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-create-input.d.ts",
-    "text": "export declare const LedgerCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-update-input.js.map",
-    "text": "{"version":3,"file":"ledger-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/ledger/ledger-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAsD;AAEzC,QAAA,iBAAiB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5C,IAAI,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,MAAM,EAAE,CAAC,CAAC,QAAQ,EAAE;IACpC,IAAI,EAAE,kBAAU,CAAC,QAAQ,EAAE;IAC3B,YAAY,EAAE,kBAAU,CAAC,QAAQ,EAAE;IACnC,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,QAAQ,EAAE;IAC9B,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,QAAQ,EAAE;CAC7B,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerUpdateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.LedgerUpdateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    name: zod_1.z.string().optional(),
-    description: zod_1.z.string().nullish().optional(),
-    tags: zod_1.z.array(zod_1.z.string()).optional(),
-    type: enums_1.LedgerType.optional(),
-    allowedTypes: enums_1.LedgerType.optional(),
-    createdAt: zod_1.z.date().optional(),
-    updatedAt: zod_1.z.date().optional(),
-}).strict();
-//# sourceMappingURL=ledger-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-update-input.d.ts",
-    "text": "export declare const LedgerUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../crud/index.ts"],"names":[],"mappings":";;;AAAA,+DAAqC;AACrC,kDAAwB;AACxB,mDAAyB"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./global-crud-basics"), exports);
-tslib_1.__exportStar(require("./enums"), exports);
-tslib_1.__exportStar(require("./models"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/index.d.ts",
-    "text": "export * from "./global-crud-basics";
-export * from "./enums";
-export * from "./models";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-list-filter.js.map",
-    "text": "{"version":3,"file":"ledger-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/ledger/ledger-list-filter.ts"],"names":[],"mappings":"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"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerListFilter = exports.LedgerListFilterWhere = exports.LedgerListFilterWhereFields = exports.LedgerListFilterOrderBy = exports.LedgerListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-const enums_1 = require("../../enums");
-const __4 = require("../..");
-exports.LedgerListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    name: zod_1.z.boolean().optional(),
-    description: zod_1.z.boolean().optional(),
-    tags: zod_1.z.boolean().optional(),
-    type: zod_1.z.boolean().optional(),
-    allowedTypes: zod_1.z.boolean().optional(),
-    createdAt: zod_1.z.boolean().optional(),
-    updatedAt: zod_1.z.boolean().optional(),
-}));
-exports.LedgerListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ id: __1.OrderDirection }),
-    zod_1.z.object({ name: __1.OrderDirection }),
-    zod_1.z.object({ description: __1.OrderDirection }),
-    zod_1.z.object({ tags: __1.OrderDirection }),
-    zod_1.z.object({ type: __1.OrderDirection }),
-    zod_1.z.object({ allowedTypes: __1.OrderDirection }),
-    zod_1.z.object({ createdAt: __1.OrderDirection }),
-    zod_1.z.object({ updatedAt: __1.OrderDirection }),
-])));
-exports.LedgerListFilterWhereFields = zod_1.z.object({
-    id: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    name: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    description: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).nullish(),
-    tags: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    type: enums_1.LedgerTypeEqualityFilterOperators.optional(),
-    allowedTypes: enums_1.LedgerTypeEqualityFilterOperators.optional(),
-    createdAt: zod_1.z.union([zod_1.z.date(), __4.DateFilterOperators]).optional(),
-    updatedAt: zod_1.z.union([zod_1.z.date(), __4.DateFilterOperators]).optional(),
-});
-exports.LedgerListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.LedgerListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.LedgerListFilterWhereFields).optional(),
-    NOT: exports.LedgerListFilterWhereFields.optional(),
-}).merge(exports.LedgerListFilterWhereFields));
-exports.LedgerListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.LedgerListFilterSelect.optional(),
-    orderBy: exports.LedgerListFilterOrderBy.optional(),
-    where: exports.LedgerListFilterWhere,
-});
-//# sourceMappingURL=ledger-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-list-filter.d.ts",
-    "text": "export declare const LedgerListFilterSelect: any;
-export declare const LedgerListFilterOrderBy: any;
-export declare const LedgerListFilterWhereFields: any;
-export declare const LedgerListFilterWhere: any;
-export declare const LedgerListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-unique-filter.js.map",
-    "text": "{"version":3,"file":"ledger-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/ledger/ledger-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAEjC,QAAA,wBAAwB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC7E,EAAE,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC1B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,WAAW,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACnC,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,YAAY,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACpC,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACjC,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CACpC,CAAC,CAAC,CAAC;AACK,QAAA,uBAAuB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EACrE,OAAC,CAAC,MAAM,CAAC,EAAE,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC,CAC3B,CAAC;AACO,QAAA,kBAAkB,GAAG,OAAC,CAAC,MAAM,CAAC;IACvC,KAAK,EAAE,+BAAuB;IAC9B,MAAM,EAAE,gCAAwB,CAAC,QAAQ,EAAE;CAC1C,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LedgerUniqueFilter = exports.LedgerUniqueFilterWhere = exports.LedgerUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-exports.LedgerUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    name: zod_1.z.boolean().optional(),
-    description: zod_1.z.boolean().optional(),
-    tags: zod_1.z.boolean().optional(),
-    type: zod_1.z.boolean().optional(),
-    allowedTypes: zod_1.z.boolean().optional(),
-    createdAt: zod_1.z.boolean().optional(),
-    updatedAt: zod_1.z.boolean().optional(),
-}));
-exports.LedgerUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({ id: zod_1.z.string() }));
-exports.LedgerUniqueFilter = zod_1.z.object({
-    where: exports.LedgerUniqueFilterWhere,
-    select: exports.LedgerUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=ledger-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/ledger-unique-filter.d.ts",
-    "text": "export declare const LedgerUniqueFilterSelect: any;
-export declare const LedgerUniqueFilterWhere: any;
-export declare const LedgerUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/ledger/index.ts"],"names":[],"mappings":";;;AAAA,gEAAsC;AACtC,gEAAsC;AACtC,+DAAqC;AACrC,iEAAuC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./ledger-create-input"), exports);
-tslib_1.__exportStar(require("./ledger-update-input"), exports);
-tslib_1.__exportStar(require("./ledger-list-filter"), exports);
-tslib_1.__exportStar(require("./ledger-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/ledger/index.d.ts",
-    "text": "export * from "./ledger-create-input";
-export * from "./ledger-update-input";
-export * from "./ledger-list-filter";
-export * from "./ledger-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-create-input.js.map",
-    "text": "{"version":3,"file":"book-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/book/book-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAyD;AAE5C,QAAA,eAAe,GAAG,OAAC,CAAC,MAAM,CAAC;IACpC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,SAAS,EAAE,qBAAa;IACxB,eAAe,EAAE,qBAAa,CAAC,OAAO,EAAE;IACxC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE;IACjB,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,OAAO,EAAE;IAC3B,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE;CAChC,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookCreateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.BookCreateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    namespace: enums_1.BookNamespace,
-    parentNamespace: enums_1.BookNamespace.nullish(),
-    section: zod_1.z.string(),
-    label: zod_1.z.string(),
-    root: zod_1.z.boolean().nullish(),
-    description: zod_1.z.string().nullish(),
-}).strict();
-//# sourceMappingURL=book-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-create-input.d.ts",
-    "text": "export declare const BookCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-update-input.js.map",
-    "text": "{"version":3,"file":"book-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/book/book-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAyD;AAE5C,QAAA,eAAe,GAAG,OAAC,CAAC,MAAM,CAAC;IACpC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,SAAS,EAAE,qBAAa,CAAC,QAAQ,EAAE;IACnC,eAAe,EAAE,qBAAa,CAAC,OAAO,EAAE;IACxC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC9B,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC5B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACtC,WAAW,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAC3C,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookUpdateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.BookUpdateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    namespace: enums_1.BookNamespace.optional(),
-    parentNamespace: enums_1.BookNamespace.nullish(),
-    section: zod_1.z.string().optional(),
-    label: zod_1.z.string().optional(),
-    root: zod_1.z.boolean().nullish().optional(),
-    description: zod_1.z.string().nullish().optional(),
-}).strict();
-//# sourceMappingURL=book-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-update-input.d.ts",
-    "text": "export declare const BookUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-list-filter.js.map",
-    "text": "{"version":3,"file":"book-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/book/book-list-filter.ts"],"names":[],"mappings":"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"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookListFilter = exports.BookListFilterWhere = exports.BookListFilterWhereFields = exports.BookListFilterOrderBy = exports.BookListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-const enums_1 = require("../../enums");
-const __4 = require("../..");
-exports.BookListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    namespace: zod_1.z.boolean().optional(),
-    parentNamespace: zod_1.z.boolean().optional(),
-    section: zod_1.z.boolean().optional(),
-    label: zod_1.z.boolean().optional(),
-    root: zod_1.z.boolean().optional(),
-    description: zod_1.z.boolean().optional(),
-}));
-exports.BookListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ id: __1.OrderDirection }),
-    zod_1.z.object({ namespace: __1.OrderDirection }),
-    zod_1.z.object({ parentNamespace: __1.OrderDirection }),
-    zod_1.z.object({ section: __1.OrderDirection }),
-    zod_1.z.object({ label: __1.OrderDirection }),
-    zod_1.z.object({ root: __1.OrderDirection }),
-    zod_1.z.object({ description: __1.OrderDirection }),
-])));
-exports.BookListFilterWhereFields = zod_1.z.object({
-    id: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    namespace: enums_1.BookNamespaceEqualityFilterOperators.optional(),
-    parentNamespace: enums_1.BookNamespaceEqualityFilterOperators.nullish(),
-    section: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    label: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    root: zod_1.z.union([zod_1.z.boolean(), __4.BooleanFilterOperators]).nullish(),
-    description: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).nullish(),
-});
-exports.BookListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.BookListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.BookListFilterWhereFields).optional(),
-    NOT: exports.BookListFilterWhereFields.optional(),
-}).merge(exports.BookListFilterWhereFields));
-exports.BookListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.BookListFilterSelect.optional(),
-    orderBy: exports.BookListFilterOrderBy.optional(),
-    where: exports.BookListFilterWhere,
-});
-//# sourceMappingURL=book-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-list-filter.d.ts",
-    "text": "export declare const BookListFilterSelect: any;
-export declare const BookListFilterOrderBy: any;
-export declare const BookListFilterWhereFields: any;
-export declare const BookListFilterWhere: any;
-export declare const BookListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-unique-filter.js.map",
-    "text": "{"version":3,"file":"book-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/book/book-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAC9C,oDAAyD;AAE5C,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC3E,EAAE,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC1B,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACjC,eAAe,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACvC,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC/B,KAAK,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC7B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,WAAW,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CACtC,CAAC,CAAC,CAAC;AACK,QAAA,qBAAqB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EACnE,OAAC,CAAC,KAAK,CAAC;IACR,OAAC,CAAC,MAAM,CAAC,EAAE,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC;IACxB,OAAC,CAAC,MAAM,CAAC,EAAE,iBAAiB,EAAE,OAAC,CAAC,MAAM,CAAC;YACvC,SAAS,EAAE,qBAAa;YACxB,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;SAClB,CAAC;KACL,CAAC;IACE,OAAC,CAAC,MAAM,CAAC,EAAE,aAAa,EAAE,OAAC,CAAC,MAAM,CAAC;YACnC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;YACnB,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE;SAChB,CAAC;KACL,CAAC;CAAE,CAAC,CAAC,CAAC;AACE,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,KAAK,EAAE,6BAAqB;IAC5B,MAAM,EAAE,8BAAsB,CAAC,QAAQ,EAAE;CACxC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookUniqueFilter = exports.BookUniqueFilterWhere = exports.BookUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const enums_1 = require("../../../datamodel/enums");
-exports.BookUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    namespace: zod_1.z.boolean().optional(),
-    parentNamespace: zod_1.z.boolean().optional(),
-    section: zod_1.z.boolean().optional(),
-    label: zod_1.z.boolean().optional(),
-    root: zod_1.z.boolean().optional(),
-    description: zod_1.z.boolean().optional(),
-}));
-exports.BookUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.union([
-    zod_1.z.object({ id: zod_1.z.string() }),
-    zod_1.z.object({ namespace_section: zod_1.z.object({
-            namespace: enums_1.BookNamespace,
-            section: zod_1.z.string(),
-        }),
-    }),
-    zod_1.z.object({ section_label: zod_1.z.object({
-            section: zod_1.z.string(),
-            label: zod_1.z.string(),
-        }),
-    }),
-]));
-exports.BookUniqueFilter = zod_1.z.object({
-    where: exports.BookUniqueFilterWhere,
-    select: exports.BookUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=book-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/book-unique-filter.d.ts",
-    "text": "export declare const BookUniqueFilterSelect: any;
-export declare const BookUniqueFilterWhere: any;
-export declare const BookUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/book/index.ts"],"names":[],"mappings":";;;AAAA,8DAAoC;AACpC,8DAAoC;AACpC,6DAAmC;AACnC,+DAAqC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./book-create-input"), exports);
-tslib_1.__exportStar(require("./book-update-input"), exports);
-tslib_1.__exportStar(require("./book-list-filter"), exports);
-tslib_1.__exportStar(require("./book-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/book/index.d.ts",
-    "text": "export * from "./book-create-input";
-export * from "./book-update-input";
-export * from "./book-list-filter";
-export * from "./book-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-create-input.js.map",
-    "text": "{"version":3,"file":"entry-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/entry/entry-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAyD;AAE5C,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,MAAM,EAAE,OAAC,CAAC,MAAM,EAAE;IAClB,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,QAAQ,EAAE;IAC9B,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,OAAO,EAAE;IAC7B,SAAS,EAAE,qBAAa;IACxB,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,QAAQ,EAAE,OAAC,CAAC,MAAM,EAAE;CACnB,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntryCreateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.EntryCreateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    amount: zod_1.z.number(),
-    createdAt: zod_1.z.date().optional(),
-    deletedAt: zod_1.z.date().nullish(),
-    namespace: enums_1.BookNamespace,
-    section: zod_1.z.string(),
-    ledgerId: zod_1.z.string(),
-}).strict();
-//# sourceMappingURL=entry-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-create-input.d.ts",
-    "text": "export declare const EntryCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-update-input.js.map",
-    "text": "{"version":3,"file":"entry-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/entry/entry-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,oDAAyD;AAE5C,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACzB,MAAM,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC7B,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,QAAQ,EAAE;IAC9B,SAAS,EAAE,OAAC,CAAC,IAAI,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACxC,SAAS,EAAE,qBAAa,CAAC,QAAQ,EAAE;IACnC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC9B,QAAQ,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;CAC9B,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntryUpdateInput = void 0;
-const zod_1 = require("zod");
-const enums_1 = require("../../../datamodel/enums");
-exports.EntryUpdateInput = zod_1.z.object({
-    id: zod_1.z.string().optional(),
-    amount: zod_1.z.number().optional(),
-    createdAt: zod_1.z.date().optional(),
-    deletedAt: zod_1.z.date().nullish().optional(),
-    namespace: enums_1.BookNamespace.optional(),
-    section: zod_1.z.string().optional(),
-    ledgerId: zod_1.z.string().optional(),
-}).strict();
-//# sourceMappingURL=entry-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-update-input.d.ts",
-    "text": "export declare const EntryUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-list-filter.js.map",
-    "text": "{"version":3,"file":"entry-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/entry/entry-list-filter.ts"],"names":[],"mappings":"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"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntryListFilter = exports.EntryListFilterWhere = exports.EntryListFilterWhereFields = exports.EntryListFilterOrderBy = exports.EntryListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-const __4 = require("../..");
-const __5 = require("../..");
-const enums_1 = require("../../enums");
-exports.EntryListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    amount: zod_1.z.boolean().optional(),
-    createdAt: zod_1.z.boolean().optional(),
-    deletedAt: zod_1.z.boolean().optional(),
-    namespace: zod_1.z.boolean().optional(),
-    section: zod_1.z.boolean().optional(),
-    ledgerId: zod_1.z.boolean().optional(),
-}));
-exports.EntryListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ id: __1.OrderDirection }),
-    zod_1.z.object({ amount: __1.OrderDirection }),
-    zod_1.z.object({ createdAt: __1.OrderDirection }),
-    zod_1.z.object({ deletedAt: __1.OrderDirection }),
-    zod_1.z.object({ namespace: __1.OrderDirection }),
-    zod_1.z.object({ section: __1.OrderDirection }),
-    zod_1.z.object({ ledgerId: __1.OrderDirection }),
-])));
-exports.EntryListFilterWhereFields = zod_1.z.object({
-    id: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    amount: zod_1.z.union([zod_1.z.number(), __4.NumberFilterOperators]).optional(),
-    createdAt: zod_1.z.union([zod_1.z.date(), __5.DateFilterOperators]).optional(),
-    deletedAt: zod_1.z.union([zod_1.z.date(), __5.DateFilterOperators]).nullish(),
-    namespace: enums_1.BookNamespaceEqualityFilterOperators.optional(),
-    section: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    ledgerId: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-});
-exports.EntryListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.EntryListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.EntryListFilterWhereFields).optional(),
-    NOT: exports.EntryListFilterWhereFields.optional(),
-}).merge(exports.EntryListFilterWhereFields));
-exports.EntryListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.EntryListFilterSelect.optional(),
-    orderBy: exports.EntryListFilterOrderBy.optional(),
-    where: exports.EntryListFilterWhere,
-});
-//# sourceMappingURL=entry-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-list-filter.d.ts",
-    "text": "export declare const EntryListFilterSelect: any;
-export declare const EntryListFilterOrderBy: any;
-export declare const EntryListFilterWhereFields: any;
-export declare const EntryListFilterWhere: any;
-export declare const EntryListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-unique-filter.js.map",
-    "text": "{"version":3,"file":"entry-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/entry/entry-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAEjC,QAAA,uBAAuB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC5E,EAAE,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC1B,MAAM,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC9B,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACjC,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACjC,SAAS,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACjC,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC/B,QAAQ,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CACnC,CAAC,CAAC,CAAC;AACK,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EACpE,OAAC,CAAC,MAAM,CAAC,EAAE,EAAE,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC,CAC3B,CAAC;AACO,QAAA,iBAAiB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,KAAK,EAAE,8BAAsB;IAC7B,MAAM,EAAE,+BAAuB,CAAC,QAAQ,EAAE;CACzC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntryUniqueFilter = exports.EntryUniqueFilterWhere = exports.EntryUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-exports.EntryUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    id: zod_1.z.boolean().optional(),
-    amount: zod_1.z.boolean().optional(),
-    createdAt: zod_1.z.boolean().optional(),
-    deletedAt: zod_1.z.boolean().optional(),
-    namespace: zod_1.z.boolean().optional(),
-    section: zod_1.z.boolean().optional(),
-    ledgerId: zod_1.z.boolean().optional(),
-}));
-exports.EntryUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({ id: zod_1.z.string() }));
-exports.EntryUniqueFilter = zod_1.z.object({
-    where: exports.EntryUniqueFilterWhere,
-    select: exports.EntryUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=entry-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/entry-unique-filter.d.ts",
-    "text": "export declare const EntryUniqueFilterSelect: any;
-export declare const EntryUniqueFilterWhere: any;
-export declare const EntryUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/entry/index.ts"],"names":[],"mappings":";;;AAAA,+DAAqC;AACrC,+DAAqC;AACrC,8DAAoC;AACpC,gEAAsC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./entry-create-input"), exports);
-tslib_1.__exportStar(require("./entry-update-input"), exports);
-tslib_1.__exportStar(require("./entry-list-filter"), exports);
-tslib_1.__exportStar(require("./entry-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/entry/index.d.ts",
-    "text": "export * from "./entry-create-input";
-export * from "./entry-update-input";
-export * from "./entry-list-filter";
-export * from "./entry-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-create-input.js.map",
-    "text": "{"version":3,"file":"log-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/log/log-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,cAAc,GAAG,OAAC,CAAC,MAAM,CAAC;IACnC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;IACnB,UAAU,EAAE,OAAC,CAAC,MAAM,EAAE;IACtB,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACrC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;CAClB,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogCreateInput = void 0;
-const zod_1 = require("zod");
-exports.LogCreateInput = zod_1.z.object({
-    section: zod_1.z.string(),
-    subSection: zod_1.z.string(),
-    msg1: zod_1.z.string().nullish().optional(),
-    msg2: zod_1.z.string().optional(),
-    entryId: zod_1.z.string(),
-}).strict();
-//# sourceMappingURL=log-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-create-input.d.ts",
-    "text": "export declare const LogCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-update-input.js.map",
-    "text": "{"version":3,"file":"log-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/log/log-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,cAAc,GAAG,OAAC,CAAC,MAAM,CAAC;IACnC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC9B,UAAU,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IACjC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IACrC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;CAC7B,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogUpdateInput = void 0;
-const zod_1 = require("zod");
-exports.LogUpdateInput = zod_1.z.object({
-    section: zod_1.z.string().optional(),
-    subSection: zod_1.z.string().optional(),
-    msg1: zod_1.z.string().nullish().optional(),
-    msg2: zod_1.z.string().optional(),
-    entryId: zod_1.z.string().optional(),
-}).strict();
-//# sourceMappingURL=log-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-update-input.d.ts",
-    "text": "export declare const LogUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-list-filter.js.map",
-    "text": "{"version":3,"file":"log-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/log/log-list-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,6BAAuC;AACvC,6BAA8C;AAC9C,6BAA8C;AAEjC,QAAA,mBAAmB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IACxE,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC/B,UAAU,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAClC,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAClC,CAAC,CAAC,CAAC;AACK,QAAA,oBAAoB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,KAAK,CAAC;IAChF,OAAC,CAAC,MAAM,CAAC,EAAE,OAAO,EAAE,kBAAc,EAAE,CAAC;IACrC,OAAC,CAAC,MAAM,CAAC,EAAE,UAAU,EAAE,kBAAc,EAAE,CAAC;IACxC,OAAC,CAAC,MAAM,CAAC,EAAE,IAAI,EAAE,kBAAc,EAAE,CAAC;IAClC,OAAC,CAAC,MAAM,CAAC,EAAE,IAAI,EAAE,kBAAc,EAAE,CAAC;IAClC,OAAC,CAAC,MAAM,CAAC,EAAE,OAAO,EAAE,kBAAc,EAAE,CAAC;CACxC,CAAC,CAAC,CAAC,CAAC;AACI,QAAA,wBAAwB,GAAG,OAAC,CAAC,MAAM,CAAC;IAC7C,OAAO,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;IAChE,UAAU,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;IACnE,IAAI,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,OAAO,EAAE;IAC5D,IAAI,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;IAC7D,OAAO,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;CAC/D,CAAC,CAAC;AACM,QAAA,kBAAkB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC3E,GAAG,EAAE,OAAC,CAAC,KAAK,CAAC,gCAAwB,CAAC,CAAC,QAAQ,EAAE;IACjD,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,gCAAwB,CAAC,CAAC,QAAQ,EAAE;IAChD,GAAG,EAAE,gCAAwB,CAAC,QAAQ,EAAE;CACvC,CAAC,CAAC,KAAK,CAAC,gCAAwB,CAAC,CAAC,CAAC;AAC3B,QAAA,aAAa,GAAG,OAAC,CAAC,MAAM,CAAC;IAClC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,MAAM,EAAE,2BAAmB,CAAC,QAAQ,EAAE;IACtC,OAAO,EAAE,4BAAoB,CAAC,QAAQ,EAAE;IACxC,KAAK,EAAE,0BAAkB;CACxB,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogListFilter = exports.LogListFilterWhere = exports.LogListFilterWhereFields = exports.LogListFilterOrderBy = exports.LogListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-exports.LogListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    section: zod_1.z.boolean().optional(),
-    subSection: zod_1.z.boolean().optional(),
-    msg1: zod_1.z.boolean().optional(),
-    msg2: zod_1.z.boolean().optional(),
-    entryId: zod_1.z.boolean().optional(),
-}));
-exports.LogListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ section: __1.OrderDirection }),
-    zod_1.z.object({ subSection: __1.OrderDirection }),
-    zod_1.z.object({ msg1: __1.OrderDirection }),
-    zod_1.z.object({ msg2: __1.OrderDirection }),
-    zod_1.z.object({ entryId: __1.OrderDirection }),
-])));
-exports.LogListFilterWhereFields = zod_1.z.object({
-    section: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    subSection: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    msg1: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).nullish(),
-    msg2: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    entryId: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-});
-exports.LogListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.LogListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.LogListFilterWhereFields).optional(),
-    NOT: exports.LogListFilterWhereFields.optional(),
-}).merge(exports.LogListFilterWhereFields));
-exports.LogListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.LogListFilterSelect.optional(),
-    orderBy: exports.LogListFilterOrderBy.optional(),
-    where: exports.LogListFilterWhere,
-});
-//# sourceMappingURL=log-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-list-filter.d.ts",
-    "text": "export declare const LogListFilterSelect: any;
-export declare const LogListFilterOrderBy: any;
-export declare const LogListFilterWhereFields: any;
-export declare const LogListFilterWhere: any;
-export declare const LogListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-unique-filter.js.map",
-    "text": "{"version":3,"file":"log-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/log/log-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAEjC,QAAA,qBAAqB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC1E,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC/B,UAAU,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAClC,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,OAAO,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAClC,CAAC,CAAC,CAAC;AACK,QAAA,oBAAoB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAC9D,OAAC,CAAC,MAAM,CAAC,EAAE,kBAAkB,EAAE,OAAC,CAAC,MAAM,CAAC;QACxC,OAAO,EAAE,OAAC,CAAC,MAAM,EAAE;QACnB,UAAU,EAAE,OAAC,CAAC,MAAM,EAAE;KACrB,CAAC;CACL,CAAC,CAAC,CAAC;AACK,QAAA,eAAe,GAAG,OAAC,CAAC,MAAM,CAAC;IACpC,KAAK,EAAE,4BAAoB;IAC3B,MAAM,EAAE,6BAAqB,CAAC,QAAQ,EAAE;CACvC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogUniqueFilter = exports.LogUniqueFilterWhere = exports.LogUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-exports.LogUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    section: zod_1.z.boolean().optional(),
-    subSection: zod_1.z.boolean().optional(),
-    msg1: zod_1.z.boolean().optional(),
-    msg2: zod_1.z.boolean().optional(),
-    entryId: zod_1.z.boolean().optional(),
-}));
-exports.LogUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({ section_subSection: zod_1.z.object({
-        section: zod_1.z.string(),
-        subSection: zod_1.z.string(),
-    }),
-}));
-exports.LogUniqueFilter = zod_1.z.object({
-    where: exports.LogUniqueFilterWhere,
-    select: exports.LogUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=log-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/log-unique-filter.d.ts",
-    "text": "export declare const LogUniqueFilterSelect: any;
-export declare const LogUniqueFilterWhere: any;
-export declare const LogUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/log/index.ts"],"names":[],"mappings":";;;AAAA,6DAAmC;AACnC,6DAAmC;AACnC,4DAAkC;AAClC,8DAAoC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./log-create-input"), exports);
-tslib_1.__exportStar(require("./log-update-input"), exports);
-tslib_1.__exportStar(require("./log-list-filter"), exports);
-tslib_1.__exportStar(require("./log-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/log/index.d.ts",
-    "text": "export * from "./log-create-input";
-export * from "./log-update-input";
-export * from "./log-list-filter";
-export * from "./log-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-create-input.js.map",
-    "text": "{"version":3,"file":"label-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/label/label-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE;IAChB,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE;CAChB,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LabelCreateInput = void 0;
-const zod_1 = require("zod");
-exports.LabelCreateInput = zod_1.z.object({
-    name: zod_1.z.string(),
-    group: zod_1.z.string(),
-}).strict();
-//# sourceMappingURL=label-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-create-input.d.ts",
-    "text": "export declare const LabelCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-update-input.js.map",
-    "text": "{"version":3,"file":"label-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/label/label-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;CAC3B,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LabelUpdateInput = void 0;
-const zod_1 = require("zod");
-exports.LabelUpdateInput = zod_1.z.object({
-    name: zod_1.z.string().optional(),
-    group: zod_1.z.string().optional(),
-}).strict();
-//# sourceMappingURL=label-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-update-input.d.ts",
-    "text": "export declare const LabelUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-list-filter.js.map",
-    "text": "{"version":3,"file":"label-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/label/label-list-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,6BAAuC;AACvC,6BAA8C;AAC9C,6BAA8C;AAEjC,QAAA,qBAAqB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC1E,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,KAAK,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAChC,CAAC,CAAC,CAAC;AACK,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,KAAK,CAAC;IAClF,OAAC,CAAC,MAAM,CAAC,EAAE,IAAI,EAAE,kBAAc,EAAE,CAAC;IAClC,OAAC,CAAC,MAAM,CAAC,EAAE,KAAK,EAAE,kBAAc,EAAE,CAAC;CACtC,CAAC,CAAC,CAAC,CAAC;AACI,QAAA,0BAA0B,GAAG,OAAC,CAAC,MAAM,CAAC;IAC/C,IAAI,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;IAC7D,KAAK,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;CAC7D,CAAC,CAAC;AACM,QAAA,oBAAoB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC7E,GAAG,EAAE,OAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,QAAQ,EAAE;IACnD,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,QAAQ,EAAE;IAClD,GAAG,EAAE,kCAA0B,CAAC,QAAQ,EAAE;CACzC,CAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,CAAC;AAC7B,QAAA,eAAe,GAAG,OAAC,CAAC,MAAM,CAAC;IACpC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,MAAM,EAAE,6BAAqB,CAAC,QAAQ,EAAE;IACxC,OAAO,EAAE,8BAAsB,CAAC,QAAQ,EAAE;IAC1C,KAAK,EAAE,4BAAoB;CAC1B,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LabelListFilter = exports.LabelListFilterWhere = exports.LabelListFilterWhereFields = exports.LabelListFilterOrderBy = exports.LabelListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-exports.LabelListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    name: zod_1.z.boolean().optional(),
-    group: zod_1.z.boolean().optional(),
-}));
-exports.LabelListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ name: __1.OrderDirection }),
-    zod_1.z.object({ group: __1.OrderDirection }),
-])));
-exports.LabelListFilterWhereFields = zod_1.z.object({
-    name: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-    group: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-});
-exports.LabelListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.LabelListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.LabelListFilterWhereFields).optional(),
-    NOT: exports.LabelListFilterWhereFields.optional(),
-}).merge(exports.LabelListFilterWhereFields));
-exports.LabelListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.LabelListFilterSelect.optional(),
-    orderBy: exports.LabelListFilterOrderBy.optional(),
-    where: exports.LabelListFilterWhere,
-});
-//# sourceMappingURL=label-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-list-filter.d.ts",
-    "text": "export declare const LabelListFilterSelect: any;
-export declare const LabelListFilterOrderBy: any;
-export declare const LabelListFilterWhereFields: any;
-export declare const LabelListFilterWhere: any;
-export declare const LabelListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-unique-filter.js.map",
-    "text": "{"version":3,"file":"label-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/label/label-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAEjC,QAAA,uBAAuB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC5E,IAAI,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;IAC5B,KAAK,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAChC,CAAC,CAAC,CAAC;AACK,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EACpE,OAAC,CAAC,KAAK,CAAC;IACR,OAAC,CAAC,MAAM,CAAC,EAAE,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC;IAC9B,OAAC,CAAC,MAAM,CAAC,EAAE,KAAK,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC;CAC9B,CAAC,CAAC,CAAC;AACK,QAAA,iBAAiB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,KAAK,EAAE,8BAAsB;IAC7B,MAAM,EAAE,+BAAuB,CAAC,QAAQ,EAAE;CACzC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LabelUniqueFilter = exports.LabelUniqueFilterWhere = exports.LabelUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-exports.LabelUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    name: zod_1.z.boolean().optional(),
-    group: zod_1.z.boolean().optional(),
-}));
-exports.LabelUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.union([
-    zod_1.z.object({ name: zod_1.z.string() }),
-    zod_1.z.object({ group: zod_1.z.string() }),
-]));
-exports.LabelUniqueFilter = zod_1.z.object({
-    where: exports.LabelUniqueFilterWhere,
-    select: exports.LabelUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=label-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/label-unique-filter.d.ts",
-    "text": "export declare const LabelUniqueFilterSelect: any;
-export declare const LabelUniqueFilterWhere: any;
-export declare const LabelUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/label/index.ts"],"names":[],"mappings":";;;AAAA,+DAAqC;AACrC,+DAAqC;AACrC,8DAAoC;AACpC,gEAAsC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./label-create-input"), exports);
-tslib_1.__exportStar(require("./label-update-input"), exports);
-tslib_1.__exportStar(require("./label-list-filter"), exports);
-tslib_1.__exportStar(require("./label-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/label/index.d.ts",
-    "text": "export * from "./label-create-input";
-export * from "./label-update-input";
-export * from "./label-list-filter";
-export * from "./label-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-create-input.js.map",
-    "text": "{"version":3,"file":"asset-create-input.js","sourceRoot":"","sources":["../../../../../../crud/models/asset/asset-create-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,GAAG,EAAE,OAAC,CAAC,MAAM,EAAE;CACd,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-create-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetCreateInput = void 0;
-const zod_1 = require("zod");
-exports.AssetCreateInput = zod_1.z.object({
-    url: zod_1.z.string(),
-}).strict();
-//# sourceMappingURL=asset-create-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-create-input.d.ts",
-    "text": "export declare const AssetCreateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-update-input.js.map",
-    "text": "{"version":3,"file":"asset-update-input.js","sourceRoot":"","sources":["../../../../../../crud/models/asset/asset-update-input.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,gBAAgB,GAAG,OAAC,CAAC,MAAM,CAAC;IACrC,GAAG,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;CACzB,CAAC,CAAC,MAAM,EAAE,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-update-input.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetUpdateInput = void 0;
-const zod_1 = require("zod");
-exports.AssetUpdateInput = zod_1.z.object({
-    url: zod_1.z.string().optional(),
-}).strict();
-//# sourceMappingURL=asset-update-input.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-update-input.d.ts",
-    "text": "export declare const AssetUpdateInput: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-list-filter.js.map",
-    "text": "{"version":3,"file":"asset-list-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/asset/asset-list-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AACxB,6BAAuC;AACvC,6BAA8C;AAC9C,6BAA8C;AAEjC,QAAA,qBAAqB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC1E,GAAG,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAC9B,CAAC,CAAC,CAAC;AACK,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,KAAK,CAAC;IAClF,OAAC,CAAC,MAAM,CAAC,EAAE,GAAG,EAAE,kBAAc,EAAE,CAAC;CACpC,CAAC,CAAC,CAAC,CAAC;AACI,QAAA,0BAA0B,GAAG,OAAC,CAAC,MAAM,CAAC;IAC/C,GAAG,EAAE,OAAC,CAAC,KAAK,CAAC,CAAC,OAAC,CAAC,MAAM,EAAE,EAAE,yBAAqB,CAAC,CAAC,CAAC,QAAQ,EAAE;CAC3D,CAAC,CAAC;AACM,QAAA,oBAAoB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC7E,GAAG,EAAE,OAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,QAAQ,EAAE;IACnD,EAAE,EAAE,OAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,QAAQ,EAAE;IAClD,GAAG,EAAE,kCAA0B,CAAC,QAAQ,EAAE;CACzC,CAAC,CAAC,KAAK,CAAC,kCAA0B,CAAC,CAAC,CAAC;AAC7B,QAAA,eAAe,GAAG,OAAC,CAAC,MAAM,CAAC;IACpC,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,IAAI,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC3B,MAAM,EAAE,6BAAqB,CAAC,QAAQ,EAAE;IACxC,OAAO,EAAE,8BAAsB,CAAC,QAAQ,EAAE;IAC1C,KAAK,EAAE,4BAAoB;CAC1B,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-list-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetListFilter = exports.AssetListFilterWhere = exports.AssetListFilterWhereFields = exports.AssetListFilterOrderBy = exports.AssetListFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-const __2 = require("../..");
-const __3 = require("../..");
-exports.AssetListFilterSelect = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    url: zod_1.z.boolean().optional(),
-}));
-exports.AssetListFilterOrderBy = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.array(zod_1.z.union([
-    zod_1.z.object({ url: __1.OrderDirection }),
-])));
-exports.AssetListFilterWhereFields = zod_1.z.object({
-    url: zod_1.z.union([zod_1.z.string(), __3.StringFilterOperators]).optional(),
-});
-exports.AssetListFilterWhere = zod_1.z.preprocess(__2.parseJsonPreprocessor, zod_1.z.object({
-    AND: zod_1.z.array(exports.AssetListFilterWhereFields).optional(),
-    OR: zod_1.z.array(exports.AssetListFilterWhereFields).optional(),
-    NOT: exports.AssetListFilterWhereFields.optional(),
-}).merge(exports.AssetListFilterWhereFields));
-exports.AssetListFilter = zod_1.z.object({
-    take: zod_1.z.number().optional(),
-    skip: zod_1.z.number().optional(),
-    select: exports.AssetListFilterSelect.optional(),
-    orderBy: exports.AssetListFilterOrderBy.optional(),
-    where: exports.AssetListFilterWhere,
-});
-//# sourceMappingURL=asset-list-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-list-filter.d.ts",
-    "text": "export declare const AssetListFilterSelect: any;
-export declare const AssetListFilterOrderBy: any;
-export declare const AssetListFilterWhereFields: any;
-export declare const AssetListFilterWhere: any;
-export declare const AssetListFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-unique-filter.js.map",
-    "text": "{"version":3,"file":"asset-unique-filter.js","sourceRoot":"","sources":["../../../../../../crud/models/asset/asset-unique-filter.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAExB,6BAA8C;AAEjC,QAAA,uBAAuB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EAAE,OAAC,CAAC,MAAM,CAAC;IAC5E,GAAG,EAAE,OAAC,CAAC,OAAO,EAAE,CAAC,QAAQ,EAAE;CAC9B,CAAC,CAAC,CAAC;AACK,QAAA,sBAAsB,GAAG,OAAC,CAAC,UAAU,CAAC,yBAAqB,EACpE,OAAC,CAAC,MAAM,CAAC,EAAE,GAAG,EAAE,OAAC,CAAC,MAAM,EAAE,EAAE,CAAC,CAC5B,CAAC;AACO,QAAA,iBAAiB,GAAG,OAAC,CAAC,MAAM,CAAC;IACtC,KAAK,EAAE,8BAAsB;IAC7B,MAAM,EAAE,+BAAuB,CAAC,QAAQ,EAAE;CACzC,CAAC,CAAC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-unique-filter.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetUniqueFilter = exports.AssetUniqueFilterWhere = exports.AssetUniqueFilterSelect = void 0;
-const zod_1 = require("zod");
-const __1 = require("../..");
-exports.AssetUniqueFilterSelect = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({
-    url: zod_1.z.boolean().optional(),
-}));
-exports.AssetUniqueFilterWhere = zod_1.z.preprocess(__1.parseJsonPreprocessor, zod_1.z.object({ url: zod_1.z.string() }));
-exports.AssetUniqueFilter = zod_1.z.object({
-    where: exports.AssetUniqueFilterWhere,
-    select: exports.AssetUniqueFilterSelect.optional(),
-});
-//# sourceMappingURL=asset-unique-filter.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/asset-unique-filter.d.ts",
-    "text": "export declare const AssetUniqueFilterSelect: any;
-export declare const AssetUniqueFilterWhere: any;
-export declare const AssetUniqueFilter: any;
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../crud/models/asset/index.ts"],"names":[],"mappings":";;;AAAA,+DAAqC;AACrC,+DAAqC;AACrC,8DAAoC;AACpC,gEAAsC"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./asset-create-input"), exports);
-tslib_1.__exportStar(require("./asset-update-input"), exports);
-tslib_1.__exportStar(require("./asset-list-filter"), exports);
-tslib_1.__exportStar(require("./asset-unique-filter"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/asset/index.d.ts",
-    "text": "export * from "./asset-create-input";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 10`] = `
+"import { z } from "zod";
+
+export const BookNamespace = z.enum([
+        "BU1",
+        "BU2",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 11`] = `
+"export * from "./ledger-type";
+export * from "./payload-kind";
+export * from "./book-namespace";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 12`] = `
+"import { z } from "zod";
+
+export const LedgerType = z.enum([
+        "MAIN",
+        "CC",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 13`] = `
+"import { z } from "zod";
+
+export const PayloadKind = z.enum([
+        "SMART",
+        "IMPULSE",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 14`] = `
+"import { z } from "zod";
+
+export const Asset = z.object({
+        url: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 15`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Book = z.object({
+        id: z.string(),
+        namespace: BookNamespace,
+        parentNamespace: BookNamespace.nullish(),
+        section: z.string(),
+        label: z.string(),
+        root: z.boolean().nullish(),
+        description: z.string().nullish(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 16`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Entry = z.object({
+        id: z.string(),
+        amount: z.number(),
+        createdAt: z.date(),
+        deletedAt: z.date().nullish(),
+        namespace: BookNamespace,
+        section: z.string(),
+        ledgerId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 17`] = `
+"export * from "./ledger";
+export * from "./book";
+export * from "./entry";
+export * from "./log";
+export * from "./label";
+export * from "./asset";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 18`] = `
+"import { z } from "zod";
+
+export const Label = z.object({
+        name: z.string(),
+        group: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 19`] = `
+"import { z } from "zod";
+import { LedgerType } from "../enums";
+
+export const Ledger = z.object({
+        id: z.string(),
+        name: z.string(),
+        description: z.string().nullish(),
+        tags: z.string().array(),
+        type: LedgerType,
+        allowedTypes: LedgerType.array(),
+        createdAt: z.date(),
+        updatedAt: z.date(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 20`] = `
+"import { z } from "zod";
+
+export const Log = z.object({
+        section: z.string(),
+        subSection: z.string(),
+        msg1: z.string().nullish(),
+        msg2: z.string(),
+        entryId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 21`] = `
+"import { z } from "zod";
+
+export const AssetCreateInput = z.object({
+    url: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 22`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const AssetListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ url: OrderDirection }),
+    ])));
+export const AssetListFilterWhereFields = z.object({
+    url: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const AssetListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(AssetListFilterWhereFields).optional(),
+    OR: z.array(AssetListFilterWhereFields).optional(),
+    NOT: AssetListFilterWhereFields.optional(),
+    }).merge(AssetListFilterWhereFields));
+export const AssetListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: AssetListFilterSelect.optional(),
+    orderBy: AssetListFilterOrderBy.optional(),
+    where: AssetListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 23`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const AssetUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ url: z.string() })
+    );
+export const AssetUniqueFilter = z.object({
+    where: AssetUniqueFilterWhere,
+    select: AssetUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 24`] = `
+"import { z } from "zod";
+
+export const AssetUpdateInput = z.object({
+    url: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 25`] = `
+"export * from "./asset-create-input";
 export * from "./asset-update-input";
 export * from "./asset-list-filter";
 export * from "./asset-unique-filter";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../crud/models/index.ts"],"names":[],"mappings":";;;AAAA,mDAAyB;AACzB,iDAAuB;AACvB,kDAAwB;AACxB,gDAAsB;AACtB,kDAAwB;AACxB,kDAAwB"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./ledger"), exports);
-tslib_1.__exportStar(require("./book"), exports);
-tslib_1.__exportStar(require("./entry"), exports);
-tslib_1.__exportStar(require("./log"), exports);
-tslib_1.__exportStar(require("./label"), exports);
-tslib_1.__exportStar(require("./asset"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/crud/models/index.d.ts",
-    "text": "export * from "./ledger";
-export * from "./book";
-export * from "./entry";
-export * from "./log";
-export * from "./label";
-export * from "./asset";
-",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/index.js.map",
-    "text": "{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../index.ts"],"names":[],"mappings":";;;AAAA,sDAA4B;AAC5B,iDAAuB"}",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/index.js",
-    "text": ""use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./datamodel"), exports);
-tslib_1.__exportStar(require("./crud"), exports);
-//# sourceMappingURL=index.js.map",
-    "writeByteOrderMark": false,
-  },
-  {
-    "filePath": "/Users/germanamz/projects/prisma-rest/packages/zod/dist/index.d.ts",
-    "text": "export * from "./datamodel";
-export * from "./crud";
-",
-    "writeByteOrderMark": false,
-  },
-]
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 26`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookCreateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace,
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string(),
+    label: z.string(),
+    root: z.boolean().nullish(),
+    description: z.string().nullish(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 27`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+import { BooleanFilterOperators } from "../..";
+
+export const BookListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ parentNamespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ label: OrderDirection }),
+        z.object({ root: OrderDirection }),
+        z.object({ description: OrderDirection }),
+    ])));
+export const BookListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    parentNamespace: BookNamespaceEqualityFilterOperators.nullish(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    label: z.union([z.string(), StringFilterOperators]).optional(),
+    root: z.union([z.boolean(), BooleanFilterOperators]).nullish(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    });
+export const BookListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(BookListFilterWhereFields).optional(),
+    OR: z.array(BookListFilterWhereFields).optional(),
+    NOT: BookListFilterWhereFields.optional(),
+    }).merge(BookListFilterWhereFields));
+export const BookListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: BookListFilterSelect.optional(),
+    orderBy: BookListFilterOrderBy.optional(),
+    where: BookListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 28`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ id: z.string() }),
+        z.object({ namespace_section: z.object({
+        namespace: BookNamespace,
+        section: z.string(),
+        }),
+    }),
+        z.object({ section_label: z.object({
+        section: z.string(),
+        label: z.string(),
+        }),
+    }),]));
+export const BookUniqueFilter = z.object({
+    where: BookUniqueFilterWhere,
+    select: BookUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 29`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUpdateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace.optional(),
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string().optional(),
+    label: z.string().optional(),
+    root: z.boolean().nullish().optional(),
+    description: z.string().nullish().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 30`] = `
+"export * from "./book-create-input";
+export * from "./book-update-input";
+export * from "./book-list-filter";
+export * from "./book-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 31`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryCreateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish(),
+    namespace: BookNamespace,
+    section: z.string(),
+    ledgerId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 32`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { NumberFilterOperators } from "../..";
+import { DateFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+
+export const EntryListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ amount: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ deletedAt: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ ledgerId: OrderDirection }),
+    ])));
+export const EntryListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    amount: z.union([z.number(), NumberFilterOperators]).optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    deletedAt: z.union([z.date(), DateFilterOperators]).nullish(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    ledgerId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const EntryListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(EntryListFilterWhereFields).optional(),
+    OR: z.array(EntryListFilterWhereFields).optional(),
+    NOT: EntryListFilterWhereFields.optional(),
+    }).merge(EntryListFilterWhereFields));
+export const EntryListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: EntryListFilterSelect.optional(),
+    orderBy: EntryListFilterOrderBy.optional(),
+    where: EntryListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 33`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const EntryUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const EntryUniqueFilter = z.object({
+    where: EntryUniqueFilterWhere,
+    select: EntryUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 34`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryUpdateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number().optional(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish().optional(),
+    namespace: BookNamespace.optional(),
+    section: z.string().optional(),
+    ledgerId: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 35`] = `
+"export * from "./entry-create-input";
+export * from "./entry-update-input";
+export * from "./entry-list-filter";
+export * from "./entry-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 36`] = `
+"export * from "./label-create-input";
+export * from "./label-update-input";
+export * from "./label-list-filter";
+export * from "./label-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 37`] = `
+"import { z } from "zod";
+
+export const LabelCreateInput = z.object({
+    name: z.string(),
+    group: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 38`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LabelListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ name: OrderDirection }),
+        z.object({ group: OrderDirection }),
+    ])));
+export const LabelListFilterWhereFields = z.object({
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    group: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LabelListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LabelListFilterWhereFields).optional(),
+    OR: z.array(LabelListFilterWhereFields).optional(),
+    NOT: LabelListFilterWhereFields.optional(),
+    }).merge(LabelListFilterWhereFields));
+export const LabelListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LabelListFilterSelect.optional(),
+    orderBy: LabelListFilterOrderBy.optional(),
+    where: LabelListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 39`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LabelUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ name: z.string() }),
+    z.object({ group: z.string() }),
+    ]));
+export const LabelUniqueFilter = z.object({
+    where: LabelUniqueFilterWhere,
+    select: LabelUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 40`] = `
+"import { z } from "zod";
+
+export const LabelUpdateInput = z.object({
+    name: z.string().optional(),
+    group: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 41`] = `
+"export * from "./ledger-create-input";
+export * from "./ledger-update-input";
+export * from "./ledger-list-filter";
+export * from "./ledger-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 42`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerCreateInput = z.object({
+    id: z.string().optional(),
+    name: z.string(),
+    description: z.string().nullish(),
+    tags: z.array(z.string()),
+    type: LedgerType,
+    allowedTypes: LedgerType,
+    createdAt: z.date().optional(),
+    updatedAt: z.date(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 43`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { LedgerTypeEqualityFilterOperators } from "../../enums";
+import { DateFilterOperators } from "../..";
+
+export const LedgerListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ name: OrderDirection }),
+        z.object({ description: OrderDirection }),
+        z.object({ tags: OrderDirection }),
+        z.object({ type: OrderDirection }),
+        z.object({ allowedTypes: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ updatedAt: OrderDirection }),
+    ])));
+export const LedgerListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    tags: z.union([z.string(), StringFilterOperators]).optional(),
+    type: LedgerTypeEqualityFilterOperators.optional(),
+    allowedTypes: LedgerTypeEqualityFilterOperators.optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    updatedAt: z.union([z.date(), DateFilterOperators]).optional(),
+    });
+export const LedgerListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LedgerListFilterWhereFields).optional(),
+    OR: z.array(LedgerListFilterWhereFields).optional(),
+    NOT: LedgerListFilterWhereFields.optional(),
+    }).merge(LedgerListFilterWhereFields));
+export const LedgerListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LedgerListFilterSelect.optional(),
+    orderBy: LedgerListFilterOrderBy.optional(),
+    where: LedgerListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 44`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LedgerUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const LedgerUniqueFilter = z.object({
+    where: LedgerUniqueFilterWhere,
+    select: LedgerUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 45`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerUpdateInput = z.object({
+    id: z.string().optional(),
+    name: z.string().optional(),
+    description: z.string().nullish().optional(),
+    tags: z.array(z.string()).optional(),
+    type: LedgerType.optional(),
+    allowedTypes: LedgerType.optional(),
+    createdAt: z.date().optional(),
+    updatedAt: z.date().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 46`] = `
+"export * from "./log-create-input";
+export * from "./log-update-input";
+export * from "./log-list-filter";
+export * from "./log-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 47`] = `
+"import { z } from "zod";
+
+export const LogCreateInput = z.object({
+    section: z.string(),
+    subSection: z.string(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 48`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LogListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ section: OrderDirection }),
+        z.object({ subSection: OrderDirection }),
+        z.object({ msg1: OrderDirection }),
+        z.object({ msg2: OrderDirection }),
+        z.object({ entryId: OrderDirection }),
+    ])));
+export const LogListFilterWhereFields = z.object({
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    subSection: z.union([z.string(), StringFilterOperators]).optional(),
+    msg1: z.union([z.string(), StringFilterOperators]).nullish(),
+    msg2: z.union([z.string(), StringFilterOperators]).optional(),
+    entryId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LogListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LogListFilterWhereFields).optional(),
+    OR: z.array(LogListFilterWhereFields).optional(),
+    NOT: LogListFilterWhereFields.optional(),
+    }).merge(LogListFilterWhereFields));
+export const LogListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LogListFilterSelect.optional(),
+    orderBy: LogListFilterOrderBy.optional(),
+    where: LogListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 49`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LogUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+        z.object({ section_subSection: z.object({
+        section: z.string(),
+        subSection: z.string(),
+        }),
+    }));
+export const LogUniqueFilter = z.object({
+    where: LogUniqueFilterWhere,
+    select: LogUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 50`] = `
+"import { z } from "zod";
+
+export const LogUpdateInput = z.object({
+    section: z.string().optional(),
+    subSection: z.string().optional(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string().optional(),
+    }).strict();
+"
 `;

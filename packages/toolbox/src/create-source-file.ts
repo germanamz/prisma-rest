@@ -6,6 +6,7 @@ export type CreateSourceFileOptions = {
   name: string;
   dir: string;
   ext?: string;
+  content?: string;
 };
 
 export const createSourceFile = (options: CreateSourceFileOptions) => {
@@ -14,11 +15,12 @@ export const createSourceFile = (options: CreateSourceFileOptions) => {
     project,
     name,
     ext = '.ts',
+    content,
   } = options;
 
   return project.createSourceFile(
     `${dir}/${normalizeFilename(name)}${ext}`,
-    undefined,
+    content,
     { overwrite: true },
   );
 };

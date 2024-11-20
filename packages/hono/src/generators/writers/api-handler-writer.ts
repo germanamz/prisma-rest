@@ -8,7 +8,7 @@ export type ApiHandlerWriterOptions = {
   status: number;
   json?: string;
   query?: string;
-  param?: string;
+  // param?: string;
 };
 
 export const apiHandlerWriter = ({
@@ -17,7 +17,7 @@ export const apiHandlerWriter = ({
   path,
   handler,
   json,
-  param,
+  // param,
   query,
   status,
 }: ApiHandlerWriterOptions) => {
@@ -33,12 +33,13 @@ export const apiHandlerWriter = ({
     writer.newLine();
   }
 
-  if (param) {
+  // Currently params are not in use
+  /* if (param) {
     writer.write('zValidator(');
     writer.quote('param');
     writer.write(`, ${param}),`);
     writer.newLine();
-  }
+  } */
 
   if (query) {
     writer.write('zValidator(');
@@ -57,12 +58,12 @@ export const apiHandlerWriter = ({
       writer.newLine();
     }
 
-    if (param) {
+    /* if (param) {
       writer.write('const param = c.req.valid(');
       writer.quote('param');
       writer.write(');');
       writer.newLine();
-    }
+    } */
 
     if (query) {
       writer.write('const query = c.req.valid(');

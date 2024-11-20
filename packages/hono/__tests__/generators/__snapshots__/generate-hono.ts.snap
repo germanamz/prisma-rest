@@ -1,0 +1,1984 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateHono should generate hono 1`] = `
+"export * from "./services";
+export * from "./zod";
+export * from "./apis";
+"
+`;
+
+exports[`generateHono should generate hono 2`] = `
+"export * from "./apis";
+"
+`;
+
+exports[`generateHono should generate hono 3`] = `
+"import { PrismaClient, Prisma, Asset } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class AssetCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.AssetUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.asset.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.AssetWhereUniqueInput; select?: Prisma.AssetSelect }, data: Prisma.AssetUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.asset.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.AssetWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.asset.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.AssetWhereInput; skip?: number; take?: number; orderBy?: Prisma.AssetOrderByWithRelationInput | Prisma.AssetOrderByWithRelationInput[]; select?: Prisma.AssetSelect }) {
+
+            try {
+              const instance = await this.prisma.asset.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.AssetWhereUniqueInput; select?: Prisma.AssetSelect }) {
+
+            try {
+              const instance = await this.prisma.asset.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 4`] = `
+"import { PrismaClient, Prisma, Book } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class BookCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.BookUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.book.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.BookWhereUniqueInput; select?: Prisma.BookSelect }, data: Prisma.BookUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.book.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.BookWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.book.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.BookWhereInput; skip?: number; take?: number; orderBy?: Prisma.BookOrderByWithRelationInput | Prisma.BookOrderByWithRelationInput[]; select?: Prisma.BookSelect }) {
+
+            try {
+              const instance = await this.prisma.book.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.BookWhereUniqueInput; select?: Prisma.BookSelect }) {
+
+            try {
+              const instance = await this.prisma.book.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 5`] = `
+"import { PrismaClient, Prisma, Entry } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class EntryCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.EntryUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.entry.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.EntryWhereUniqueInput; select?: Prisma.EntrySelect }, data: Prisma.EntryUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.entry.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.EntryWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.entry.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.EntryWhereInput; skip?: number; take?: number; orderBy?: Prisma.EntryOrderByWithRelationInput | Prisma.EntryOrderByWithRelationInput[]; select?: Prisma.EntrySelect }) {
+
+            try {
+              const instance = await this.prisma.entry.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.EntryWhereUniqueInput; select?: Prisma.EntrySelect }) {
+
+            try {
+              const instance = await this.prisma.entry.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 6`] = `
+"export * from "./ledger-crud-service-.ts";
+export * from "./book-crud-service-.ts";
+export * from "./entry-crud-service-.ts";
+export * from "./log-crud-service-.ts";
+export * from "./label-crud-service-.ts";
+export * from "./asset-crud-service-.ts";
+"
+`;
+
+exports[`generateHono should generate hono 7`] = `
+"import { PrismaClient, Prisma, Label } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LabelCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LabelUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.label.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LabelWhereUniqueInput; select?: Prisma.LabelSelect }, data: Prisma.LabelUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.label.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LabelWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.label.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LabelWhereInput; skip?: number; take?: number; orderBy?: Prisma.LabelOrderByWithRelationInput | Prisma.LabelOrderByWithRelationInput[]; select?: Prisma.LabelSelect }) {
+
+            try {
+              const instance = await this.prisma.label.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LabelWhereUniqueInput; select?: Prisma.LabelSelect }) {
+
+            try {
+              const instance = await this.prisma.label.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 8`] = `
+"import { PrismaClient, Prisma, Ledger } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LedgerCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LedgerUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.ledger.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LedgerWhereUniqueInput; select?: Prisma.LedgerSelect }, data: Prisma.LedgerUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.ledger.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LedgerWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.ledger.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LedgerWhereInput; skip?: number; take?: number; orderBy?: Prisma.LedgerOrderByWithRelationInput | Prisma.LedgerOrderByWithRelationInput[]; select?: Prisma.LedgerSelect }) {
+
+            try {
+              const instance = await this.prisma.ledger.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LedgerWhereUniqueInput; select?: Prisma.LedgerSelect }) {
+
+            try {
+              const instance = await this.prisma.ledger.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 9`] = `
+"import { PrismaClient, Prisma, Log } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LogCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LogUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.log.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LogWhereUniqueInput; select?: Prisma.LogSelect }, data: Prisma.LogUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.log.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LogWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.log.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LogWhereInput; skip?: number; take?: number; orderBy?: Prisma.LogOrderByWithRelationInput | Prisma.LogOrderByWithRelationInput[]; select?: Prisma.LogSelect }) {
+
+            try {
+              const instance = await this.prisma.log.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LogWhereUniqueInput; select?: Prisma.LogSelect }) {
+
+            try {
+              const instance = await this.prisma.log.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateHono should generate hono 10`] = `
+"export * from "./datamodel";
+export * from "./crud";
+"
+`;
+
+exports[`generateHono should generate hono 11`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { AssetCreateInput } from "../../zod/crud/models/asset";
+import { AssetUpdateInput } from "../../zod/crud/models/asset";
+import { AssetCrudService } from "../../services";
+import { AssetListFilter } from "../../zod/crud/models/asset";
+import { AssetUniqueFilter } from "../../zod/crud/models/asset";
+import { AssetUniqueFilterWhere } from "../../zod/crud/models/asset";
+
+export const makeAssetApi = (service: AssetCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", AssetCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", AssetListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", AssetUpdateInput),
+        zValidator("query", AssetUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", AssetUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", AssetUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 12`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { BookCreateInput } from "../../zod/crud/models/book";
+import { BookUpdateInput } from "../../zod/crud/models/book";
+import { BookCrudService } from "../../services";
+import { BookListFilter } from "../../zod/crud/models/book";
+import { BookUniqueFilter } from "../../zod/crud/models/book";
+import { BookUniqueFilterWhere } from "../../zod/crud/models/book";
+
+export const makeBookApi = (service: BookCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", BookCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", BookListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", BookUpdateInput),
+        zValidator("query", BookUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", BookUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", BookUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 13`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { EntryCreateInput } from "../../zod/crud/models/entry";
+import { EntryUpdateInput } from "../../zod/crud/models/entry";
+import { EntryCrudService } from "../../services";
+import { EntryListFilter } from "../../zod/crud/models/entry";
+import { EntryUniqueFilter } from "../../zod/crud/models/entry";
+import { EntryUniqueFilterWhere } from "../../zod/crud/models/entry";
+
+export const makeEntryApi = (service: EntryCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", EntryCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", EntryListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", EntryUpdateInput),
+        zValidator("query", EntryUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", EntryUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", EntryUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 14`] = `
+"export * from "./ledger-api";
+export * from "./book-api";
+export * from "./entry-api";
+export * from "./log-api";
+export * from "./label-api";
+export * from "./asset-api";
+"
+`;
+
+exports[`generateHono should generate hono 15`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { LabelCreateInput } from "../../zod/crud/models/label";
+import { LabelUpdateInput } from "../../zod/crud/models/label";
+import { LabelCrudService } from "../../services";
+import { LabelListFilter } from "../../zod/crud/models/label";
+import { LabelUniqueFilter } from "../../zod/crud/models/label";
+import { LabelUniqueFilterWhere } from "../../zod/crud/models/label";
+
+export const makeLabelApi = (service: LabelCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", LabelCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", LabelListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", LabelUpdateInput),
+        zValidator("query", LabelUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", LabelUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", LabelUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 16`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { LedgerCreateInput } from "../../zod/crud/models/ledger";
+import { LedgerUpdateInput } from "../../zod/crud/models/ledger";
+import { LedgerCrudService } from "../../services";
+import { LedgerListFilter } from "../../zod/crud/models/ledger";
+import { LedgerUniqueFilter } from "../../zod/crud/models/ledger";
+import { LedgerUniqueFilterWhere } from "../../zod/crud/models/ledger";
+
+export const makeLedgerApi = (service: LedgerCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", LedgerCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", LedgerListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", LedgerUpdateInput),
+        zValidator("query", LedgerUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", LedgerUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", LedgerUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 17`] = `
+"import { Hono } from "hono";
+import { z } from "zod";
+import { StatusCode } from "hono/utils/http-status";
+import { zValidator } from "@hono/zod-validator";
+import { LogCreateInput } from "../../zod/crud/models/log";
+import { LogUpdateInput } from "../../zod/crud/models/log";
+import { LogCrudService } from "../../services";
+import { LogListFilter } from "../../zod/crud/models/log";
+import { LogUniqueFilter } from "../../zod/crud/models/log";
+import { LogUniqueFilterWhere } from "../../zod/crud/models/log";
+
+export const makeLogApi = (service: LogCrudService) => {
+        const app = new Hono();
+        app.post(
+        "/",
+        zValidator("json", LogCreateInput),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const result = await service.create(json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(201);
+            return c.json(result.value);
+        });
+        app.get(
+        "/",
+        zValidator("query", LogListFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.find(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.patch(
+        "/instance",
+        zValidator("json", LogUpdateInput),
+        zValidator("query", LogUniqueFilter),
+        async (c) =>{
+            const json = c.req.valid("json");
+            const query = c.req.valid("query");
+            const result = await service.update(query, json);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.delete(
+        "/instance",
+        zValidator("query", LogUniqueFilterWhere),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.delete(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        app.get(
+        "/instance",
+        zValidator("query", LogUniqueFilter),
+        async (c) =>{
+            const query = c.req.valid("query");
+            const result = await service.findUnique(query);
+            if (result.isErr()) {
+                c.status(result.error.status);
+                return c.json(result.error);
+            }
+            c.status(200);
+            return c.json(result.value);
+        });
+        return app;
+    };
+"
+`;
+
+exports[`generateHono should generate hono 18`] = `
+"import { z, ZodIssueCode } from "zod";
+
+export const OrderDirection = z.enum(['asc', 'desc']);
+export const parseJsonPreprocessor = (value: any, ctx: z.RefinementCtx) => {
+      if (typeof value === 'string') {
+        try {
+          return JSON.parse(value);
+        } catch (e) {
+          ctx.addIssue({
+            code: ZodIssueCode.custom,
+            message: (e as Error).message,
+          });
+        }
+      }
+
+      return value;
+    };
+export const StringFilterMode = z.enum(['default', 'insensitive']);
+export const StringFilterOperatorType = z.string();
+export const StringEqualityFilterOperators = z.object({
+    equals: StringFilterOperatorType.optional(),
+    not: StringFilterOperatorType.optional(),
+    in: z.array(StringFilterOperatorType).optional(),
+    notIn: z.array(StringFilterOperatorType).optional(),
+    });
+export const NumberFilterOperatorType = z.number();
+export const NumberEqualityFilterOperators = z.object({
+    equals: NumberFilterOperatorType.optional(),
+    not: NumberFilterOperatorType.optional(),
+    in: z.array(NumberFilterOperatorType).optional(),
+    notIn: z.array(NumberFilterOperatorType).optional(),
+    });
+export const DateFilterOperatorType = z.coerce.date();
+export const DateEqualityFilterOperators = z.object({
+    equals: DateFilterOperatorType.optional(),
+    not: DateFilterOperatorType.optional(),
+    in: z.array(DateFilterOperatorType).optional(),
+    notIn: z.array(DateFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperatorType = z.boolean();
+export const BooleanEqualityFilterOperators = z.object({
+    equals: BooleanFilterOperatorType.optional(),
+    not: BooleanFilterOperatorType.optional(),
+    in: z.array(BooleanFilterOperatorType).optional(),
+    notIn: z.array(BooleanFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperators = BooleanEqualityFilterOperators;
+export const StringFilterOperators = z.object({
+    contains: z.string().optional(),
+    startsWith: z.string().optional(),
+    endsWith: z.string().optional(),
+    mode: StringFilterMode.optional(),
+    }).merge(StringEqualityFilterOperators);
+export const NumberFilterOperators = z.object({
+    lt: z.number().optional(),
+    lte: z.number().optional(),
+    gt: z.number().optional(),
+    gte: z.number().optional(),
+    }).merge(NumberEqualityFilterOperators);
+export const DateFilterOperators = z.object({
+    lt: z.coerce.date().optional(),
+    lte: z.coerce.date().optional(),
+    gt: z.coerce.date().optional(),
+    gte: z.coerce.date().optional(),
+    }).merge(DateEqualityFilterOperators);
+"
+`;
+
+exports[`generateHono should generate hono 19`] = `
+"export * from "./global-crud-basics";
+export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateHono should generate hono 20`] = `
+"export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateHono should generate hono 21`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../datamodel/enums";
+
+export const BookNamespaceEqualityFilterOperators = z.object({
+    equals: BookNamespace.optional(),
+    not: BookNamespace.optional(),
+    in: z.array(BookNamespace).optional(),
+    notIn: z.array(BookNamespace).optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 22`] = `
+"export * from "./ledger-type-operators";
+export * from "./payload-kind-operators";
+export * from "./book-namespace-operators";
+"
+`;
+
+exports[`generateHono should generate hono 23`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../datamodel/enums";
+
+export const LedgerTypeEqualityFilterOperators = z.object({
+    equals: LedgerType.optional(),
+    not: LedgerType.optional(),
+    in: z.array(LedgerType).optional(),
+    notIn: z.array(LedgerType).optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 24`] = `
+"import { z } from "zod";
+import { PayloadKind } from "../../datamodel/enums";
+
+export const PayloadKindEqualityFilterOperators = z.object({
+    equals: PayloadKind.optional(),
+    not: PayloadKind.optional(),
+    in: z.array(PayloadKind).optional(),
+    notIn: z.array(PayloadKind).optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 25`] = `
+"export * from "./ledger";
+export * from "./book";
+export * from "./entry";
+export * from "./log";
+export * from "./label";
+export * from "./asset";
+"
+`;
+
+exports[`generateHono should generate hono 26`] = `
+"import { z } from "zod";
+
+export const BookNamespace = z.enum([
+        "BU1",
+        "BU2",
+    ]);
+"
+`;
+
+exports[`generateHono should generate hono 27`] = `
+"export * from "./ledger-type";
+export * from "./payload-kind";
+export * from "./book-namespace";
+"
+`;
+
+exports[`generateHono should generate hono 28`] = `
+"import { z } from "zod";
+
+export const LedgerType = z.enum([
+        "MAIN",
+        "CC",
+    ]);
+"
+`;
+
+exports[`generateHono should generate hono 29`] = `
+"import { z } from "zod";
+
+export const PayloadKind = z.enum([
+        "SMART",
+        "IMPULSE",
+    ]);
+"
+`;
+
+exports[`generateHono should generate hono 30`] = `
+"import { z } from "zod";
+
+export const Asset = z.object({
+        url: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 31`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Book = z.object({
+        id: z.string(),
+        namespace: BookNamespace,
+        parentNamespace: BookNamespace.nullish(),
+        section: z.string(),
+        label: z.string(),
+        root: z.boolean().nullish(),
+        description: z.string().nullish(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 32`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Entry = z.object({
+        id: z.string(),
+        amount: z.number(),
+        createdAt: z.date(),
+        deletedAt: z.date().nullish(),
+        namespace: BookNamespace,
+        section: z.string(),
+        ledgerId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 33`] = `
+"export * from "./ledger";
+export * from "./book";
+export * from "./entry";
+export * from "./log";
+export * from "./label";
+export * from "./asset";
+"
+`;
+
+exports[`generateHono should generate hono 34`] = `
+"import { z } from "zod";
+
+export const Label = z.object({
+        name: z.string(),
+        group: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 35`] = `
+"import { z } from "zod";
+import { LedgerType } from "../enums";
+
+export const Ledger = z.object({
+        id: z.string(),
+        name: z.string(),
+        description: z.string().nullish(),
+        tags: z.string().array(),
+        type: LedgerType,
+        allowedTypes: LedgerType.array(),
+        createdAt: z.date(),
+        updatedAt: z.date(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 36`] = `
+"import { z } from "zod";
+
+export const Log = z.object({
+        section: z.string(),
+        subSection: z.string(),
+        msg1: z.string().nullish(),
+        msg2: z.string(),
+        entryId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateHono should generate hono 37`] = `
+"import { z } from "zod";
+
+export const AssetCreateInput = z.object({
+    url: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 38`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const AssetListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ url: OrderDirection }),
+    ])));
+export const AssetListFilterWhereFields = z.object({
+    url: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const AssetListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(AssetListFilterWhereFields).optional(),
+    OR: z.array(AssetListFilterWhereFields).optional(),
+    NOT: AssetListFilterWhereFields.optional(),
+    }).merge(AssetListFilterWhereFields));
+export const AssetListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: AssetListFilterSelect.optional(),
+    orderBy: AssetListFilterOrderBy.optional(),
+    where: AssetListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 39`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const AssetUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ url: z.string() })
+    );
+export const AssetUniqueFilter = z.object({
+    where: AssetUniqueFilterWhere,
+    select: AssetUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 40`] = `
+"import { z } from "zod";
+
+export const AssetUpdateInput = z.object({
+    url: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 41`] = `
+"export * from "./asset-create-input";
+export * from "./asset-update-input";
+export * from "./asset-list-filter";
+export * from "./asset-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 42`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookCreateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace,
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string(),
+    label: z.string(),
+    root: z.boolean().nullish(),
+    description: z.string().nullish(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 43`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+import { BooleanFilterOperators } from "../..";
+
+export const BookListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ parentNamespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ label: OrderDirection }),
+        z.object({ root: OrderDirection }),
+        z.object({ description: OrderDirection }),
+    ])));
+export const BookListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    parentNamespace: BookNamespaceEqualityFilterOperators.nullish(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    label: z.union([z.string(), StringFilterOperators]).optional(),
+    root: z.union([z.boolean(), BooleanFilterOperators]).nullish(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    });
+export const BookListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(BookListFilterWhereFields).optional(),
+    OR: z.array(BookListFilterWhereFields).optional(),
+    NOT: BookListFilterWhereFields.optional(),
+    }).merge(BookListFilterWhereFields));
+export const BookListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: BookListFilterSelect.optional(),
+    orderBy: BookListFilterOrderBy.optional(),
+    where: BookListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 44`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ id: z.string() }),
+        z.object({ namespace_section: z.object({
+        namespace: BookNamespace,
+        section: z.string(),
+        }),
+    }),
+        z.object({ section_label: z.object({
+        section: z.string(),
+        label: z.string(),
+        }),
+    }),]));
+export const BookUniqueFilter = z.object({
+    where: BookUniqueFilterWhere,
+    select: BookUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 45`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUpdateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace.optional(),
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string().optional(),
+    label: z.string().optional(),
+    root: z.boolean().nullish().optional(),
+    description: z.string().nullish().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 46`] = `
+"export * from "./book-create-input";
+export * from "./book-update-input";
+export * from "./book-list-filter";
+export * from "./book-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 47`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryCreateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish(),
+    namespace: BookNamespace,
+    section: z.string(),
+    ledgerId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 48`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { NumberFilterOperators } from "../..";
+import { DateFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+
+export const EntryListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ amount: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ deletedAt: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ ledgerId: OrderDirection }),
+    ])));
+export const EntryListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    amount: z.union([z.number(), NumberFilterOperators]).optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    deletedAt: z.union([z.date(), DateFilterOperators]).nullish(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    ledgerId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const EntryListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(EntryListFilterWhereFields).optional(),
+    OR: z.array(EntryListFilterWhereFields).optional(),
+    NOT: EntryListFilterWhereFields.optional(),
+    }).merge(EntryListFilterWhereFields));
+export const EntryListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: EntryListFilterSelect.optional(),
+    orderBy: EntryListFilterOrderBy.optional(),
+    where: EntryListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 49`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const EntryUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const EntryUniqueFilter = z.object({
+    where: EntryUniqueFilterWhere,
+    select: EntryUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 50`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryUpdateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number().optional(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish().optional(),
+    namespace: BookNamespace.optional(),
+    section: z.string().optional(),
+    ledgerId: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 51`] = `
+"export * from "./entry-create-input";
+export * from "./entry-update-input";
+export * from "./entry-list-filter";
+export * from "./entry-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 52`] = `
+"export * from "./label-create-input";
+export * from "./label-update-input";
+export * from "./label-list-filter";
+export * from "./label-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 53`] = `
+"import { z } from "zod";
+
+export const LabelCreateInput = z.object({
+    name: z.string(),
+    group: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 54`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LabelListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ name: OrderDirection }),
+        z.object({ group: OrderDirection }),
+    ])));
+export const LabelListFilterWhereFields = z.object({
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    group: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LabelListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LabelListFilterWhereFields).optional(),
+    OR: z.array(LabelListFilterWhereFields).optional(),
+    NOT: LabelListFilterWhereFields.optional(),
+    }).merge(LabelListFilterWhereFields));
+export const LabelListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LabelListFilterSelect.optional(),
+    orderBy: LabelListFilterOrderBy.optional(),
+    where: LabelListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 55`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LabelUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ name: z.string() }),
+    z.object({ group: z.string() }),
+    ]));
+export const LabelUniqueFilter = z.object({
+    where: LabelUniqueFilterWhere,
+    select: LabelUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 56`] = `
+"import { z } from "zod";
+
+export const LabelUpdateInput = z.object({
+    name: z.string().optional(),
+    group: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 57`] = `
+"export * from "./ledger-create-input";
+export * from "./ledger-update-input";
+export * from "./ledger-list-filter";
+export * from "./ledger-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 58`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerCreateInput = z.object({
+    id: z.string().optional(),
+    name: z.string(),
+    description: z.string().nullish(),
+    tags: z.array(z.string()),
+    type: LedgerType,
+    allowedTypes: LedgerType,
+    createdAt: z.date().optional(),
+    updatedAt: z.date(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 59`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { LedgerTypeEqualityFilterOperators } from "../../enums";
+import { DateFilterOperators } from "../..";
+
+export const LedgerListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ name: OrderDirection }),
+        z.object({ description: OrderDirection }),
+        z.object({ tags: OrderDirection }),
+        z.object({ type: OrderDirection }),
+        z.object({ allowedTypes: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ updatedAt: OrderDirection }),
+    ])));
+export const LedgerListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    tags: z.union([z.string(), StringFilterOperators]).optional(),
+    type: LedgerTypeEqualityFilterOperators.optional(),
+    allowedTypes: LedgerTypeEqualityFilterOperators.optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    updatedAt: z.union([z.date(), DateFilterOperators]).optional(),
+    });
+export const LedgerListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LedgerListFilterWhereFields).optional(),
+    OR: z.array(LedgerListFilterWhereFields).optional(),
+    NOT: LedgerListFilterWhereFields.optional(),
+    }).merge(LedgerListFilterWhereFields));
+export const LedgerListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LedgerListFilterSelect.optional(),
+    orderBy: LedgerListFilterOrderBy.optional(),
+    where: LedgerListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 60`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LedgerUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const LedgerUniqueFilter = z.object({
+    where: LedgerUniqueFilterWhere,
+    select: LedgerUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 61`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerUpdateInput = z.object({
+    id: z.string().optional(),
+    name: z.string().optional(),
+    description: z.string().nullish().optional(),
+    tags: z.array(z.string()).optional(),
+    type: LedgerType.optional(),
+    allowedTypes: LedgerType.optional(),
+    createdAt: z.date().optional(),
+    updatedAt: z.date().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 62`] = `
+"export * from "./log-create-input";
+export * from "./log-update-input";
+export * from "./log-list-filter";
+export * from "./log-unique-filter";
+"
+`;
+
+exports[`generateHono should generate hono 63`] = `
+"import { z } from "zod";
+
+export const LogCreateInput = z.object({
+    section: z.string(),
+    subSection: z.string(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateHono should generate hono 64`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LogListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ section: OrderDirection }),
+        z.object({ subSection: OrderDirection }),
+        z.object({ msg1: OrderDirection }),
+        z.object({ msg2: OrderDirection }),
+        z.object({ entryId: OrderDirection }),
+    ])));
+export const LogListFilterWhereFields = z.object({
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    subSection: z.union([z.string(), StringFilterOperators]).optional(),
+    msg1: z.union([z.string(), StringFilterOperators]).nullish(),
+    msg2: z.union([z.string(), StringFilterOperators]).optional(),
+    entryId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LogListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LogListFilterWhereFields).optional(),
+    OR: z.array(LogListFilterWhereFields).optional(),
+    NOT: LogListFilterWhereFields.optional(),
+    }).merge(LogListFilterWhereFields));
+export const LogListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LogListFilterSelect.optional(),
+    orderBy: LogListFilterOrderBy.optional(),
+    where: LogListFilterWhere,
+    });
+"
+`;
+
+exports[`generateHono should generate hono 65`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LogUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+        z.object({ section_subSection: z.object({
+        section: z.string(),
+        subSection: z.string(),
+        }),
+    }));
+export const LogUniqueFilter = z.object({
+    where: LogUniqueFilterWhere,
+    select: LogUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateHono should generate hono 66`] = `
+"import { z } from "zod";
+
+export const LogUpdateInput = z.object({
+    section: z.string().optional(),
+    subSection: z.string().optional(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string().optional(),
+    }).strict();
+"
+`;

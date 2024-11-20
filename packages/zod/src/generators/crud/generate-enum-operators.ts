@@ -1,19 +1,12 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
 import {
   addToImportQueue,
   createSourceFile,
   declareConstant,
-  ImportQueue,
-  Registry,
+  GeneratorContext,
 } from '@germanamz/prisma-rest-toolbox';
 
-export type GenerateEnumOperatorsOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
+export type GenerateEnumOperatorsOptions = GeneratorContext & {
   item: DMMF.DatamodelEnum;
 };
 

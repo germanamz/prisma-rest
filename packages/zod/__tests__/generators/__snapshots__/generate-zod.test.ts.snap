@@ -1,0 +1,896 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 1`] = `
+"export * from "./datamodel";
+export * from "./crud";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 2`] = `
+"import { z, ZodIssueCode } from "zod";
+
+export const OrderDirection = z.enum(['asc', 'desc']);
+export const parseJsonPreprocessor = (value: any, ctx: z.RefinementCtx) => {
+      if (typeof value === 'string') {
+        try {
+          return JSON.parse(value);
+        } catch (e) {
+          ctx.addIssue({
+            code: ZodIssueCode.custom,
+            message: (e as Error).message,
+          });
+        }
+      }
+
+      return value;
+    };
+export const StringFilterMode = z.enum(['default', 'insensitive']);
+export const StringFilterOperatorType = z.string();
+export const StringEqualityFilterOperators = z.object({
+    equals: StringFilterOperatorType.optional(),
+    not: StringFilterOperatorType.optional(),
+    in: z.array(StringFilterOperatorType).optional(),
+    notIn: z.array(StringFilterOperatorType).optional(),
+    });
+export const NumberFilterOperatorType = z.number();
+export const NumberEqualityFilterOperators = z.object({
+    equals: NumberFilterOperatorType.optional(),
+    not: NumberFilterOperatorType.optional(),
+    in: z.array(NumberFilterOperatorType).optional(),
+    notIn: z.array(NumberFilterOperatorType).optional(),
+    });
+export const DateFilterOperatorType = z.coerce.date();
+export const DateEqualityFilterOperators = z.object({
+    equals: DateFilterOperatorType.optional(),
+    not: DateFilterOperatorType.optional(),
+    in: z.array(DateFilterOperatorType).optional(),
+    notIn: z.array(DateFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperatorType = z.boolean();
+export const BooleanEqualityFilterOperators = z.object({
+    equals: BooleanFilterOperatorType.optional(),
+    not: BooleanFilterOperatorType.optional(),
+    in: z.array(BooleanFilterOperatorType).optional(),
+    notIn: z.array(BooleanFilterOperatorType).optional(),
+    });
+export const BooleanFilterOperators = BooleanEqualityFilterOperators;
+export const StringFilterOperators = z.object({
+    contains: z.string().optional(),
+    startsWith: z.string().optional(),
+    endsWith: z.string().optional(),
+    mode: StringFilterMode.optional(),
+    }).merge(StringEqualityFilterOperators);
+export const NumberFilterOperators = z.object({
+    lt: z.number().optional(),
+    lte: z.number().optional(),
+    gt: z.number().optional(),
+    gte: z.number().optional(),
+    }).merge(NumberEqualityFilterOperators);
+export const DateFilterOperators = z.object({
+    lt: z.coerce.date().optional(),
+    lte: z.coerce.date().optional(),
+    gt: z.coerce.date().optional(),
+    gte: z.coerce.date().optional(),
+    }).merge(DateEqualityFilterOperators);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 3`] = `
+"export * from "./global-crud-basics";
+export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 4`] = `
+"export * from "./enums";
+export * from "./models";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 5`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../datamodel/enums";
+
+export const BookNamespaceEqualityFilterOperators = z.object({
+    equals: BookNamespace.optional(),
+    not: BookNamespace.optional(),
+    in: z.array(BookNamespace).optional(),
+    notIn: z.array(BookNamespace).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 6`] = `
+"export * from "./ledger-type-operators";
+export * from "./payload-kind-operators";
+export * from "./book-namespace-operators";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 7`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../datamodel/enums";
+
+export const LedgerTypeEqualityFilterOperators = z.object({
+    equals: LedgerType.optional(),
+    not: LedgerType.optional(),
+    in: z.array(LedgerType).optional(),
+    notIn: z.array(LedgerType).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 8`] = `
+"import { z } from "zod";
+import { PayloadKind } from "../../datamodel/enums";
+
+export const PayloadKindEqualityFilterOperators = z.object({
+    equals: PayloadKind.optional(),
+    not: PayloadKind.optional(),
+    in: z.array(PayloadKind).optional(),
+    notIn: z.array(PayloadKind).optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 9`] = `
+"export * from "./ledger";
+export * from "./book";
+export * from "./entry";
+export * from "./log";
+export * from "./label";
+export * from "./asset";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 10`] = `
+"import { z } from "zod";
+
+export const BookNamespace = z.enum([
+        "BU1",
+        "BU2",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 11`] = `
+"export * from "./ledger-type";
+export * from "./payload-kind";
+export * from "./book-namespace";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 12`] = `
+"import { z } from "zod";
+
+export const LedgerType = z.enum([
+        "MAIN",
+        "CC",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 13`] = `
+"import { z } from "zod";
+
+export const PayloadKind = z.enum([
+        "SMART",
+        "IMPULSE",
+    ]);
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 14`] = `
+"import { z } from "zod";
+
+export const Asset = z.object({
+        url: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 15`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Book = z.object({
+        id: z.string(),
+        namespace: BookNamespace,
+        parentNamespace: BookNamespace.nullish(),
+        section: z.string(),
+        label: z.string(),
+        root: z.boolean().nullish(),
+        description: z.string().nullish(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 16`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../enums";
+
+export const Entry = z.object({
+        id: z.string(),
+        amount: z.number(),
+        createdAt: z.date(),
+        deletedAt: z.date().nullish(),
+        namespace: BookNamespace,
+        section: z.string(),
+        ledgerId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 17`] = `
+"export * from "./ledger";
+export * from "./book";
+export * from "./entry";
+export * from "./log";
+export * from "./label";
+export * from "./asset";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 18`] = `
+"import { z } from "zod";
+
+export const Label = z.object({
+        name: z.string(),
+        group: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 19`] = `
+"import { z } from "zod";
+import { LedgerType } from "../enums";
+
+export const Ledger = z.object({
+        id: z.string(),
+        name: z.string(),
+        description: z.string().nullish(),
+        tags: z.string().array(),
+        type: LedgerType,
+        allowedTypes: LedgerType.array(),
+        createdAt: z.date(),
+        updatedAt: z.date(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 20`] = `
+"import { z } from "zod";
+
+export const Log = z.object({
+        section: z.string(),
+        subSection: z.string(),
+        msg1: z.string().nullish(),
+        msg2: z.string(),
+        entryId: z.string(),
+    })
+;
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 21`] = `
+"import { z } from "zod";
+
+export const AssetCreateInput = z.object({
+    url: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 22`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const AssetListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ url: OrderDirection }),
+    ])));
+export const AssetListFilterWhereFields = z.object({
+    url: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const AssetListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(AssetListFilterWhereFields).optional(),
+    OR: z.array(AssetListFilterWhereFields).optional(),
+    NOT: AssetListFilterWhereFields.optional(),
+    }).merge(AssetListFilterWhereFields));
+export const AssetListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: AssetListFilterSelect.optional(),
+    orderBy: AssetListFilterOrderBy.optional(),
+    where: AssetListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 23`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const AssetUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        url: z.boolean().optional(),
+    }));
+export const AssetUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ url: z.string() })
+    );
+export const AssetUniqueFilter = z.object({
+    where: AssetUniqueFilterWhere,
+    select: AssetUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 24`] = `
+"import { z } from "zod";
+
+export const AssetUpdateInput = z.object({
+    url: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 25`] = `
+"export * from "./asset-create-input";
+export * from "./asset-update-input";
+export * from "./asset-list-filter";
+export * from "./asset-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 26`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookCreateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace,
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string(),
+    label: z.string(),
+    root: z.boolean().nullish(),
+    description: z.string().nullish(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 27`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+import { BooleanFilterOperators } from "../..";
+
+export const BookListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ parentNamespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ label: OrderDirection }),
+        z.object({ root: OrderDirection }),
+        z.object({ description: OrderDirection }),
+    ])));
+export const BookListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    parentNamespace: BookNamespaceEqualityFilterOperators.nullish(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    label: z.union([z.string(), StringFilterOperators]).optional(),
+    root: z.union([z.boolean(), BooleanFilterOperators]).nullish(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    });
+export const BookListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(BookListFilterWhereFields).optional(),
+    OR: z.array(BookListFilterWhereFields).optional(),
+    NOT: BookListFilterWhereFields.optional(),
+    }).merge(BookListFilterWhereFields));
+export const BookListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: BookListFilterSelect.optional(),
+    orderBy: BookListFilterOrderBy.optional(),
+    where: BookListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 28`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        parentNamespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        label: z.boolean().optional(),
+        root: z.boolean().optional(),
+        description: z.boolean().optional(),
+    }));
+export const BookUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ id: z.string() }),
+        z.object({ namespace_section: z.object({
+        namespace: BookNamespace,
+        section: z.string(),
+        }),
+    }),
+        z.object({ section_label: z.object({
+        section: z.string(),
+        label: z.string(),
+        }),
+    }),]));
+export const BookUniqueFilter = z.object({
+    where: BookUniqueFilterWhere,
+    select: BookUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 29`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const BookUpdateInput = z.object({
+    id: z.string().optional(),
+    namespace: BookNamespace.optional(),
+    parentNamespace: BookNamespace.nullish(),
+    section: z.string().optional(),
+    label: z.string().optional(),
+    root: z.boolean().nullish().optional(),
+    description: z.string().nullish().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 30`] = `
+"export * from "./book-create-input";
+export * from "./book-update-input";
+export * from "./book-list-filter";
+export * from "./book-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 31`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryCreateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish(),
+    namespace: BookNamespace,
+    section: z.string(),
+    ledgerId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 32`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { NumberFilterOperators } from "../..";
+import { DateFilterOperators } from "../..";
+import { BookNamespaceEqualityFilterOperators } from "../../enums";
+
+export const EntryListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ amount: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ deletedAt: OrderDirection }),
+        z.object({ namespace: OrderDirection }),
+        z.object({ section: OrderDirection }),
+        z.object({ ledgerId: OrderDirection }),
+    ])));
+export const EntryListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    amount: z.union([z.number(), NumberFilterOperators]).optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    deletedAt: z.union([z.date(), DateFilterOperators]).nullish(),
+    namespace: BookNamespaceEqualityFilterOperators.optional(),
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    ledgerId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const EntryListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(EntryListFilterWhereFields).optional(),
+    OR: z.array(EntryListFilterWhereFields).optional(),
+    NOT: EntryListFilterWhereFields.optional(),
+    }).merge(EntryListFilterWhereFields));
+export const EntryListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: EntryListFilterSelect.optional(),
+    orderBy: EntryListFilterOrderBy.optional(),
+    where: EntryListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 33`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const EntryUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        amount: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        deletedAt: z.boolean().optional(),
+        namespace: z.boolean().optional(),
+        section: z.boolean().optional(),
+        ledgerId: z.boolean().optional(),
+    }));
+export const EntryUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const EntryUniqueFilter = z.object({
+    where: EntryUniqueFilterWhere,
+    select: EntryUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 34`] = `
+"import { z } from "zod";
+import { BookNamespace } from "../../../datamodel/enums";
+
+export const EntryUpdateInput = z.object({
+    id: z.string().optional(),
+    amount: z.number().optional(),
+    createdAt: z.date().optional(),
+    deletedAt: z.date().nullish().optional(),
+    namespace: BookNamespace.optional(),
+    section: z.string().optional(),
+    ledgerId: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 35`] = `
+"export * from "./entry-create-input";
+export * from "./entry-update-input";
+export * from "./entry-list-filter";
+export * from "./entry-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 36`] = `
+"export * from "./label-create-input";
+export * from "./label-update-input";
+export * from "./label-list-filter";
+export * from "./label-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 37`] = `
+"import { z } from "zod";
+
+export const LabelCreateInput = z.object({
+    name: z.string(),
+    group: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 38`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LabelListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ name: OrderDirection }),
+        z.object({ group: OrderDirection }),
+    ])));
+export const LabelListFilterWhereFields = z.object({
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    group: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LabelListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LabelListFilterWhereFields).optional(),
+    OR: z.array(LabelListFilterWhereFields).optional(),
+    NOT: LabelListFilterWhereFields.optional(),
+    }).merge(LabelListFilterWhereFields));
+export const LabelListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LabelListFilterSelect.optional(),
+    orderBy: LabelListFilterOrderBy.optional(),
+    where: LabelListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 39`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LabelUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        name: z.boolean().optional(),
+        group: z.boolean().optional(),
+    }));
+export const LabelUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.union([
+    z.object({ name: z.string() }),
+    z.object({ group: z.string() }),
+    ]));
+export const LabelUniqueFilter = z.object({
+    where: LabelUniqueFilterWhere,
+    select: LabelUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 40`] = `
+"import { z } from "zod";
+
+export const LabelUpdateInput = z.object({
+    name: z.string().optional(),
+    group: z.string().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 41`] = `
+"export * from "./ledger-create-input";
+export * from "./ledger-update-input";
+export * from "./ledger-list-filter";
+export * from "./ledger-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 42`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerCreateInput = z.object({
+    id: z.string().optional(),
+    name: z.string(),
+    description: z.string().nullish(),
+    tags: z.array(z.string()),
+    type: LedgerType,
+    allowedTypes: LedgerType,
+    createdAt: z.date().optional(),
+    updatedAt: z.date(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 43`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+import { LedgerTypeEqualityFilterOperators } from "../../enums";
+import { DateFilterOperators } from "../..";
+
+export const LedgerListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ id: OrderDirection }),
+        z.object({ name: OrderDirection }),
+        z.object({ description: OrderDirection }),
+        z.object({ tags: OrderDirection }),
+        z.object({ type: OrderDirection }),
+        z.object({ allowedTypes: OrderDirection }),
+        z.object({ createdAt: OrderDirection }),
+        z.object({ updatedAt: OrderDirection }),
+    ])));
+export const LedgerListFilterWhereFields = z.object({
+    id: z.union([z.string(), StringFilterOperators]).optional(),
+    name: z.union([z.string(), StringFilterOperators]).optional(),
+    description: z.union([z.string(), StringFilterOperators]).nullish(),
+    tags: z.union([z.string(), StringFilterOperators]).optional(),
+    type: LedgerTypeEqualityFilterOperators.optional(),
+    allowedTypes: LedgerTypeEqualityFilterOperators.optional(),
+    createdAt: z.union([z.date(), DateFilterOperators]).optional(),
+    updatedAt: z.union([z.date(), DateFilterOperators]).optional(),
+    });
+export const LedgerListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LedgerListFilterWhereFields).optional(),
+    OR: z.array(LedgerListFilterWhereFields).optional(),
+    NOT: LedgerListFilterWhereFields.optional(),
+    }).merge(LedgerListFilterWhereFields));
+export const LedgerListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LedgerListFilterSelect.optional(),
+    orderBy: LedgerListFilterOrderBy.optional(),
+    where: LedgerListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 44`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LedgerUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        id: z.boolean().optional(),
+        name: z.boolean().optional(),
+        description: z.boolean().optional(),
+        tags: z.boolean().optional(),
+        type: z.boolean().optional(),
+        allowedTypes: z.boolean().optional(),
+        createdAt: z.boolean().optional(),
+        updatedAt: z.boolean().optional(),
+    }));
+export const LedgerUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+    z.object({ id: z.string() })
+    );
+export const LedgerUniqueFilter = z.object({
+    where: LedgerUniqueFilterWhere,
+    select: LedgerUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 45`] = `
+"import { z } from "zod";
+import { LedgerType } from "../../../datamodel/enums";
+
+export const LedgerUpdateInput = z.object({
+    id: z.string().optional(),
+    name: z.string().optional(),
+    description: z.string().nullish().optional(),
+    tags: z.array(z.string()).optional(),
+    type: LedgerType.optional(),
+    allowedTypes: LedgerType.optional(),
+    createdAt: z.date().optional(),
+    updatedAt: z.date().optional(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 46`] = `
+"export * from "./log-create-input";
+export * from "./log-update-input";
+export * from "./log-list-filter";
+export * from "./log-unique-filter";
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 47`] = `
+"import { z } from "zod";
+
+export const LogCreateInput = z.object({
+    section: z.string(),
+    subSection: z.string(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string(),
+    }).strict();
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 48`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+import { StringFilterOperators } from "../..";
+
+export const LogListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+        z.object({ section: OrderDirection }),
+        z.object({ subSection: OrderDirection }),
+        z.object({ msg1: OrderDirection }),
+        z.object({ msg2: OrderDirection }),
+        z.object({ entryId: OrderDirection }),
+    ])));
+export const LogListFilterWhereFields = z.object({
+    section: z.union([z.string(), StringFilterOperators]).optional(),
+    subSection: z.union([z.string(), StringFilterOperators]).optional(),
+    msg1: z.union([z.string(), StringFilterOperators]).nullish(),
+    msg2: z.union([z.string(), StringFilterOperators]).optional(),
+    entryId: z.union([z.string(), StringFilterOperators]).optional(),
+    });
+export const LogListFilterWhere = z.preprocess(parseJsonPreprocessor, z.object({
+    AND: z.array(LogListFilterWhereFields).optional(),
+    OR: z.array(LogListFilterWhereFields).optional(),
+    NOT: LogListFilterWhereFields.optional(),
+    }).merge(LogListFilterWhereFields));
+export const LogListFilter = z.object({
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    select: LogListFilterSelect.optional(),
+    orderBy: LogListFilterOrderBy.optional(),
+    where: LogListFilterWhere,
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 49`] = `
+"import { z } from "zod";
+import { OrderDirection } from "../..";
+import { parseJsonPreprocessor } from "../..";
+
+export const LogUniqueFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
+        section: z.boolean().optional(),
+        subSection: z.boolean().optional(),
+        msg1: z.boolean().optional(),
+        msg2: z.boolean().optional(),
+        entryId: z.boolean().optional(),
+    }));
+export const LogUniqueFilterWhere = z.preprocess(parseJsonPreprocessor, 
+        z.object({ section_subSection: z.object({
+        section: z.string(),
+        subSection: z.string(),
+        }),
+    }));
+export const LogUniqueFilter = z.object({
+    where: LogUniqueFilterWhere,
+    select: LogUniqueFilterSelect.optional(),
+    });
+"
+`;
+
+exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 50`] = `
+"import { z } from "zod";
+
+export const LogUpdateInput = z.object({
+    section: z.string().optional(),
+    subSection: z.string().optional(),
+    msg1: z.string().nullish().optional(),
+    msg2: z.string().optional(),
+    entryId: z.string().optional(),
+    }).strict();
+"
+`;

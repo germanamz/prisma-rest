@@ -13,6 +13,7 @@ export type GenerateDatamodelOptions = {
   importQueue: ImportQueue;
 };
 
+// TODO: Use MarshalDocument
 export const generateDatamodel = (options: GenerateDatamodelOptions) => namespaceGenerator({
   ...options,
   generator: () => [

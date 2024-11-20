@@ -1,9 +1,10 @@
 import { Project, StatementStructures, StructureKind } from 'ts-morph';
-import path from 'path';
-import { createSourceFile, namespaceHandler } from '../src';
+import { createSourceFile, namespaceHandler, assertProjectSnapshot } from '../src';
 
 describe('namespaceHandler', () => {
-  const makeProject = () => new Project({});
+  const makeProject = () => new Project({
+    useInMemoryFileSystem: true,
+  });
 
   it('should import the generated files correctly', () => {
     const project = makeProject();
@@ -23,7 +24,7 @@ describe('namespaceHandler', () => {
     })!;
     const structure = indexFile.getStructure();
 
-    expect(indexFile.getFilePath()).toEqual(path.resolve('namespace/index.ts'));
+    expect(indexFile.getFilePath()).toEqual('/namespace/index.ts');
     expect(structure.statements).toHaveLength(2);
     expect((structure.statements as StatementStructures[])[0]).toEqual({
       kind: StructureKind.ExportDeclaration,
@@ -42,7 +43,7 @@ describe('namespaceHandler', () => {
       attributes: undefined,
     });
     expect(handler).toHaveBeenCalledTimes(2);
-    expect(indexFile.getFullText()).toMatchSnapshot();
+    assertProjectSnapshot(project);
   });
 
   it('should return undefined if no files are generated', () => {
@@ -61,5 +62,6 @@ describe('namespaceHandler', () => {
 
     expect(handler).not.toHaveBeenCalled();
     expect(indexFile).toBeUndefined();
+    assertProjectSnapshot(project);
   });
 });

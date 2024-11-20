@@ -5,3 +5,7 @@ exports[`namespaceHandler should import the generated files correctly 1`] = `
 export * from "./test-2";
 "
 `;
+
+exports[`namespaceHandler should import the generated files correctly 2`] = `""`;
+
+exports[`namespaceHandler should import the generated files correctly 3`] = `""`;

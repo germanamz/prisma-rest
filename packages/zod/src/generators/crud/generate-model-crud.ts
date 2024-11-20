@@ -1,22 +1,15 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
 import {
-  ImportQueue,
+  GeneratorContext,
   namespaceGenerator,
   normalizeFilename,
-  Registry,
 } from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
 import { generateInput } from './generate-input';
 import { generateListFilter } from './generate-list-filter';
 import { generateUniqueFilter } from './generate-unique-filter';
 
-type GenerateModelCrudOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
+type GenerateModelCrudOptions = GeneratorContext & {
   item: DMMF.Model;
 };
 

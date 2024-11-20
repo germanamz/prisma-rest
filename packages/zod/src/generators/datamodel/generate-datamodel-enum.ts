@@ -9,6 +9,7 @@ export type GenerateDatamodelEnumOptions = {
   registry: Registry;
 };
 
+// TODO: Use MarshalDocument
 export const generateDatamodelEnum = ({
   dir, project, item, registry,
 }: GenerateDatamodelEnumOptions) => {

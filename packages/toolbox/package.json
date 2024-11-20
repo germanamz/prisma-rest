@@ -21,6 +21,7 @@
   ],
   "devDependencies": {
     "@germanamz/eslint-config": "^1.0.4",
+    "@prisma/internals": "^5.22.0",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.13",
     "@types/node": "^20.12.7",
@@ -29,6 +30,7 @@
     "ts-jest": "^29.2.5"
   },
   "dependencies": {
+    "@germanamz/prisma-rest-marshal": "workspace:^",
     "@prisma/generator-helper": "^5.12.1",
     "fs-extra": "^11.2.0",
     "ts-morph": "^22.0.0",

@@ -19,6 +19,7 @@ export type GenerateUniqueFilterOptions = {
   model: DMMF.Model;
 };
 
+// TODO: Use MarshalDocument
 export const generateUniqueFilter = (options: GenerateUniqueFilterOptions) => {
   const {
     project,

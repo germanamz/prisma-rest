@@ -11,6 +11,7 @@ export type GenerateDatamodelEnumsOptions = {
   dmmf: DMMF.Document;
 };
 
+// TODO: Use MarshalDocument
 export const generateDatamodelEnums = (options: GenerateDatamodelEnumsOptions) => namespaceHandler({
   ...options,
   items: options.dmmf.datamodel.enums,

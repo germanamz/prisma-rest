@@ -1,13 +1,10 @@
-import { Project, StatementStructures, StructureKind } from 'ts-morph';
-import { createSourceFile, namespaceGenerator, assertProjectSnapshot } from '../src';
+import { StatementStructures, StructureKind } from 'ts-morph';
+import { assertProjectSnapshot, makeMockProject } from 'test-lib';
+import { createSourceFile, namespaceGenerator } from '../src';
 
 describe('namespaceGenerator', () => {
-  const makeProject = () => new Project({
-    useInMemoryFileSystem: true,
-  });
-
   it('should import the generated files correctly', () => {
-    const project = makeProject();
+    const project = makeMockProject();
     const indexFile = namespaceGenerator({
       project,
       dir: 'namespace',
@@ -37,7 +34,7 @@ describe('namespaceGenerator', () => {
   });
 
   it('should return undefined if no files are generated', () => {
-    const project = makeProject();
+    const project = makeMockProject();
     const indexFile = namespaceGenerator({
       project,
       dir: 'namespace',

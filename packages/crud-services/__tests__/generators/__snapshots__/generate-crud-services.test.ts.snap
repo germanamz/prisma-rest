@@ -1,0 +1,551 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateCrudServices should generate crud services 1`] = `
+"import { PrismaClient, Prisma, Asset } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class AssetCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.AssetUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.asset.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.AssetWhereUniqueInput; select?: Prisma.AssetSelect }, data: Prisma.AssetUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.asset.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.AssetWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.asset.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.AssetWhereInput; skip?: number; take?: number; orderBy?: Prisma.AssetOrderByWithRelationInput | Prisma.AssetOrderByWithRelationInput[]; select?: Prisma.AssetSelect }) {
+
+            try {
+              const instance = await this.prisma.asset.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.AssetWhereUniqueInput; select?: Prisma.AssetSelect }) {
+
+            try {
+              const instance = await this.prisma.asset.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateCrudServices should generate crud services 2`] = `
+"import { PrismaClient, Prisma, Book } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class BookCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.BookUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.book.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.BookWhereUniqueInput; select?: Prisma.BookSelect }, data: Prisma.BookUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.book.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.BookWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.book.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.BookWhereInput; skip?: number; take?: number; orderBy?: Prisma.BookOrderByWithRelationInput | Prisma.BookOrderByWithRelationInput[]; select?: Prisma.BookSelect }) {
+
+            try {
+              const instance = await this.prisma.book.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.BookWhereUniqueInput; select?: Prisma.BookSelect }) {
+
+            try {
+              const instance = await this.prisma.book.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateCrudServices should generate crud services 3`] = `
+"import { PrismaClient, Prisma, Entry } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class EntryCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.EntryUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.entry.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.EntryWhereUniqueInput; select?: Prisma.EntrySelect }, data: Prisma.EntryUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.entry.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.EntryWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.entry.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.EntryWhereInput; skip?: number; take?: number; orderBy?: Prisma.EntryOrderByWithRelationInput | Prisma.EntryOrderByWithRelationInput[]; select?: Prisma.EntrySelect }) {
+
+            try {
+              const instance = await this.prisma.entry.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.EntryWhereUniqueInput; select?: Prisma.EntrySelect }) {
+
+            try {
+              const instance = await this.prisma.entry.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateCrudServices should generate crud services 4`] = `
+"export * from "./ledger-crud-service-.ts";
+export * from "./book-crud-service-.ts";
+export * from "./entry-crud-service-.ts";
+export * from "./log-crud-service-.ts";
+export * from "./label-crud-service-.ts";
+export * from "./asset-crud-service-.ts";
+"
+`;
+
+exports[`generateCrudServices should generate crud services 5`] = `
+"import { PrismaClient, Prisma, Label } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LabelCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LabelUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.label.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LabelWhereUniqueInput; select?: Prisma.LabelSelect }, data: Prisma.LabelUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.label.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LabelWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.label.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LabelWhereInput; skip?: number; take?: number; orderBy?: Prisma.LabelOrderByWithRelationInput | Prisma.LabelOrderByWithRelationInput[]; select?: Prisma.LabelSelect }) {
+
+            try {
+              const instance = await this.prisma.label.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LabelWhereUniqueInput; select?: Prisma.LabelSelect }) {
+
+            try {
+              const instance = await this.prisma.label.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateCrudServices should generate crud services 6`] = `
+"import { PrismaClient, Prisma, Ledger } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LedgerCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LedgerUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.ledger.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LedgerWhereUniqueInput; select?: Prisma.LedgerSelect }, data: Prisma.LedgerUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.ledger.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LedgerWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.ledger.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LedgerWhereInput; skip?: number; take?: number; orderBy?: Prisma.LedgerOrderByWithRelationInput | Prisma.LedgerOrderByWithRelationInput[]; select?: Prisma.LedgerSelect }) {
+
+            try {
+              const instance = await this.prisma.ledger.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LedgerWhereUniqueInput; select?: Prisma.LedgerSelect }) {
+
+            try {
+              const instance = await this.prisma.ledger.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;
+
+exports[`generateCrudServices should generate crud services 7`] = `
+"import { PrismaClient, Prisma, Log } from "@prisma/client";
+import { Errno, translateToErrno } from "@germanamz/errno";
+import { z } from "zod";
+import { Ok, Err, ok, err } from "neverthrow";
+
+export class LogCrudService {
+    constructor(private prisma: PrismaClient) {
+    }
+
+    async create(data: Prisma.LogUncheckedCreateInput) {
+
+          try {
+            const instance = await this.prisma.log.create({
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async update(filter: { where: Prisma.LogWhereUniqueInput; select?: Prisma.LogSelect }, data: Prisma.LogUncheckedUpdateInput) {
+
+          try {
+            const instance = await this.prisma.log.update({
+              where: filter.where,
+              select: filter.select,
+              data,
+            });
+            
+            return ok(instance);
+          } catch (e) {
+            return err(translateToErrno(e, 'ERROR', 500, [e]));
+          }
+          
+    }
+
+    async delete(where: Prisma.LogWhereUniqueInput) {
+
+            try {
+              const deletedInstance = await this.prisma.log.delete({
+                where,
+              });
+              
+              return ok(deletedInstance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async find(filter: { where: Prisma.LogWhereInput; skip?: number; take?: number; orderBy?: Prisma.LogOrderByWithRelationInput | Prisma.LogOrderByWithRelationInput[]; select?: Prisma.LogSelect }) {
+
+            try {
+              const instance = await this.prisma.log.findMany({
+                where: filter.where,
+                skip: filter.skip,
+                take: filter.take,
+                orderBy: filter.orderBy,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+
+    async findUnique(filter: { where: Prisma.LogWhereUniqueInput; select?: Prisma.LogSelect }) {
+
+            try {
+              const instance = await this.prisma.log.findUnique({
+                where: filter.where,
+                select: filter.select,
+              });
+              
+              return ok(instance);
+            } catch (e) {
+              return err(translateToErrno(e, 'ERROR', 500, [e]));
+            }
+          
+    }
+}
+"
+`;

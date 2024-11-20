@@ -6,6 +6,7 @@ export type GenerateUpdateMethodOptions = {
   serviceClass: ClassDeclaration;
 };
 
+// TODO: Use MarshalModel
 export const generateUpdateMethod = ({ model, serviceClass }: GenerateUpdateMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'update',

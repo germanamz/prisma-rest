@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import { generatorHandler } from '@prisma/generator-helper';
 import path from 'path';
-import { Project, SourceFile } from 'ts-morph';
+import { makeGeneratorContext } from '@germanamz/prisma-rest-toolbox';
 import { generateCrudServices } from './generators/generate-crud-services';
 
 generatorHandler({
@@ -22,27 +22,23 @@ generatorHandler({
       },
       schemaPath,
     } = options;
-    const project = new Project({
-      tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
-      skipAddingFilesFromTsConfig: true,
-    });
-    const dir = output?.value || path.resolve(process.cwd(), 'services');
+    const schemaDir = path.dirname(schemaPath);
+    const dir = output?.value ? output.value : path.resolve(schemaDir, 'services');
     const clientPath = rawClientPath
-      ? path.resolve(path.dirname(schemaPath), Array.isArray(rawClientPath)
+      ? path.resolve(schemaDir, Array.isArray(rawClientPath)
         ? rawClientPath[0]
         : rawClientPath)
       : '@prisma/client';
-    const registry = new Map<string, SourceFile>();
-
-    generateCrudServices({
-      models: dmmf.datamodel.models,
-      project,
+    const ctx = makeGeneratorContext({
       dir,
-      clientPath,
-      registry,
       dmmf,
     });
 
-    await project.save();
+    generateCrudServices({
+      ...ctx,
+      clientPath,
+    });
+
+    await ctx.project.save();
   },
 });

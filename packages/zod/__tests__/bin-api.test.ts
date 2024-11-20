@@ -1,8 +1,8 @@
 import { MarshalDocument } from '@germanamz/prisma-rest-marshal';
-import { getDMMF } from '@prisma/internals';
 import * as path from 'node:path';
 import { Project } from 'ts-morph';
 import { GeneratorOptions } from '@prisma/generator-helper';
+import { getMockDmmf, getSchemaPath } from 'test-lib';
 import { onManifest, onGenerate } from '../src/bin-api';
 
 const makeGeneratorContextMock = jest.fn();
@@ -44,11 +44,10 @@ describe('bin-api', () => {
 
   describe('onGenerate', () => {
     it('should generate zod and make a context', async () => {
-      const schemaPath = path.resolve(__dirname, '../prisma/schema.prisma');
-      const dmmf = await getDMMF({ datamodelPath: schemaPath });
+      const dmmf = await getMockDmmf();
 
       await onGenerate({
-        schemaPath,
+        schemaPath: getSchemaPath(),
         generator: {
           output: {
             fromEnvVar: null,
@@ -73,8 +72,8 @@ describe('bin-api', () => {
     });
 
     it('should generate zod and make a context without output path', async () => {
-      const schemaPath = path.resolve(__dirname, '../prisma/schema.prisma');
-      const dmmf = await getDMMF({ datamodelPath: schemaPath });
+      const schemaPath = getSchemaPath();
+      const dmmf = await getMockDmmf();
       const dir = path.join(path.dirname(schemaPath), 'zod');
 
       await onGenerate({

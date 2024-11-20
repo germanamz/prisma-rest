@@ -1,11 +1,12 @@
 import { SourceFile } from 'ts-morph';
-import { assertProjectSnapshot } from '@germanamz/prisma-rest-toolbox';
+import { assertProjectSnapshot, loadBasicMocks } from 'test-lib';
+import { makeGeneratorContext } from '@germanamz/prisma-rest-toolbox';
 import { generateZod } from '../../src';
-import { loadTestSchema } from '../../test-lib/testing-utility';
 
 describe('generateZod', () => {
   it('should generate the datamodel, crud schemas and execute the import queue', async () => {
-    const { ctx } = await loadTestSchema();
+    const basicMocks = await loadBasicMocks();
+    const ctx = makeGeneratorContext(basicMocks);
     const indexFile = generateZod(ctx);
 
     expect(indexFile).toBeInstanceOf(SourceFile);

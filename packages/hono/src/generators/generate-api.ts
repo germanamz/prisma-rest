@@ -1,16 +1,11 @@
-import { Project } from 'ts-morph';
 import {
-  addToImportQueue, declareConstant, ImportQueue, Registry,
+  addToImportQueue, declareConstant, GeneratorContext,
 } from '@germanamz/prisma-rest-toolbox';
 import { DMMF } from '@prisma/generator-helper';
 import { apiHandlerWriter } from './writers/api-handler-writer';
 
-export type GenerateApiOptions = {
-  project: Project;
-  registry: Registry;
-  dir: string;
+export type GenerateApiOptions = GeneratorContext & {
   item: DMMF.Model;
-  importQueue: ImportQueue;
 };
 
 export const generateApi = ({

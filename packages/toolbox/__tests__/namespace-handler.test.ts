@@ -1,13 +1,10 @@
-import { Project, StatementStructures, StructureKind } from 'ts-morph';
-import { createSourceFile, namespaceHandler, assertProjectSnapshot } from '../src';
+import { StatementStructures, StructureKind } from 'ts-morph';
+import { assertProjectSnapshot, makeMockProject } from 'test-lib';
+import { createSourceFile, namespaceHandler } from '../src';
 
 describe('namespaceHandler', () => {
-  const makeProject = () => new Project({
-    useInMemoryFileSystem: true,
-  });
-
   it('should import the generated files correctly', () => {
-    const project = makeProject();
+    const project = makeMockProject();
     const handler = jest.fn((item) => createSourceFile({
       dir: 'namespace',
       name: item.name,
@@ -47,7 +44,7 @@ describe('namespaceHandler', () => {
   });
 
   it('should return undefined if no files are generated', () => {
-    const project = makeProject();
+    const project = makeMockProject();
     const handler = jest.fn((item) => createSourceFile({
       dir: 'namespace',
       name: item.name,

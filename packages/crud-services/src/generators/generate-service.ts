@@ -1,19 +1,17 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
-import { createSourceFile, Registry } from '@germanamz/prisma-rest-toolbox';
+import { createSourceFile, GeneratorContext } from '@germanamz/prisma-rest-toolbox';
 import { generateCreateMethod } from './generate-create-method';
 import { generateUpdateMethod } from './generate-update-method';
 import { generateDeleteMethod } from './generate-delete-method';
 import { generateFindMethod } from './generate-find-method';
 import { generateFindUniqueMethod } from './generate-find-unique-method';
 
-export type GenerateServiceOptions = {
+export type GenerateServiceOptions = GeneratorContext & {
   item: DMMF.Model;
-  dir: string;
-  project: Project;
-  registry: Registry;
   clientPath: string;
 };
+
+// TODO: Use MarshalModel
 export const generateService = (
   {
     project,

@@ -26,6 +26,7 @@
     "@types/node": "^20.12.7",
     "eslint": "^8",
     "jest": "^29.7.0",
+    "test-lib": "workspace:^",
     "ts-jest": "^29.2.5"
   },
   "dependencies": {

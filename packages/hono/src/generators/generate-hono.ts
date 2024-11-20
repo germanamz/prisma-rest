@@ -1,16 +1,12 @@
-import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
-import { makeGeneratorContext, namespaceGenerator, Registry } from '@germanamz/prisma-rest-toolbox';
+import {
+  GeneratorContext, namespaceGenerator,
+} from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
-import { generateCrudServices } from '@germanamz/prisma-generator-crud-services/dist';
 import { generateZod } from '@germanamz/prisma-generator-zod';
+import { generateCrudServices } from '@germanamz/prisma-generator-crud-services';
 import { generateApis } from './generate-apis';
 
-export type GenerateHonoOptions = {
-  project: Project;
-  dir: string;
-  dmmf: DMMF.Document;
-  registry: Registry;
+export type GenerateHonoOptions = GeneratorContext & {
   clientPath: string;
 };
 
@@ -20,12 +16,11 @@ export const generateHono = (options: GenerateHonoOptions) => namespaceGenerator
     generateCrudServices({
       ...options,
       dir: path.join(options.dir, 'services'),
-      models: options.dmmf.datamodel.models,
     }),
-    generateZod(makeGeneratorContext({
+    generateZod({
       ...options,
       dir: path.join(options.dir, 'zod'),
-    })),
+    }),
     generateApis({
       ...options,
       dir: path.join(options.dir, 'apis'),

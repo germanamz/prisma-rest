@@ -6,6 +6,7 @@ export type GenerateDeleteMethodOptions = {
   serviceClass: ClassDeclaration;
 };
 
+// TODO: Use MarshalModel
 export const generateDeleteMethod = ({ model, serviceClass }: GenerateDeleteMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'delete',

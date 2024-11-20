@@ -1,20 +1,14 @@
-import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
-import { namespaceHandler, Registry } from '@germanamz/prisma-rest-toolbox';
+import { GeneratorContext, namespaceHandler } from '@germanamz/prisma-rest-toolbox';
 import { generateService } from './generate-service';
 
-export type GenerateServicesOptions = {
-  models: DMMF.Datamodel['models'];
-  dir: string;
-  project: Project;
+export type GenerateServicesOptions = GeneratorContext & {
   clientPath: string;
-  registry: Registry;
-  dmmf: DMMF.Document;
 };
 
+// TODO: Use MarshalDocument
 export const generateCrudServices = (options: GenerateServicesOptions) => namespaceHandler({
   ...options,
-  items: options.models,
+  items: options.dmmf.datamodel.models,
   handler: (item) => generateService({
     ...options,
     item,

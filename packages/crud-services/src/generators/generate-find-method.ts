@@ -6,6 +6,7 @@ type GenerateFindMethodOptions = {
   model: DMMF.Model;
 };
 
+// TODO: Use MarshalModel
 export const generateFindMethod = ({ serviceClass, model }: GenerateFindMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'find',

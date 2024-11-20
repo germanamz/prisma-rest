@@ -6,6 +6,7 @@ type GenerateFindByIdMethodOptions = {
   model: DMMF.Model;
 };
 
+// TODO: Use MarshalModel
 export const generateFindUniqueMethod = (options: GenerateFindByIdMethodOptions) => {
   const { serviceClass, model } = options;
   const method = serviceClass.addMethod({

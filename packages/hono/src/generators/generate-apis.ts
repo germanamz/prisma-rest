@@ -1,17 +1,13 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project, SourceFile } from 'ts-morph';
+import { SourceFile } from 'ts-morph';
 import {
-  executeImportQueue, namespaceGenerator, namespaceHandler, Registry,
+  executeImportQueue, GeneratorContext, namespaceGenerator, namespaceHandler,
 } from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
 import { generateApi } from './generate-api';
 
-export type GenerateApisOptions = {
-  project: Project;
-  dir: string;
+export type GenerateApisOptions = GeneratorContext & {
   models: readonly DMMF.Model[];
-  registry: Registry;
-  dmmf: DMMF.Document;
 };
 
 export const generateApis = (options: GenerateApisOptions) => {

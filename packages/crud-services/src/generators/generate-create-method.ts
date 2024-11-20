@@ -6,6 +6,7 @@ type GenerateCreateMethodOptions = {
   model: DMMF.Model;
 };
 
+// TODO: Use MarshalModel
 export const generateCreateMethod = ({ serviceClass, model }: GenerateCreateMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'create',

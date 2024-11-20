@@ -1,6 +1,6 @@
 import { generatorHandler } from '@prisma/generator-helper';
 import path from 'path';
-import { Project, SourceFile } from 'ts-morph';
+import { makeGeneratorContext } from '@germanamz/prisma-rest-toolbox';
 import { generateHono } from './generators/generate-hono';
 
 generatorHandler({
@@ -28,20 +28,16 @@ generatorHandler({
         ? rawClientPath[0]
         : rawClientPath)
       : '@prisma/client';
-    const project = new Project({
-      tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
-      skipAddingFilesFromTsConfig: true,
-    });
-    const registry = new Map<string, SourceFile>();
-
-    generateHono({
-      project,
+    const ctx = makeGeneratorContext({
       dir,
       dmmf,
-      registry,
+    });
+
+    generateHono({
+      ...ctx,
       clientPath,
     });
 
-    await project.save();
+    await ctx.project.save();
   },
 });

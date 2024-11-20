@@ -9,6 +9,6 @@
     "importHelpers": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "skipLibCheck": true
+    "skipLibCheck": true,
   }
 }

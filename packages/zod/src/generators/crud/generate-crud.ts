@@ -1,20 +1,12 @@
-import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
 import {
-  ImportQueue, namespaceGenerator, namespaceHandler, Registry,
+  GeneratorContext, namespaceGenerator, namespaceHandler,
 } from '@germanamz/prisma-rest-toolbox';
 import path from 'path';
 import { generateModelCrud } from './generate-model-crud';
 import { generateGlobalCrudBasics } from './generate-global-crud-basics';
 import { generateEnumOperators } from './generate-enum-operators';
 
-type GenerateCrudOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
-};
+type GenerateCrudOptions = GeneratorContext;
 
 export const generateCrud = (options: GenerateCrudOptions) => namespaceGenerator({
   ...options,

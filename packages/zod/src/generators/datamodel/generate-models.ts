@@ -12,6 +12,7 @@ type GenerateModelsOptions = {
   dmmf: DMMF.Document;
 };
 
+// TODO: Use MarshalDocument
 export const generateModels = (options: GenerateModelsOptions) => namespaceHandler({
   ...options,
   items: options.models,

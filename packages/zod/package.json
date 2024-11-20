@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@germanamz/eslint-config": "^1.0.4",
+    "@prisma/internals": "^5.22.0",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.13",
     "@types/node": "^20.12.7",

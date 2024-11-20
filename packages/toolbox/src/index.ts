@@ -6,3 +6,4 @@ export * from './normalize-filename';
 export * from './create-source-file';
 export * from './declare-constant';
 export * from './export-file';
+export * from './generator-context';

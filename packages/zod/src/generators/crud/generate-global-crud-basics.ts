@@ -1,7 +1,5 @@
-import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
 import {
-  createSourceFile, declareConstant, ImportQueue, Registry,
+  createSourceFile, declareConstant, GeneratorContext,
 } from '@germanamz/prisma-rest-toolbox';
 
 const operatorTypes = [
@@ -23,13 +21,7 @@ const operatorTypes = [
   },
 ];
 
-export type GenerateGlobalCrudBasicsOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
-};
+export type GenerateGlobalCrudBasicsOptions = GeneratorContext;
 
 export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOptions) => {
   const {

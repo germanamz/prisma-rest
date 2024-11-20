@@ -1,21 +1,14 @@
 import { DMMF } from '@prisma/generator-helper';
-import { Project } from 'ts-morph';
 import {
   addToImportQueue,
   createSourceFile,
   declareConstant,
-  ImportQueue,
-  Registry,
+  GeneratorContext,
 } from '@germanamz/prisma-rest-toolbox';
 import { prismaToZodScalar } from '../../helpers/prisma-to-zod-scalar';
 import { declareSelect } from './lib/declare-select';
 
-export type GenerateListFilterOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
+export type GenerateListFilterOptions = GeneratorContext & {
   model: DMMF.Model;
 };
 

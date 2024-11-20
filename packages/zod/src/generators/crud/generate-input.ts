@@ -1,14 +1,11 @@
 import { DMMF } from '@prisma/generator-helper';
-import { CodeBlockWriter, Project, VariableDeclarationKind } from 'ts-morph';
-import { createSourceFile, ImportQueue, Registry } from '@germanamz/prisma-rest-toolbox';
+import { CodeBlockWriter, VariableDeclarationKind } from 'ts-morph';
+import {
+  createSourceFile, GeneratorContext,
+} from '@germanamz/prisma-rest-toolbox';
 import { genFieldZodType } from '../../helpers/gen-field-zod-type';
 
-type GenerateInputOptions = {
-  dmmf: DMMF.Document;
-  project: Project;
-  dir: string;
-  registry: Registry;
-  importQueue: ImportQueue;
+type GenerateInputOptions = GeneratorContext & {
   model: DMMF.Model;
   suffix: string;
   isOptional: boolean;

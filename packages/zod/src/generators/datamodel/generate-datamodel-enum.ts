@@ -1,15 +1,11 @@
-import { DMMF } from '@prisma/generator-helper';
-import { Project, VariableDeclarationKind } from 'ts-morph';
-import { normalizeFilename, Registry } from '@germanamz/prisma-rest-toolbox';
+import { VariableDeclarationKind } from 'ts-morph';
+import { GeneratorContext, normalizeFilename } from '@germanamz/prisma-rest-toolbox';
+import { MarshalEnum } from '@germanamz/prisma-rest-marshal';
 
-export type GenerateDatamodelEnumOptions = {
-  dir: string;
-  project: Project;
-  item: DMMF.DatamodelEnum;
-  registry: Registry;
+export type GenerateDatamodelEnumOptions = GeneratorContext & {
+  item: MarshalEnum;
 };
 
-// TODO: Use MarshalDocument
 export const generateDatamodelEnum = ({
   dir, project, item, registry,
 }: GenerateDatamodelEnumOptions) => {
@@ -30,7 +26,7 @@ export const generateDatamodelEnum = ({
           writer.writeLine('z.enum([');
           writer.indent(() => {
             item.values.forEach((value) => {
-              writer.write(`"${value.name}",`);
+              writer.write(`"${value}",`);
               writer.newLine();
             });
           });

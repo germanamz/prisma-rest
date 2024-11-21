@@ -1,17 +1,11 @@
-import { Project } from 'ts-morph';
-import { DMMF } from '@prisma/generator-helper';
 import path from 'path';
-import { ImportQueue, namespaceGenerator, Registry } from '@germanamz/prisma-rest-toolbox';
+import {
+  GeneratorContext, namespaceGenerator,
+} from '@germanamz/prisma-rest-toolbox';
 import { generateDatamodelEnums } from './generate-datamodel-enums';
 import { generateModels } from './generate-models';
 
-export type GenerateDatamodelOptions = {
-  project: Project;
-  dir: string;
-  dmmf: DMMF.Document;
-  registry: Registry;
-  importQueue: ImportQueue;
-};
+export type GenerateDatamodelOptions = GeneratorContext;
 
 // TODO: Use MarshalDocument
 export const generateDatamodel = (options: GenerateDatamodelOptions) => namespaceGenerator({

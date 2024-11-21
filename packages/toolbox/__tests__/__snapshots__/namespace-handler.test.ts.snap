@@ -1,11 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`namespaceHandler should import the generated files correctly 1`] = `
-"export * from "./test-1";
+"Source file path: /generated/index.ts
+---------------------------------------------
+export * from "./test-1";
 export * from "./test-2";
 "
 `;
 
-exports[`namespaceHandler should import the generated files correctly 2`] = `""`;
+exports[`namespaceHandler should import the generated files correctly 2`] = `
+"Source file path: /generated/test-1.ts
+---------------------------------------------
+"
+`;
 
-exports[`namespaceHandler should import the generated files correctly 3`] = `""`;
+exports[`namespaceHandler should import the generated files correctly 3`] = `
+"Source file path: /generated/test-2.ts
+---------------------------------------------
+"
+`;

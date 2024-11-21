@@ -1,5 +1,5 @@
 import { StatementStructures, StructureKind } from 'ts-morph';
-import { assertProjectSnapshot, makeMockProject } from 'test-lib';
+import { assertProjectSnapshot, getMockDir, makeMockProject } from 'test-lib';
 import { createSourceFile, namespaceGenerator } from '../src';
 
 describe('namespaceGenerator', () => {
@@ -7,11 +7,11 @@ describe('namespaceGenerator', () => {
     const project = makeMockProject();
     const indexFile = namespaceGenerator({
       project,
-      dir: 'namespace',
+      dir: getMockDir(),
       generator: () => [
         createSourceFile({
           project,
-          dir: 'namespace',
+          dir: getMockDir(),
           name: 'test',
           content: 'export const test = 1;',
         }),
@@ -20,7 +20,7 @@ describe('namespaceGenerator', () => {
     })!;
     const structure = indexFile.getStructure();
 
-    expect(indexFile.getFilePath()).toEqual('/namespace/index.ts');
+    expect(indexFile.getFilePath()).toEqual(`${getMockDir()}/index.ts`);
     expect(structure.statements).toHaveLength(1);
     expect((structure.statements as StatementStructures[])[0]).toEqual({
       kind: StructureKind.ExportDeclaration,
@@ -37,7 +37,7 @@ describe('namespaceGenerator', () => {
     const project = makeMockProject();
     const indexFile = namespaceGenerator({
       project,
-      dir: 'namespace',
+      dir: getMockDir(),
       generator: () => [],
     });
 

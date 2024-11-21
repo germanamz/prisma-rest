@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 1`] = `
-"export * from "./datamodel";
+"Source file path: /generated/index.ts
+---------------------------------------------
+export * from "./datamodel";
 export * from "./crud";
 "
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 2`] = `
-"import { z, ZodIssueCode } from "zod";
+"Source file path: /generated/crud/global-crud-basics.ts
+---------------------------------------------
+import { z, ZodIssueCode } from "zod";
 
 export const OrderDirection = z.enum(['asc', 'desc']);
 export const parseJsonPreprocessor = (value: any, ctx: z.RefinementCtx) => {
@@ -76,20 +80,26 @@ export const DateFilterOperators = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 3`] = `
-"export * from "./global-crud-basics";
+"Source file path: /generated/crud/index.ts
+---------------------------------------------
+export * from "./global-crud-basics";
 export * from "./enums";
 export * from "./models";
 "
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 4`] = `
-"export * from "./enums";
+"Source file path: /generated/datamodel/index.ts
+---------------------------------------------
+export * from "./enums";
 export * from "./models";
 "
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 5`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/enums/book-namespace-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../datamodel/enums";
 
 export const BookNamespaceEqualityFilterOperators = z.object({
@@ -102,14 +112,18 @@ export const BookNamespaceEqualityFilterOperators = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 6`] = `
-"export * from "./ledger-type-operators";
+"Source file path: /generated/crud/enums/index.ts
+---------------------------------------------
+export * from "./ledger-type-operators";
 export * from "./payload-kind-operators";
 export * from "./book-namespace-operators";
 "
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 7`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/enums/ledger-type-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../datamodel/enums";
 
 export const LedgerTypeEqualityFilterOperators = z.object({
@@ -122,7 +136,9 @@ export const LedgerTypeEqualityFilterOperators = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 8`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/enums/payload-kind-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { PayloadKind } from "../../datamodel/enums";
 
 export const PayloadKindEqualityFilterOperators = z.object({
@@ -135,7 +151,9 @@ export const PayloadKindEqualityFilterOperators = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 9`] = `
-"export * from "./ledger";
+"Source file path: /generated/crud/models/index.ts
+---------------------------------------------
+export * from "./ledger";
 export * from "./book";
 export * from "./entry";
 export * from "./log";
@@ -145,7 +163,9 @@ export * from "./asset";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 10`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/enums/book-namespace.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const BookNamespace = z.enum([
         "BU1",
@@ -155,14 +175,18 @@ export const BookNamespace = z.enum([
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 11`] = `
-"export * from "./ledger-type";
+"Source file path: /generated/datamodel/enums/index.ts
+---------------------------------------------
+export * from "./ledger-type";
 export * from "./payload-kind";
 export * from "./book-namespace";
 "
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 12`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/enums/ledger-type.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LedgerType = z.enum([
         "MAIN",
@@ -172,7 +196,9 @@ export const LedgerType = z.enum([
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 13`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/enums/payload-kind.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const PayloadKind = z.enum([
         "SMART",
@@ -182,7 +208,9 @@ export const PayloadKind = z.enum([
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 14`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/asset.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Asset = z.object({
         url: z.string(),
@@ -192,7 +220,9 @@ export const Asset = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 15`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/book.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../enums";
 
 export const Book = z.object({
@@ -209,7 +239,9 @@ export const Book = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 16`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/entry.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../enums";
 
 export const Entry = z.object({
@@ -226,7 +258,9 @@ export const Entry = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 17`] = `
-"export * from "./ledger";
+"Source file path: /generated/datamodel/models/index.ts
+---------------------------------------------
+export * from "./ledger";
 export * from "./book";
 export * from "./entry";
 export * from "./log";
@@ -236,7 +270,9 @@ export * from "./asset";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 18`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/label.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Label = z.object({
         name: z.string(),
@@ -247,7 +283,9 @@ export const Label = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 19`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/ledger.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../enums";
 
 export const Ledger = z.object({
@@ -265,7 +303,9 @@ export const Ledger = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 20`] = `
-"import { z } from "zod";
+"Source file path: /generated/datamodel/models/log.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Log = z.object({
         section: z.string(),
@@ -279,7 +319,9 @@ export const Log = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 21`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/asset/asset-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const AssetCreateInput = z.object({
     url: z.string(),
@@ -288,7 +330,9 @@ export const AssetCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 22`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/asset/asset-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -318,7 +362,9 @@ export const AssetListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 23`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/asset/asset-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -336,7 +382,9 @@ export const AssetUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 24`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/asset/asset-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const AssetUpdateInput = z.object({
     url: z.string().optional(),
@@ -345,7 +393,9 @@ export const AssetUpdateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 25`] = `
-"export * from "./asset-create-input";
+"Source file path: /generated/crud/models/asset/index.ts
+---------------------------------------------
+export * from "./asset-create-input";
 export * from "./asset-update-input";
 export * from "./asset-list-filter";
 export * from "./asset-unique-filter";
@@ -353,7 +403,9 @@ export * from "./asset-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 26`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/book/book-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const BookCreateInput = z.object({
@@ -369,7 +421,9 @@ export const BookCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 27`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/book/book-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -419,7 +473,9 @@ export const BookListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 28`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/book/book-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { BookNamespace } from "../../../datamodel/enums";
@@ -454,7 +510,9 @@ export const BookUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 29`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/book/book-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const BookUpdateInput = z.object({
@@ -470,7 +528,9 @@ export const BookUpdateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 30`] = `
-"export * from "./book-create-input";
+"Source file path: /generated/crud/models/book/index.ts
+---------------------------------------------
+export * from "./book-create-input";
 export * from "./book-update-input";
 export * from "./book-list-filter";
 export * from "./book-unique-filter";
@@ -478,7 +538,9 @@ export * from "./book-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 31`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/entry/entry-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const EntryCreateInput = z.object({
@@ -494,7 +556,9 @@ export const EntryCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 32`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/entry/entry-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -545,7 +609,9 @@ export const EntryListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 33`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/entry/entry-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -569,7 +635,9 @@ export const EntryUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 34`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/entry/entry-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const EntryUpdateInput = z.object({
@@ -585,7 +653,9 @@ export const EntryUpdateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 35`] = `
-"export * from "./entry-create-input";
+"Source file path: /generated/crud/models/entry/index.ts
+---------------------------------------------
+export * from "./entry-create-input";
 export * from "./entry-update-input";
 export * from "./entry-list-filter";
 export * from "./entry-unique-filter";
@@ -593,7 +663,9 @@ export * from "./entry-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 36`] = `
-"export * from "./label-create-input";
+"Source file path: /generated/crud/models/label/index.ts
+---------------------------------------------
+export * from "./label-create-input";
 export * from "./label-update-input";
 export * from "./label-list-filter";
 export * from "./label-unique-filter";
@@ -601,7 +673,9 @@ export * from "./label-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 37`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/label/label-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LabelCreateInput = z.object({
     name: z.string(),
@@ -611,7 +685,9 @@ export const LabelCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 38`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/label/label-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -644,7 +720,9 @@ export const LabelListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 39`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/label/label-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -665,7 +743,9 @@ export const LabelUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 40`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/label/label-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LabelUpdateInput = z.object({
     name: z.string().optional(),
@@ -675,7 +755,9 @@ export const LabelUpdateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 41`] = `
-"export * from "./ledger-create-input";
+"Source file path: /generated/crud/models/ledger/index.ts
+---------------------------------------------
+export * from "./ledger-create-input";
 export * from "./ledger-update-input";
 export * from "./ledger-list-filter";
 export * from "./ledger-unique-filter";
@@ -683,7 +765,9 @@ export * from "./ledger-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 42`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/ledger/ledger-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../../datamodel/enums";
 
 export const LedgerCreateInput = z.object({
@@ -700,7 +784,9 @@ export const LedgerCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 43`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/ledger/ledger-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -753,7 +839,9 @@ export const LedgerListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 44`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/ledger/ledger-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -778,7 +866,9 @@ export const LedgerUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 45`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/ledger/ledger-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../../datamodel/enums";
 
 export const LedgerUpdateInput = z.object({
@@ -795,7 +885,9 @@ export const LedgerUpdateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 46`] = `
-"export * from "./log-create-input";
+"Source file path: /generated/crud/models/log/index.ts
+---------------------------------------------
+export * from "./log-create-input";
 export * from "./log-update-input";
 export * from "./log-list-filter";
 export * from "./log-unique-filter";
@@ -803,7 +895,9 @@ export * from "./log-unique-filter";
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 47`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/log/log-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LogCreateInput = z.object({
     section: z.string(),
@@ -816,7 +910,9 @@ export const LogCreateInput = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 48`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/log/log-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -858,7 +954,9 @@ export const LogListFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 49`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/log/log-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -883,7 +981,9 @@ export const LogUniqueFilter = z.object({
 `;
 
 exports[`generateZod should generate the datamodel, crud schemas and execute the import queue 50`] = `
-"import { z } from "zod";
+"Source file path: /generated/crud/models/log/log-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LogUpdateInput = z.object({
     section: z.string().optional(),

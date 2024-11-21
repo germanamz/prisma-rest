@@ -1,24 +1,13 @@
-import { DMMF } from '@prisma/generator-helper';
-import { MarshalEnum } from '../src/MarshalEnum';
+import { getMockDmmf } from 'test-lib';
+import { MarshalEnum } from '../src';
 
 describe('MarshalField', () => {
-  it('should interpret a field', () => {
-    const enumType = {
-      name: 'name',
-      values: [
-        {
-          name: 'value1',
-          dbName: 'value1',
-        },
-        {
-          name: 'value2',
-          dbName: 'value2',
-        },
-      ],
-    } as DMMF.DatamodelEnum;
+  it('should interpret a field', async () => {
+    const dmmf = await getMockDmmf();
+    const enumType = dmmf.datamodel.enums[0];
     const marshalField = new MarshalEnum(enumType);
 
-    expect(marshalField.name).toEqual('name');
-    expect(marshalField.values).toEqual(['value1', 'value2']);
+    expect(marshalField.name).toEqual('LedgerType');
+    expect(marshalField.values).toEqual(['MAIN', 'CC']);
   });
 });

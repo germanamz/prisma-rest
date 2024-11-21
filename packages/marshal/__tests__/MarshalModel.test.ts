@@ -1,51 +1,21 @@
-import { DMMF } from '@prisma/generator-helper';
-import { MarshalModel } from '../src';
+import { getMockDmmf } from 'test-lib';
+import { MarshalField, MarshalModel } from '../src';
 
 describe('MarshalModel', () => {
-  it('should interpret the model and its fields', () => {
-    const model = {
-      name: 'Test',
-      fields: [
-        {
-          name: 'id',
-          type: 'String',
-          kind: 'scalar',
-          isId: true,
-        },
-        {
-          name: 'name',
-          type: 'String',
-          kind: 'scalar',
-          isId: false,
-          isUnique: true,
-        },
-        {
-          name: 'section',
-          type: 'Int',
-          kind: 'scalar',
-          isId: false,
-          isUnique: false,
-        },
-        {
-          name: 'namespace',
-          type: 'String',
-          kind: 'scalar',
-          isId: false,
-          isUnique: false,
-        },
-      ],
-      uniqueFields: [
-        ['section', 'namespace'],
-      ],
-    } as unknown as DMMF.Model;
+  it('should interpret the model and its fields', async () => {
+    const dmmf = await getMockDmmf();
+    const model = dmmf.datamodel.models[0];
     const marshalModel = new MarshalModel(model);
 
-    expect(marshalModel.name).toEqual('Test');
-    expect(marshalModel.numberOfUniqueFields).toEqual(3);
-    expect(marshalModel.idField?.name).toEqual('id');
-    expect(marshalModel.singleUniqueFields[0].name).toEqual('name');
-    expect(marshalModel.singleUniqueFields.length).toEqual(1);
-    expect(marshalModel.uniqueFields[0].name).toEqual('section_namespace');
-    expect(marshalModel.uniqueFields.length).toEqual(1);
+    expect(marshalModel.name).toEqual('Ledger');
+    expect(marshalModel.idField).toBeInstanceOf(MarshalField);
+    expect(marshalModel.idField!.name).toEqual('id');
+    expect(marshalModel.numberOfUniqueFields).toEqual(1);
+    expect(marshalModel.fields).toHaveLength(9); // Includes relation fields
+    expect(marshalModel.scalarFields).toHaveLength(6);
+    expect(marshalModel.enumFields).toHaveLength(2);
+    expect(marshalModel.listFields).toHaveLength(2);
+    expect(marshalModel.requiredFields).toHaveLength(7);
+    expect(marshalModel.optionalFields).toHaveLength(1);
   });
 });

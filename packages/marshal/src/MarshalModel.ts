@@ -7,13 +7,27 @@ export class MarshalModel {
 
   name: string;
 
+  fields: MarshalField[] = [];
+
+  scalarFields: MarshalField[] = [];
+
+  enumFields: MarshalField[] = [];
+
+  simpleFields: MarshalField[] = [];
+
+  requiredFields: MarshalField[] = [];
+
+  optionalFields: MarshalField[] = [];
+
+  listFields: MarshalField[] = [];
+
+  relationFields: MarshalField[] = [];
+
   idField?: MarshalField | null;
 
   singleUniqueFields: MarshalField[] = [];
 
   uniqueFields: MarshalUniqueField[] = [];
-
-  fields: MarshalField[] = [];
 
   numberOfUniqueFields: number = 0;
 
@@ -23,7 +37,7 @@ export class MarshalModel {
     this.idField = null;
 
     this.buildFields();
-    this.buildUniqueFields();
+    this.uniqueFields = MarshalModel.buildUniqueFields(this.model.uniqueFields, this.fields);
   }
 
   buildFields = () => {
@@ -32,6 +46,35 @@ export class MarshalModel {
 
       // Add to general fields
       this.fields.push(marshalField);
+
+      if (marshalField.isRelation) {
+        this.relationFields.push(marshalField);
+        // Relation fields should not be added to other field lists
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (marshalField.isList) {
+        this.listFields.push(marshalField);
+      }
+
+      if (marshalField.isEnum) {
+        this.enumFields.push(marshalField);
+      }
+
+      if (marshalField.isScalar) {
+        this.scalarFields.push(marshalField);
+      }
+
+      if (marshalField.isEnum || marshalField.isScalar) {
+        this.simpleFields.push(marshalField);
+      }
+
+      if (marshalField.isRequired) {
+        this.requiredFields.push(marshalField);
+      } else {
+        this.optionalFields.push(marshalField);
+      }
 
       // Set id field
       if (marshalField.isId) {
@@ -47,16 +90,22 @@ export class MarshalModel {
     }
   };
 
-  buildUniqueFields = () => {
-    for (const unique of this.model.uniqueFields) {
+  static buildUniqueFields = (
+    uniqueFields: readonly (readonly string[])[],
+    fields: MarshalField[],
+  ) => {
+    const marshalUniqueFields: MarshalUniqueField[] = [];
+
+    for (const unique of uniqueFields) {
       const marshalUniqueField = new MarshalUniqueField(
-        this.fields.filter(
+        fields.filter(
           (field) => unique.includes(field.name),
         ),
       );
 
-      this.uniqueFields.push(marshalUniqueField);
-      this.numberOfUniqueFields += 1;
+      marshalUniqueFields.push(marshalUniqueField);
     }
+
+    return marshalUniqueFields;
   };
 }

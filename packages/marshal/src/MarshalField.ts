@@ -22,6 +22,12 @@ export class MarshalField {
 
   isRequired: boolean;
 
+  isRelation: boolean;
+
+  hasDefault: boolean;
+
+  isUpdatedAt: boolean;
+
   zodType: string;
 
   constructor(field: DMMF.Field) {
@@ -31,10 +37,13 @@ export class MarshalField {
     this.isUnique = field.isUnique;
     this.type = field.type;
     this.isList = field.isList;
+    this.hasDefault = field.hasDefaultValue;
+    this.isUpdatedAt = field.isUpdatedAt || false;
     this.isRequired = field.isRequired;
     this.isScalar = field.kind === 'scalar';
     this.isEnum = field.kind === 'enum';
     this.isObject = field.kind === 'object';
+    this.isRelation = !!field.relationName;
     this.zodType = prismaToZodScalar(field.type);
   }
 }

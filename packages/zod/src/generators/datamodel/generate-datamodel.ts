@@ -7,7 +7,6 @@ import { generateModels } from './generate-models';
 
 export type GenerateDatamodelOptions = GeneratorContext;
 
-// TODO: Use MarshalDocument
 export const generateDatamodel = (options: GenerateDatamodelOptions) => namespaceGenerator({
   ...options,
   generator: () => [
@@ -15,14 +14,15 @@ export const generateDatamodel = (options: GenerateDatamodelOptions) => namespac
       ...options,
       dir: path.join(options.dir, 'enums'),
     }),
-    generateModels({
+    // TODO: Add support for mongo schemas, for now we only support postgres
+    /* generateModels({
       ...options,
-      models: options.dmmf.datamodel.types,
+      items: options.marshalDocument.types,
       dir: path.join(options.dir, 'types'),
-    }),
+    }), */
     generateModels({
       ...options,
-      models: options.dmmf.datamodel.models,
+      items: options.marshalDocument.models,
       dir: path.join(options.dir, 'models'),
     }),
   ],

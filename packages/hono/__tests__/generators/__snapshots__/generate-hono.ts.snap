@@ -1284,9 +1284,9 @@ exports[`generateHono should generate hono 31`] = `
 import { BookNamespace } from "../enums";
 
 export const Book = z.object({
-        id: z.string(),
         namespace: BookNamespace,
         parentNamespace: BookNamespace.nullish(),
+        id: z.string(),
         section: z.string(),
         label: z.string(),
         root: z.boolean().nullish(),
@@ -1301,11 +1301,11 @@ exports[`generateHono should generate hono 32`] = `
 import { BookNamespace } from "../enums";
 
 export const Entry = z.object({
+        namespace: BookNamespace,
         id: z.string(),
         amount: z.number(),
         createdAt: z.date(),
         deletedAt: z.date().nullish(),
-        namespace: BookNamespace,
         section: z.string(),
         ledgerId: z.string(),
     })
@@ -1339,12 +1339,12 @@ exports[`generateHono should generate hono 35`] = `
 import { LedgerType } from "../enums";
 
 export const Ledger = z.object({
+        type: LedgerType,
+        allowedTypes: LedgerType.array(),
         id: z.string(),
         name: z.string(),
         description: z.string().nullish(),
         tags: z.string().array(),
-        type: LedgerType,
-        allowedTypes: LedgerType.array(),
         createdAt: z.date(),
         updatedAt: z.date(),
     })

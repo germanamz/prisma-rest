@@ -28,7 +28,7 @@ enum PayloadKind {
   IMPULSE
 }
 
-// TODO: Add support for custom types
+// TODO: Add support for mongo schemas, for now we only support postgres
 // type DeeperPayload {
 //   name        String
 //   description String?

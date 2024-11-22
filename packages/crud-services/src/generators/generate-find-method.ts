@@ -1,12 +1,11 @@
-import { DMMF } from '@prisma/generator-helper';
 import { ClassDeclaration } from 'ts-morph';
+import { MarshalModel } from '@germanamz/prisma-rest-marshal';
 
 type GenerateFindMethodOptions = {
   serviceClass: ClassDeclaration;
-  model: DMMF.Model;
+  model: MarshalModel;
 };
 
-// TODO: Use MarshalModel
 export const generateFindMethod = ({ serviceClass, model }: GenerateFindMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'find',

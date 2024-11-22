@@ -1,12 +1,11 @@
-import { DMMF } from '@prisma/generator-helper';
 import { ClassDeclaration } from 'ts-morph';
+import { MarshalModel } from '@germanamz/prisma-rest-marshal';
 
 type GenerateFindByIdMethodOptions = {
   serviceClass: ClassDeclaration;
-  model: DMMF.Model;
+  model: MarshalModel;
 };
 
-// TODO: Use MarshalModel
 export const generateFindUniqueMethod = (options: GenerateFindByIdMethodOptions) => {
   const { serviceClass, model } = options;
   const method = serviceClass.addMethod({

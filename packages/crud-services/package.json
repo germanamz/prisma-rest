@@ -39,6 +39,7 @@
     "ts-jest": "^29.2.5"
   },
   "dependencies": {
+    "@germanamz/prisma-rest-marshal": "workspace:^",
     "@germanamz/prisma-rest-toolbox": "workspace:^",
     "@prisma/generator-helper": "^5.12.1",
     "fs-extra": "^11.2.0",

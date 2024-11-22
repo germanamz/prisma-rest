@@ -5,10 +5,9 @@ export type GenerateServicesOptions = GeneratorContext & {
   clientPath: string;
 };
 
-// TODO: Use MarshalDocument
 export const generateCrudServices = (options: GenerateServicesOptions) => namespaceHandler({
   ...options,
-  items: options.dmmf.datamodel.models,
+  items: options.marshalDocument.models,
   handler: (item) => generateService({
     ...options,
     item,

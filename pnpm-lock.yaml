@@ -29,6 +29,9 @@ importers:
       '@germanamz/errno':
         specifier: ^1.1.1
         version: 1.1.1
+      '@germanamz/prisma-rest-marshal':
+        specifier: workspace:^
+        version: link:../marshal
       '@germanamz/prisma-rest-toolbox':
         specifier: workspace:^
         version: link:../toolbox

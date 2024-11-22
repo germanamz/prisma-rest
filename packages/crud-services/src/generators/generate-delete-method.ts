@@ -1,12 +1,11 @@
-import { DMMF } from '@prisma/generator-helper';
 import { ClassDeclaration } from 'ts-morph';
+import { MarshalModel } from '@germanamz/prisma-rest-marshal';
 
 export type GenerateDeleteMethodOptions = {
-  model: DMMF.Model;
+  model: MarshalModel;
   serviceClass: ClassDeclaration;
 };
 
-// TODO: Use MarshalModel
 export const generateDeleteMethod = ({ model, serviceClass }: GenerateDeleteMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'delete',

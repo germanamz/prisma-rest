@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateCrudServices should generate crud services 1`] = `
-"import { PrismaClient, Prisma, Asset } from "@prisma/client";
+"Source file path: /generated/asset-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Asset } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -91,7 +93,9 @@ export class AssetCrudService {
 `;
 
 exports[`generateCrudServices should generate crud services 2`] = `
-"import { PrismaClient, Prisma, Book } from "@prisma/client";
+"Source file path: /generated/book-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Book } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -181,7 +185,9 @@ export class BookCrudService {
 `;
 
 exports[`generateCrudServices should generate crud services 3`] = `
-"import { PrismaClient, Prisma, Entry } from "@prisma/client";
+"Source file path: /generated/entry-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Entry } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -271,7 +277,9 @@ export class EntryCrudService {
 `;
 
 exports[`generateCrudServices should generate crud services 4`] = `
-"export * from "./ledger-crud-service-.ts";
+"Source file path: /generated/index.ts
+---------------------------------------------
+export * from "./ledger-crud-service-.ts";
 export * from "./book-crud-service-.ts";
 export * from "./entry-crud-service-.ts";
 export * from "./log-crud-service-.ts";
@@ -281,7 +289,9 @@ export * from "./asset-crud-service-.ts";
 `;
 
 exports[`generateCrudServices should generate crud services 5`] = `
-"import { PrismaClient, Prisma, Label } from "@prisma/client";
+"Source file path: /generated/label-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Label } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -371,7 +381,9 @@ export class LabelCrudService {
 `;
 
 exports[`generateCrudServices should generate crud services 6`] = `
-"import { PrismaClient, Prisma, Ledger } from "@prisma/client";
+"Source file path: /generated/ledger-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Ledger } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -461,7 +473,9 @@ export class LedgerCrudService {
 `;
 
 exports[`generateCrudServices should generate crud services 7`] = `
-"import { PrismaClient, Prisma, Log } from "@prisma/client";
+"Source file path: /generated/log-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Log } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";

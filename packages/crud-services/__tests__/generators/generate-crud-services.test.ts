@@ -6,10 +6,7 @@ import { generateCrudServices } from '../../src';
 describe('generateCrudServices', () => {
   it('should generate crud services', async () => {
     const basicMocks = await loadBasicMocks();
-    const ctx = makeGeneratorContext({
-      dir: './cruds',
-      ...basicMocks,
-    });
+    const ctx = makeGeneratorContext(basicMocks);
 
     const file = generateCrudServices({
       ...ctx,

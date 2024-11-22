@@ -1,19 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateHono should generate hono 1`] = `
-"export * from "./services";
+"Source file path: /generated/index.ts
+---------------------------------------------
+export * from "./services";
 export * from "./zod";
 export * from "./apis";
 "
 `;
 
 exports[`generateHono should generate hono 2`] = `
-"export * from "./apis";
+"Source file path: /generated/apis/index.ts
+---------------------------------------------
+export * from "./apis";
 "
 `;
 
 exports[`generateHono should generate hono 3`] = `
-"import { PrismaClient, Prisma, Asset } from "@prisma/client";
+"Source file path: /generated/services/asset-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Asset } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -103,7 +109,9 @@ export class AssetCrudService {
 `;
 
 exports[`generateHono should generate hono 4`] = `
-"import { PrismaClient, Prisma, Book } from "@prisma/client";
+"Source file path: /generated/services/book-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Book } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -193,7 +201,9 @@ export class BookCrudService {
 `;
 
 exports[`generateHono should generate hono 5`] = `
-"import { PrismaClient, Prisma, Entry } from "@prisma/client";
+"Source file path: /generated/services/entry-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Entry } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -283,7 +293,9 @@ export class EntryCrudService {
 `;
 
 exports[`generateHono should generate hono 6`] = `
-"export * from "./ledger-crud-service-.ts";
+"Source file path: /generated/services/index.ts
+---------------------------------------------
+export * from "./ledger-crud-service-.ts";
 export * from "./book-crud-service-.ts";
 export * from "./entry-crud-service-.ts";
 export * from "./log-crud-service-.ts";
@@ -293,7 +305,9 @@ export * from "./asset-crud-service-.ts";
 `;
 
 exports[`generateHono should generate hono 7`] = `
-"import { PrismaClient, Prisma, Label } from "@prisma/client";
+"Source file path: /generated/services/label-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Label } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -383,7 +397,9 @@ export class LabelCrudService {
 `;
 
 exports[`generateHono should generate hono 8`] = `
-"import { PrismaClient, Prisma, Ledger } from "@prisma/client";
+"Source file path: /generated/services/ledger-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Ledger } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -473,7 +489,9 @@ export class LedgerCrudService {
 `;
 
 exports[`generateHono should generate hono 9`] = `
-"import { PrismaClient, Prisma, Log } from "@prisma/client";
+"Source file path: /generated/services/log-crud-service-.ts.ts
+---------------------------------------------
+import { PrismaClient, Prisma, Log } from "@prisma/client";
 import { Errno, translateToErrno } from "@germanamz/errno";
 import { z } from "zod";
 import { Ok, Err, ok, err } from "neverthrow";
@@ -563,13 +581,17 @@ export class LogCrudService {
 `;
 
 exports[`generateHono should generate hono 10`] = `
-"export * from "./datamodel";
+"Source file path: /generated/zod/index.ts
+---------------------------------------------
+export * from "./datamodel";
 export * from "./crud";
 "
 `;
 
 exports[`generateHono should generate hono 11`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/asset-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -655,7 +677,9 @@ export const makeAssetApi = (service: AssetCrudService) => {
 `;
 
 exports[`generateHono should generate hono 12`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/book-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -741,7 +765,9 @@ export const makeBookApi = (service: BookCrudService) => {
 `;
 
 exports[`generateHono should generate hono 13`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/entry-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -827,7 +853,9 @@ export const makeEntryApi = (service: EntryCrudService) => {
 `;
 
 exports[`generateHono should generate hono 14`] = `
-"export * from "./ledger-api";
+"Source file path: /generated/apis/apis/index.ts
+---------------------------------------------
+export * from "./ledger-api";
 export * from "./book-api";
 export * from "./entry-api";
 export * from "./log-api";
@@ -837,7 +865,9 @@ export * from "./asset-api";
 `;
 
 exports[`generateHono should generate hono 15`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/label-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -923,7 +953,9 @@ export const makeLabelApi = (service: LabelCrudService) => {
 `;
 
 exports[`generateHono should generate hono 16`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/ledger-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -1009,7 +1041,9 @@ export const makeLedgerApi = (service: LedgerCrudService) => {
 `;
 
 exports[`generateHono should generate hono 17`] = `
-"import { Hono } from "hono";
+"Source file path: /generated/apis/apis/log-api.ts
+---------------------------------------------
+import { Hono } from "hono";
 import { z } from "zod";
 import { StatusCode } from "hono/utils/http-status";
 import { zValidator } from "@hono/zod-validator";
@@ -1095,7 +1129,9 @@ export const makeLogApi = (service: LogCrudService) => {
 `;
 
 exports[`generateHono should generate hono 18`] = `
-"import { z, ZodIssueCode } from "zod";
+"Source file path: /generated/zod/crud/global-crud-basics.ts
+---------------------------------------------
+import { z, ZodIssueCode } from "zod";
 
 export const OrderDirection = z.enum(['asc', 'desc']);
 export const parseJsonPreprocessor = (value: any, ctx: z.RefinementCtx) => {
@@ -1164,20 +1200,26 @@ export const DateFilterOperators = z.object({
 `;
 
 exports[`generateHono should generate hono 19`] = `
-"export * from "./global-crud-basics";
+"Source file path: /generated/zod/crud/index.ts
+---------------------------------------------
+export * from "./global-crud-basics";
 export * from "./enums";
 export * from "./models";
 "
 `;
 
 exports[`generateHono should generate hono 20`] = `
-"export * from "./enums";
+"Source file path: /generated/zod/datamodel/index.ts
+---------------------------------------------
+export * from "./enums";
 export * from "./models";
 "
 `;
 
 exports[`generateHono should generate hono 21`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/enums/book-namespace-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../datamodel/enums";
 
 export const BookNamespaceEqualityFilterOperators = z.object({
@@ -1190,14 +1232,18 @@ export const BookNamespaceEqualityFilterOperators = z.object({
 `;
 
 exports[`generateHono should generate hono 22`] = `
-"export * from "./ledger-type-operators";
+"Source file path: /generated/zod/crud/enums/index.ts
+---------------------------------------------
+export * from "./ledger-type-operators";
 export * from "./payload-kind-operators";
 export * from "./book-namespace-operators";
 "
 `;
 
 exports[`generateHono should generate hono 23`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/enums/ledger-type-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../datamodel/enums";
 
 export const LedgerTypeEqualityFilterOperators = z.object({
@@ -1210,7 +1256,9 @@ export const LedgerTypeEqualityFilterOperators = z.object({
 `;
 
 exports[`generateHono should generate hono 24`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/enums/payload-kind-operators.ts
+---------------------------------------------
+import { z } from "zod";
 import { PayloadKind } from "../../datamodel/enums";
 
 export const PayloadKindEqualityFilterOperators = z.object({
@@ -1223,7 +1271,9 @@ export const PayloadKindEqualityFilterOperators = z.object({
 `;
 
 exports[`generateHono should generate hono 25`] = `
-"export * from "./ledger";
+"Source file path: /generated/zod/crud/models/index.ts
+---------------------------------------------
+export * from "./ledger";
 export * from "./book";
 export * from "./entry";
 export * from "./log";
@@ -1233,7 +1283,9 @@ export * from "./asset";
 `;
 
 exports[`generateHono should generate hono 26`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/enums/book-namespace.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const BookNamespace = z.enum([
         "BU1",
@@ -1243,14 +1295,18 @@ export const BookNamespace = z.enum([
 `;
 
 exports[`generateHono should generate hono 27`] = `
-"export * from "./ledger-type";
+"Source file path: /generated/zod/datamodel/enums/index.ts
+---------------------------------------------
+export * from "./ledger-type";
 export * from "./payload-kind";
 export * from "./book-namespace";
 "
 `;
 
 exports[`generateHono should generate hono 28`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/enums/ledger-type.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LedgerType = z.enum([
         "MAIN",
@@ -1260,7 +1316,9 @@ export const LedgerType = z.enum([
 `;
 
 exports[`generateHono should generate hono 29`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/enums/payload-kind.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const PayloadKind = z.enum([
         "SMART",
@@ -1270,7 +1328,9 @@ export const PayloadKind = z.enum([
 `;
 
 exports[`generateHono should generate hono 30`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/asset.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Asset = z.object({
         url: z.string(),
@@ -1280,7 +1340,9 @@ export const Asset = z.object({
 `;
 
 exports[`generateHono should generate hono 31`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/book.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../enums";
 
 export const Book = z.object({
@@ -1297,7 +1359,9 @@ export const Book = z.object({
 `;
 
 exports[`generateHono should generate hono 32`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/entry.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../enums";
 
 export const Entry = z.object({
@@ -1314,7 +1378,9 @@ export const Entry = z.object({
 `;
 
 exports[`generateHono should generate hono 33`] = `
-"export * from "./ledger";
+"Source file path: /generated/zod/datamodel/models/index.ts
+---------------------------------------------
+export * from "./ledger";
 export * from "./book";
 export * from "./entry";
 export * from "./log";
@@ -1324,7 +1390,9 @@ export * from "./asset";
 `;
 
 exports[`generateHono should generate hono 34`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/label.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Label = z.object({
         name: z.string(),
@@ -1335,7 +1403,9 @@ export const Label = z.object({
 `;
 
 exports[`generateHono should generate hono 35`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/ledger.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../enums";
 
 export const Ledger = z.object({
@@ -1353,7 +1423,9 @@ export const Ledger = z.object({
 `;
 
 exports[`generateHono should generate hono 36`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/datamodel/models/log.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const Log = z.object({
         section: z.string(),
@@ -1367,7 +1439,9 @@ export const Log = z.object({
 `;
 
 exports[`generateHono should generate hono 37`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/asset/asset-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const AssetCreateInput = z.object({
     url: z.string(),
@@ -1376,7 +1450,9 @@ export const AssetCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 38`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/asset/asset-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1406,7 +1482,9 @@ export const AssetListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 39`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/asset/asset-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -1424,7 +1502,9 @@ export const AssetUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 40`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/asset/asset-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const AssetUpdateInput = z.object({
     url: z.string().optional(),
@@ -1433,7 +1513,9 @@ export const AssetUpdateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 41`] = `
-"export * from "./asset-create-input";
+"Source file path: /generated/zod/crud/models/asset/index.ts
+---------------------------------------------
+export * from "./asset-create-input";
 export * from "./asset-update-input";
 export * from "./asset-list-filter";
 export * from "./asset-unique-filter";
@@ -1441,7 +1523,9 @@ export * from "./asset-unique-filter";
 `;
 
 exports[`generateHono should generate hono 42`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/book/book-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const BookCreateInput = z.object({
@@ -1457,7 +1541,9 @@ export const BookCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 43`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/book/book-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1507,7 +1593,9 @@ export const BookListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 44`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/book/book-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { BookNamespace } from "../../../datamodel/enums";
@@ -1542,7 +1630,9 @@ export const BookUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 45`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/book/book-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const BookUpdateInput = z.object({
@@ -1558,7 +1648,9 @@ export const BookUpdateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 46`] = `
-"export * from "./book-create-input";
+"Source file path: /generated/zod/crud/models/book/index.ts
+---------------------------------------------
+export * from "./book-create-input";
 export * from "./book-update-input";
 export * from "./book-list-filter";
 export * from "./book-unique-filter";
@@ -1566,7 +1658,9 @@ export * from "./book-unique-filter";
 `;
 
 exports[`generateHono should generate hono 47`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/entry/entry-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const EntryCreateInput = z.object({
@@ -1582,7 +1676,9 @@ export const EntryCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 48`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/entry/entry-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1633,7 +1729,9 @@ export const EntryListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 49`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/entry/entry-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -1657,7 +1755,9 @@ export const EntryUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 50`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/entry/entry-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { BookNamespace } from "../../../datamodel/enums";
 
 export const EntryUpdateInput = z.object({
@@ -1673,7 +1773,9 @@ export const EntryUpdateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 51`] = `
-"export * from "./entry-create-input";
+"Source file path: /generated/zod/crud/models/entry/index.ts
+---------------------------------------------
+export * from "./entry-create-input";
 export * from "./entry-update-input";
 export * from "./entry-list-filter";
 export * from "./entry-unique-filter";
@@ -1681,7 +1783,9 @@ export * from "./entry-unique-filter";
 `;
 
 exports[`generateHono should generate hono 52`] = `
-"export * from "./label-create-input";
+"Source file path: /generated/zod/crud/models/label/index.ts
+---------------------------------------------
+export * from "./label-create-input";
 export * from "./label-update-input";
 export * from "./label-list-filter";
 export * from "./label-unique-filter";
@@ -1689,7 +1793,9 @@ export * from "./label-unique-filter";
 `;
 
 exports[`generateHono should generate hono 53`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/label/label-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LabelCreateInput = z.object({
     name: z.string(),
@@ -1699,7 +1805,9 @@ export const LabelCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 54`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/label/label-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1732,7 +1840,9 @@ export const LabelListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 55`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/label/label-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -1753,7 +1863,9 @@ export const LabelUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 56`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/label/label-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LabelUpdateInput = z.object({
     name: z.string().optional(),
@@ -1763,7 +1875,9 @@ export const LabelUpdateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 57`] = `
-"export * from "./ledger-create-input";
+"Source file path: /generated/zod/crud/models/ledger/index.ts
+---------------------------------------------
+export * from "./ledger-create-input";
 export * from "./ledger-update-input";
 export * from "./ledger-list-filter";
 export * from "./ledger-unique-filter";
@@ -1771,7 +1885,9 @@ export * from "./ledger-unique-filter";
 `;
 
 exports[`generateHono should generate hono 58`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/ledger/ledger-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../../datamodel/enums";
 
 export const LedgerCreateInput = z.object({
@@ -1788,7 +1904,9 @@ export const LedgerCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 59`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/ledger/ledger-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1841,7 +1959,9 @@ export const LedgerListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 60`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/ledger/ledger-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -1866,7 +1986,9 @@ export const LedgerUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 61`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/ledger/ledger-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 import { LedgerType } from "../../../datamodel/enums";
 
 export const LedgerUpdateInput = z.object({
@@ -1883,7 +2005,9 @@ export const LedgerUpdateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 62`] = `
-"export * from "./log-create-input";
+"Source file path: /generated/zod/crud/models/log/index.ts
+---------------------------------------------
+export * from "./log-create-input";
 export * from "./log-update-input";
 export * from "./log-list-filter";
 export * from "./log-unique-filter";
@@ -1891,7 +2015,9 @@ export * from "./log-unique-filter";
 `;
 
 exports[`generateHono should generate hono 63`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/log/log-create-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LogCreateInput = z.object({
     section: z.string(),
@@ -1904,7 +2030,9 @@ export const LogCreateInput = z.object({
 `;
 
 exports[`generateHono should generate hono 64`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/log/log-list-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
@@ -1946,7 +2074,9 @@ export const LogListFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 65`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/log/log-unique-filter.ts
+---------------------------------------------
+import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 
@@ -1971,7 +2101,9 @@ export const LogUniqueFilter = z.object({
 `;
 
 exports[`generateHono should generate hono 66`] = `
-"import { z } from "zod";
+"Source file path: /generated/zod/crud/models/log/log-update-input.ts
+---------------------------------------------
+import { z } from "zod";
 
 export const LogUpdateInput = z.object({
     section: z.string().optional(),

@@ -1,10 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`namespaceGenerator should import the generated files correctly 1`] = `
-"export * from "./test";
+"Source file path: /generated/index.ts
+---------------------------------------------
+export * from "./test";
 "
 `;
 
-exports[`namespaceGenerator should import the generated files correctly 2`] = `"export const test = 1;"`;
+exports[`namespaceGenerator should import the generated files correctly 2`] = `
+"Source file path: /generated/test.ts
+---------------------------------------------
+export const test = 1;"
+`;
 
-exports[`namespaceGenerator should return undefined if no files are generated 1`] = `""`;
+exports[`namespaceGenerator should return undefined if no files are generated 1`] = `
+"Source file path: /generated/index.ts
+---------------------------------------------
+"
+`;

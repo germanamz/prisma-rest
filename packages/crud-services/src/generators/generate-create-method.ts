@@ -1,12 +1,11 @@
-import { DMMF } from '@prisma/generator-helper';
 import { ClassDeclaration } from 'ts-morph';
+import { MarshalModel } from '@germanamz/prisma-rest-marshal';
 
 type GenerateCreateMethodOptions = {
   serviceClass: ClassDeclaration;
-  model: DMMF.Model;
+  model: MarshalModel;
 };
 
-// TODO: Use MarshalModel
 export const generateCreateMethod = ({ serviceClass, model }: GenerateCreateMethodOptions) => {
   const method = serviceClass.addMethod({
     name: 'create',

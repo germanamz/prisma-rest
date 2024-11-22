@@ -1,4 +1,3 @@
-import { DMMF } from '@prisma/generator-helper';
 import { SourceFile } from 'ts-morph';
 import {
   executeImportQueue, GeneratorContext, namespaceGenerator, namespaceHandler,
@@ -6,9 +5,7 @@ import {
 import path from 'path';
 import { generateApi } from './generate-api';
 
-export type GenerateApisOptions = GeneratorContext & {
-  models: readonly DMMF.Model[];
-};
+export type GenerateApisOptions = GeneratorContext;
 
 export const generateApis = (options: GenerateApisOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
@@ -19,7 +16,7 @@ export const generateApis = (options: GenerateApisOptions) => {
       const apisFile = namespaceHandler({
         ...options,
         dir: apisDir,
-        items: options.models,
+        items: options.marshalDocument.models,
         handler: (item) => generateApi({
           ...options,
           dir: apisDir,

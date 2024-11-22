@@ -24,7 +24,6 @@ export const generateHono = (options: GenerateHonoOptions) => namespaceGenerator
     generateApis({
       ...options,
       dir: path.join(options.dir, 'apis'),
-      models: options.dmmf.datamodel.models,
     }),
   ],
 });

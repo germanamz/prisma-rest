@@ -1,17 +1,21 @@
 import {
-  addToImportQueue, declareConstant, GeneratorContext,
+  addToImportQueue, createSourceFile, declareConstant, GeneratorContext,
 } from '@germanamz/prisma-rest-toolbox';
-import { DMMF } from '@prisma/generator-helper';
+import { MarshalModel } from '@germanamz/prisma-rest-marshal';
 import { apiHandlerWriter } from './writers/api-handler-writer';
 
 export type GenerateApiOptions = GeneratorContext & {
-  item: DMMF.Model;
+  item: MarshalModel;
 };
 
 export const generateApi = ({
   project, item, dir, registry, importQueue,
 }: GenerateApiOptions) => {
-  const file = project.createSourceFile(`${dir}/${item.name.toLowerCase()}-api.ts`, undefined, { overwrite: true });
+  const file = createSourceFile({
+    project,
+    dir,
+    name: `${item.name.toLowerCase()}-api`,
+  });
   const apiName = `make${item.name}Api`;
   const serviceName = `${item.name}CrudService`;
   const createInputIdentifier = `${item.name}CreateInput`;

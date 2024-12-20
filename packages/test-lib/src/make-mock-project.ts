@@ -1,5 +1,10 @@
 import { ModuleKind, Project, ScriptTarget } from 'ts-morph';
 
+/**
+ * Creates a mock project with in-memory file system.
+ *
+ * @returns Project
+ */
 export const makeMockProject = () => new Project({
   skipAddingFilesFromTsConfig: true,
   useInMemoryFileSystem: true,

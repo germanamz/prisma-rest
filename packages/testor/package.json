@@ -8,7 +8,8 @@
     "migrate": "rm -rf src/generated && prisma migrate dev --schema src/schema.prisma",
     "generate": "rm -rf src/generated && prisma generate --schema src/schema.prisma",
     "lint": "eslint .",
-    "typecheck": "pnpm run generate && tsc --noEmit"
+    "typecheck": "pnpm run generate && tsc --noEmit",
+    "db:up": "docker compose up -d"
   },
   "author": "German Meza <iam@germanamz.com>",
   "repository": {
@@ -38,6 +39,7 @@
     "@types/node": "^20.12.7",
     "dotenv": "^16.4.5",
     "eslint": "^8",
+    "jest": "^29.7.0",
     "test-lib": "workspace:^"
   }
 }

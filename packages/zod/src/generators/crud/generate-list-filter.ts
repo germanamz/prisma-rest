@@ -51,7 +51,11 @@ export const generateListFilter = (options: GenerateListFilterOptions) => {
     registry,
     isExported: true,
     initializer: (writer) => {
-      writer.writeLine('z.preprocess(parseJsonPreprocessor, z.array(z.union([');
+      writer.writeLine('z.preprocess(parseJsonPreprocessor, z.array(');
+
+      if (model.fields.length > 1) {
+        writer.write('z.union([');
+      }
 
       writer.indent(() => {
         model.fields.forEach((field) => {
@@ -64,7 +68,10 @@ export const generateListFilter = (options: GenerateListFilterOptions) => {
         });
       });
 
-      writer.write('])))');
+      if (model.fields.length > 1) {
+        writer.write('])');
+      }
+      writer.write('))');
     },
   });
   declareConstant({
@@ -84,7 +91,7 @@ export const generateListFilter = (options: GenerateListFilterOptions) => {
         const nullish = field.isRequired ? '.optional()' : '.nullish()';
 
         if (field.kind === 'enum') {
-          const enumIdentifier = `${field.type}EqualityFilterOperators`;
+          const enumIdentifier = field.isList ? `${field.type}NullableListEqualityFilterOperators` : `${field.type}EqualityFilterOperators`;
           writer.writeLine(`${field.name}: ${enumIdentifier}${nullish},`);
           addToImportQueue(importQueue, sourceFile, [enumIdentifier]);
 
@@ -92,9 +99,9 @@ export const generateListFilter = (options: GenerateListFilterOptions) => {
         }
 
         const zodType = prismaToZodScalar(field.type);
-        const typeIdentifier = `${zodType[0].toUpperCase()}${zodType.substring(1)}FilterOperators`;
+        const typeIdentifier = field.isList ? 'StringNullableListFilter' : `${zodType[0].toUpperCase()}${zodType.substring(1)}FilterOperators`;
 
-        writer.writeLine(`${field.name}: z.union([z.${zodType}(), ${typeIdentifier}])${nullish},`);
+        writer.writeLine(`${field.name}: ${field.isList ? typeIdentifier : `z.union([z.${zodType}(), ${typeIdentifier}])`}${nullish},`);
         addToImportQueue(importQueue, sourceFile, [typeIdentifier]);
       });
 

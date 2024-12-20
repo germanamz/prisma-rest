@@ -25,4 +25,28 @@ validate and sanitize user input, and the CRUD services for the interaction with
 Prerequisites:
 * Node.js 20 or higher
 * pnpm 9.11.0 or higher
-* 
+
+### Setup
+1. Run `pnpm install` to install all dependencies.
+2. Run `pnpm build` to build all packages, each bundle will be automatically linked.
+
+These commands prepare your environment to start developing, you can now start developing on any package.
+
+### Tests
+Jest is used to gather coverage and check snapshots.
+
+**Generators** should be covered with snapshots, this ensures that the generated code is consistent and doesn't change
+while covering prisma schema features. This also checks that generators ar deterministic.
+
+**Logic** should be covered with normal assertions, this ensures that the logic is correct.
+
+### Guide
+To debug the code you can use the following commands:
+
+#### `pnpm --filter testor run generate`
+Will run the prisma generation process on the testor package. This will run the configured generators on its
+Prisma schema.
+
+#### `pnpm run test`
+Runs tests on all packages.
+With snapshots developers are able to see the generated code and check if it's correct.

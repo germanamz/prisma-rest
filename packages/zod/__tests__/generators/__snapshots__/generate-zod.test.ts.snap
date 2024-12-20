@@ -64,6 +64,13 @@ export const StringFilterOperators = z.object({
     endsWith: z.string().optional(),
     mode: StringFilterMode.optional(),
     }).merge(StringEqualityFilterOperators);
+export const StringNullableListFilter = z.object({
+    equals: z.array(z.string()).nullish(),
+    has: z.string().nullish(),
+    hasEvery: z.array(z.string()).optional(),
+    hasSome: z.array(z.string()).optional(),
+    isEmpty: z.boolean().optional(),
+    });
 export const NumberFilterOperators = z.object({
     lt: z.number().optional(),
     lte: z.number().optional(),
@@ -108,6 +115,13 @@ export const BookNamespaceEqualityFilterOperators = z.object({
     in: z.array(BookNamespace).optional(),
     notIn: z.array(BookNamespace).optional(),
     });
+export const BookNamespaceNullableListEqualityFilterOperators = z.object({
+    equals: z.array(BookNamespace).nullable(),
+    has: BookNamespace.nullable(),
+    hasEvery: z.array(BookNamespace).optional(),
+    hasSome: z.array(BookNamespace).optional(),
+    isEmpty: z.boolean().optional(),
+    });
 "
 `;
 
@@ -132,6 +146,13 @@ export const LedgerTypeEqualityFilterOperators = z.object({
     in: z.array(LedgerType).optional(),
     notIn: z.array(LedgerType).optional(),
     });
+export const LedgerTypeNullableListEqualityFilterOperators = z.object({
+    equals: z.array(LedgerType).nullable(),
+    has: LedgerType.nullable(),
+    hasEvery: z.array(LedgerType).optional(),
+    hasSome: z.array(LedgerType).optional(),
+    isEmpty: z.boolean().optional(),
+    });
 "
 `;
 
@@ -146,6 +167,13 @@ export const PayloadKindEqualityFilterOperators = z.object({
     not: PayloadKind.optional(),
     in: z.array(PayloadKind).optional(),
     notIn: z.array(PayloadKind).optional(),
+    });
+export const PayloadKindNullableListEqualityFilterOperators = z.object({
+    equals: z.array(PayloadKind).nullable(),
+    has: PayloadKind.nullable(),
+    hasEvery: z.array(PayloadKind).optional(),
+    hasSome: z.array(PayloadKind).optional(),
+    isEmpty: z.boolean().optional(),
     });
 "
 `;
@@ -340,9 +368,9 @@ import { StringFilterOperators } from "../..";
 export const AssetListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
         url: z.boolean().optional(),
     }));
-export const AssetListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const AssetListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
         z.object({ url: OrderDirection }),
-    ])));
+    ));
 export const AssetListFilterWhereFields = z.object({
     url: z.union([z.string(), StringFilterOperators]).optional(),
     });
@@ -439,7 +467,8 @@ export const BookListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object
         root: z.boolean().optional(),
         description: z.boolean().optional(),
     }));
-export const BookListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const BookListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
+    z.union([
         z.object({ id: OrderDirection }),
         z.object({ namespace: OrderDirection }),
         z.object({ parentNamespace: OrderDirection }),
@@ -518,7 +547,7 @@ import { BookNamespace } from "../../../datamodel/enums";
 export const BookUpdateInput = z.object({
     id: z.string().optional(),
     namespace: BookNamespace.optional(),
-    parentNamespace: BookNamespace.nullish(),
+    parentNamespace: BookNamespace.nullish().optional(),
     section: z.string().optional(),
     label: z.string().optional(),
     root: z.boolean().nullish().optional(),
@@ -575,7 +604,8 @@ export const EntryListFilterSelect = z.preprocess(parseJsonPreprocessor, z.objec
         section: z.boolean().optional(),
         ledgerId: z.boolean().optional(),
     }));
-export const EntryListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const EntryListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
+    z.union([
         z.object({ id: OrderDirection }),
         z.object({ amount: OrderDirection }),
         z.object({ createdAt: OrderDirection }),
@@ -696,7 +726,8 @@ export const LabelListFilterSelect = z.preprocess(parseJsonPreprocessor, z.objec
         name: z.boolean().optional(),
         group: z.boolean().optional(),
     }));
-export const LabelListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const LabelListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
+    z.union([
         z.object({ name: OrderDirection }),
         z.object({ group: OrderDirection }),
     ])));
@@ -776,7 +807,7 @@ export const LedgerCreateInput = z.object({
     description: z.string().nullish(),
     tags: z.array(z.string()),
     type: LedgerType,
-    allowedTypes: LedgerType,
+    allowedTypes: z.array(LedgerType),
     createdAt: z.date().optional(),
     updatedAt: z.date(),
     }).strict();
@@ -790,7 +821,9 @@ import { z } from "zod";
 import { OrderDirection } from "../..";
 import { parseJsonPreprocessor } from "../..";
 import { StringFilterOperators } from "../..";
+import { StringNullableListFilter } from "../..";
 import { LedgerTypeEqualityFilterOperators } from "../../enums";
+import { LedgerTypeNullableListEqualityFilterOperators } from "../../enums";
 import { DateFilterOperators } from "../..";
 
 export const LedgerListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object({
@@ -803,7 +836,8 @@ export const LedgerListFilterSelect = z.preprocess(parseJsonPreprocessor, z.obje
         createdAt: z.boolean().optional(),
         updatedAt: z.boolean().optional(),
     }));
-export const LedgerListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const LedgerListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
+    z.union([
         z.object({ id: OrderDirection }),
         z.object({ name: OrderDirection }),
         z.object({ description: OrderDirection }),
@@ -817,9 +851,9 @@ export const LedgerListFilterWhereFields = z.object({
     id: z.union([z.string(), StringFilterOperators]).optional(),
     name: z.union([z.string(), StringFilterOperators]).optional(),
     description: z.union([z.string(), StringFilterOperators]).nullish(),
-    tags: z.union([z.string(), StringFilterOperators]).optional(),
+    tags: StringNullableListFilter.optional(),
     type: LedgerTypeEqualityFilterOperators.optional(),
-    allowedTypes: LedgerTypeEqualityFilterOperators.optional(),
+    allowedTypes: LedgerTypeNullableListEqualityFilterOperators.optional(),
     createdAt: z.union([z.date(), DateFilterOperators]).optional(),
     updatedAt: z.union([z.date(), DateFilterOperators]).optional(),
     });
@@ -877,7 +911,7 @@ export const LedgerUpdateInput = z.object({
     description: z.string().nullish().optional(),
     tags: z.array(z.string()).optional(),
     type: LedgerType.optional(),
-    allowedTypes: LedgerType.optional(),
+    allowedTypes: z.array(LedgerType).optional(),
     createdAt: z.date().optional(),
     updatedAt: z.date().optional(),
     }).strict();
@@ -924,7 +958,8 @@ export const LogListFilterSelect = z.preprocess(parseJsonPreprocessor, z.object(
         msg2: z.boolean().optional(),
         entryId: z.boolean().optional(),
     }));
-export const LogListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(z.union([
+export const LogListFilterOrderBy = z.preprocess(parseJsonPreprocessor, z.array(
+    z.union([
         z.object({ section: OrderDirection }),
         z.object({ subSection: OrderDirection }),
         z.object({ msg1: OrderDirection }),

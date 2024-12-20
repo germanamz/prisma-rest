@@ -50,5 +50,23 @@ export const generateEnumOperators = (options: GenerateEnumOperatorsOptions) => 
     },
   });
 
+  declareConstant({
+    name: `${item.name}NullableListEqualityFilterOperators`,
+    sourceFile,
+    registry,
+    isExported: true,
+    initializer: (writer) => {
+      writer.write('z.object({');
+
+      writer.writeLine(`equals: z.array(${item.name}).nullable(),`);
+      writer.writeLine(`has: ${item.name}.nullable(),`);
+      writer.writeLine(`hasEvery: z.array(${item.name}).optional(),`);
+      writer.writeLine(`hasSome: z.array(${item.name}).optional(),`);
+      writer.writeLine('isEmpty: z.boolean().optional(),');
+
+      writer.write('})');
+    },
+  });
+
   return sourceFile;
 };

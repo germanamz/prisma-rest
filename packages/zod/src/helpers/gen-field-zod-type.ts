@@ -26,7 +26,11 @@ export const genFieldZodType = (options: GenFieldZodTypeOptions) => {
     addToImportQueue(importQueue, sourceFile, [field.type]);
 
     if (!field.isRequired) {
-      return `${zod}.nullish()`;
+      zod = `${zod}.nullish()`;
+    }
+
+    if (field.isList) {
+      zod = `z.array(${zod})`;
     }
   }
 

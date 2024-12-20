@@ -1,34 +1,23 @@
 import { SourceFile } from 'ts-morph';
 import {
-  executeImportQueue, GeneratorContext, namespaceGenerator, namespaceHandler,
+  executeImportQueue, GeneratorContext, namespaceHandler,
 } from '@germanamz/prisma-rest-toolbox';
-import path from 'path';
 import { generateApi } from './generate-api';
 
 export type GenerateApisOptions = GeneratorContext;
 
 export const generateApis = (options: GenerateApisOptions) => {
   const importQueue = new Map<SourceFile, Set<string>>();
-  const file = namespaceGenerator({
+  const file = namespaceHandler({
     ...options,
-    generator: () => {
-      const apisDir = path.join(options.dir, 'apis');
-      const apisFile = namespaceHandler({
-        ...options,
-        dir: apisDir,
-        items: options.marshalDocument.models,
-        handler: (item) => generateApi({
-          ...options,
-          dir: apisDir,
-          importQueue,
-          item,
-        }),
-      });
-
-      return [
-        apisFile,
-      ];
-    },
+    dir: options.dir,
+    items: options.marshalDocument.models,
+    handler: (item) => generateApi({
+      ...options,
+      dir: options.dir,
+      importQueue,
+      item,
+    }),
   });
 
   executeImportQueue(importQueue, options.registry);

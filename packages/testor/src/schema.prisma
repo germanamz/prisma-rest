@@ -30,12 +30,15 @@ enum LedgerType {
 
 /// @crud.actions read, create, update, delete
 model Ledger {
-  id        String     @id @default(uuid())
-  name      String
-  type      LedgerType
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  entries   Entry[]
+  id           String       @id @default(uuid())
+  name         String
+  description  String?
+  tags         String[]
+  type         LedgerType
+  allowedTypes LedgerType[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  entries      Entry[]
 }
 
 enum PayloadKind {
@@ -43,7 +46,7 @@ enum PayloadKind {
   IMPULSE
 }
 
-// TODO: Add support for custom types
+// TODO: Add support for mongo schemas, for now we only support postgres
 // type DeeperPayload {
 //   name        String
 //   description String?
@@ -65,13 +68,14 @@ enum BookNamespace {
 }
 
 model Book {
-  id          String        @id @default(uuid())
-  namespace   BookNamespace
-  section     String
-  label       String
-  root        Boolean?
-  description String?
-  Entry       Entry[]
+  id              String         @id @default(uuid())
+  namespace       BookNamespace
+  parentNamespace BookNamespace?
+  section         String
+  label           String
+  root            Boolean?
+  description     String?
+  Entry           Entry[]
 
   @@unique([namespace, section])
   @@unique([section, label])
@@ -104,4 +108,8 @@ model Log {
 model Label {
   name  String @unique
   group String @unique
+}
+
+model Asset {
+  url String @unique
 }

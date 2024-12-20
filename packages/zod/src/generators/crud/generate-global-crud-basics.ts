@@ -130,6 +130,24 @@ export const generateGlobalCrudBasics = (options: GenerateGlobalCrudBasicsOption
   });
 
   declareConstant({
+    name: 'StringNullableListFilter',
+    sourceFile,
+    registry,
+    isExported: true,
+    initializer: (writer) => {
+      writer.write('z.object({');
+
+      writer.writeLine('equals: z.array(z.string()).nullish(),');
+      writer.writeLine('has: z.string().nullish(),');
+      writer.writeLine('hasEvery: z.array(z.string()).optional(),');
+      writer.writeLine('hasSome: z.array(z.string()).optional(),');
+      writer.writeLine('isEmpty: z.boolean().optional(),');
+
+      writer.write('})');
+    },
+  });
+
+  declareConstant({
     name: 'NumberFilterOperators',
     sourceFile,
     registry,
